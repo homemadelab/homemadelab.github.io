@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Asap:wght@400;500;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+body {
+  background-color: #1F5FA7;
+}
+
+header {
+  background: white;
+  padding: 20px;
+}
+
+header > h1 {
+  color: #25272E;
+  text-align: center;
+  font-family: Asap, sans-serif;
+}
+
+.seleccionar, .correcta, .incorrecta, .fuente {
+  margin: 2%;
+  text-align: center;
+  color: white;
+  font-size: 500%;
+  font-family: Asap, sans-serif;
+  font-weight: bold;
+}
+
+#casa, #farmacia, #hospital, #supermercado, #escuela, #banco, #laboratorio, #zoologico {
+  margin: 2%;
+  border: 3px solid white;
+  border-radius: 4px;
+  text-align: center;
+  width: auto;
+  padding: 20px;
+  color: white;
+  font-size: 500%;
+  font-family: Asap, sans-serif;
+  transition: all 0.3s ease;
+  display: block;
+}
+
+#casa:hover, #farmacia:hover, #hospital:hover, #supermercado:hover, #escuela:hover, #banco:hover, #laboratorio:hover, #zoologico:hover {
+  cursor: pointer;
+  background: #3B79BF;
+}
+
+img {
+  width: 150px;
+  border-radius: 50%;
+}

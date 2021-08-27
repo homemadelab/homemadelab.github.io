@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Asap:wght@400;500;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+body {
+  background-color: #1F5FA7;
+}
+
+header {
+  background: white;
+  padding: 20px;
+}
+
+header > h1 {
+  color: #25272E;
+  text-align: center;
+  font-family: Asap, sans-serif;
+}
+
+.seleccionar {
+  margin: 2% auto;
+  text-align: center;
+  color: white;
+  font-size: 500%;
+  font-family: Asap, sans-serif;
+  font-weight: bold;
+}
+
+#ingles, #frances, #espanol, #deutsch, #nederlands {
+  margin: 2%;
+  border: 3px solid white;
+  border-radius: 4px;
+  text-align: center;
+  width: auto;
+  padding: 20px;
+  color: white;
+  font-size: 500%;
+  font-family: Asap, sans-serif;
+  transition: all 0.3s ease;
+  display: block;
+}
+
+#ingles:hover, #frances:hover, #espanol:hover, #deutsch:hover, #nederlands:hover {
+  cursor: pointer;
+  background: #3B79BF;
+}
+
+#tiempo {
+  text-align: center;
+  color: white;
+  font-family: Asap, sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+}
