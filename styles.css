@@ -12,8 +12,7 @@ a {
 }
 
 body {
-  background: rgb(26,0,133);
-  background: linear-gradient(0deg, rgba(26,0,133,1) 0%, rgba(19,0,255,1) 100%);
+  background-color: linear-gradient(0deg, rgba(26,0,133,1) 0%, rgba(19,0,255,1) 100%);
 }
 
 header {
@@ -52,7 +51,7 @@ header > h1 {
 
 #ingles:hover, #frances:hover, #espanol:hover, #deutsch:hover, #nederlands:hover {
   cursor: pointer;
-  background: #3B79BF;
+  background: #140069;
 }
 
 #tiempo {
