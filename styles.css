@@ -12,8 +12,8 @@ a {
 }
 
 body {
-  background: rgb(255,76,76);
-  background: radial-gradient(circle, rgba(255,76,76,1) 0%, rgba(130,187,255,1) 100%);
+  background: rgb(2,0,36);
+  background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 0%, rgba(0,124,149,1) 100%);
 }
 
 header {
