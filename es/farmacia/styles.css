@@ -7,7 +7,7 @@
 }
 
 #body {
-  background-color: #1F5FA7;
+  background-color: linear-gradient(0deg, rgba(26,0,133,1) 0%, rgba(19,0,255,1) 100%);
   transition: background 1s;
 }
 
@@ -39,7 +39,7 @@ header > h1 {
 
 #respuesta1:hover, #respuesta2:hover, #respuesta3:hover, #respuesta4:hover {
   cursor: pointer;
-  background: #3B79BF;
+  background: #140069;
 }
 
 #respuesta1, #respuesta2, #respuesta3, #respuesta4 {
