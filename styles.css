@@ -12,8 +12,7 @@ a {
 }
 
 body {
-  background: rgb(2,0,36);
-  background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 0%, rgba(0,124,149,1) 100%);
+  background: linear-gradient(0deg, rgba(27,0,140,1) 0%, rgba(118,86,255,1) 100%);
 }
 
 header {
