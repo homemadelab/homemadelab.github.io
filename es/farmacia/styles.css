@@ -13,7 +13,6 @@
 }
 
 header {
-  background: white;
   padding: 20px;
 }
 
@@ -73,4 +72,14 @@ header > h1 {
 img {
   width: 150px;
   border-radius: 50%;
+}
+
+.fuente {
+  margin: 2%;
+  text-align: center;
+  color: white;
+  font-size: 500%;
+  font-family: Asap, sans-serif;
+  font-weight: bold;
+  border-radius: 10px;
 }
