@@ -12,7 +12,7 @@ a {
   color: white;
 }
 
-body {
+html {
   background: rgb(20,0,105);
   background: -moz-linear-gradient(0deg, rgba(20,0,105,1) 0%, rgba(19,0,255,1) 100%);
   background: -webkit-linear-gradient(0deg, rgba(20,0,105,1) 0%, rgba(19,0,255,1) 100%);
