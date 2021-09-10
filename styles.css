@@ -13,7 +13,11 @@ a {
 }
 
 body {
-  background-color: -webkit-linear-gradient(0deg, rgba(26,0,133,1) 0%, rgba(19,0,255,1) 100%);
+  background: rgb(20,0,105);
+  background: -moz-linear-gradient(0deg, rgba(20,0,105,1) 0%, rgba(19,0,255,1) 100%);
+  background: -webkit-linear-gradient(0deg, rgba(20,0,105,1) 0%, rgba(19,0,255,1) 100%);
+  background: linear-gradient(0deg, rgba(20,0,105,1) 0%, rgba(19,0,255,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#140069",endColorstr="#1300ff",GradientType=1);
 }
 
 header {
