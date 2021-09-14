@@ -80,9 +80,11 @@ img {
 }
 
 .logo_fuente{
-  display: inline;
+  display: grid;
+  position: relative;
+  justify-content: center;
 }
 
-#fuente {
-  margin-left: 35%;
+#logo {
+  position: absolute;
 }
