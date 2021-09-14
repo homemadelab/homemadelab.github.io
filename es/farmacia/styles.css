@@ -79,6 +79,10 @@ img {
   width: 150px;
 }
 
-.logo_fuente {
-  display: grid;
+.logo_fuente{
+  display: inline;
+}
+
+#fuente {
+  margin-left: 35%;
 }
