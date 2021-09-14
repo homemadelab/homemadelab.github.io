@@ -77,5 +77,8 @@ header > h1 {
 
 img {
   width: 150px;
+}
+
+.logo_fuente {
   display: grid;
 }
