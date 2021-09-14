@@ -77,4 +77,5 @@ header > h1 {
 
 img {
   width: 150px;
+  display: grid;
 }
