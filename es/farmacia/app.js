@@ -110,9 +110,6 @@ function verificarCorrecta(opcion, correcta) {
     body.style.backgroundImage = "#F63E52";
     opcion.style.background = "#D52444";
     console.log("La respuesta es incorrecta.");
-    setTimeout(function() {
-      window.location.href = "/es/respuestaIncorrecta.html";
-    }, 3000);
   }
 
   else {
@@ -121,9 +118,6 @@ function verificarCorrecta(opcion, correcta) {
     body.style.backgroundImage = "#00A653";
     opcion.style.background = "#008747";
     console.log("La respuesta es correcta.");
-    setTimeout(function() {
-      window.location.href = "/es/respuestaCorrecta.html";
-    }, 3000);
   }
 
 }
