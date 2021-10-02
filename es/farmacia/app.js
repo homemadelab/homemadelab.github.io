@@ -28,7 +28,7 @@ function calcularTiempoRestante(tiempoRestante) {
 
       } else {
         width--;
-        tiempoRestante.style.width = width + "%";
+        tiempoRestante.style.width = (width / 10) + "%";
       }
     }
   }
