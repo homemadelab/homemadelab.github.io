@@ -8,6 +8,7 @@ const respuesta4 = document.getElementById("respuesta4");
 const indiceRespuestaCorrecta = document.getElementById("indiceRespuestaCorrecta");
 const respuestas_span = [respuesta1, respuesta2, respuesta3, respuesta4];
 const tiempoRestante_span = document.getElementById("tiempoRestante");
+const fuente = document.getElementById("fuente").style.display = 'none';
 
 function calcularTiempoRestante(tiempoRestante) {
   var i = 100;
@@ -16,10 +17,11 @@ function calcularTiempoRestante(tiempoRestante) {
     var width = 100;
     var id = setInterval(frame, 600);
     function frame() {
-      if (width <= 0) {
+      if (width <= 0) { // Cuando el tiempo se termina
         setTimeout(function() {
-          window.location.href = "/es/tiempoAcabado.html";
-        }, 3000);
+          body.style.backgroundColor = "#F63E52"; // Cambio el fondo a rojo
+          fuente.style.display = 'block'; // Muestro la fuente
+        });
         clearInterval(id);
         i = 100;
 
