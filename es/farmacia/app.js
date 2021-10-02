@@ -18,8 +18,8 @@ function calcularTiempoRestante(tiempoRestante) {
     function frame() {
       if (width <= 0) {
         setTimeout(function() {
-          body.style.backgroundColor = "#F63E52";
-        });
+          window.location.href = "/es/tiempoAcabado.html";
+        }, 3000);
         clearInterval(id);
         i = 100;
 
