@@ -176,31 +176,18 @@ async function main() {
 
   respuesta1.addEventListener('click', function() {
     verificarCorrecta(respuesta1, respuestas[indiceRespuestas[preguntaAleatoria]]);
-    verificarCorrecta(respuesta2, respuestas[indiceRespuestas[preguntaAleatoria]]);
-    verificarCorrecta(respuesta3, respuestas[indiceRespuestas[preguntaAleatoria]]);
-    verificarCorrecta(respuesta4, respuestas[indiceRespuestas[preguntaAleatoria]]);
-
   })
 
   respuesta2.addEventListener('click', function() {
     verificarCorrecta(respuesta2, respuestas[indiceRespuestas[preguntaAleatoria]]);
-    verificarCorrecta(respuesta1, respuestas[indiceRespuestas[preguntaAleatoria]]);
-    verificarCorrecta(respuesta3, respuestas[indiceRespuestas[preguntaAleatoria]]);
-    verificarCorrecta(respuesta4, respuestas[indiceRespuestas[preguntaAleatoria]]);
   })
 
   respuesta3.addEventListener('click', function() {
     verificarCorrecta(respuesta3, respuestas[indiceRespuestas[preguntaAleatoria]]);
-    verificarCorrecta(respuesta1, respuestas[indiceRespuestas[preguntaAleatoria]]);
-    verificarCorrecta(respuesta2, respuestas[indiceRespuestas[preguntaAleatoria]]);
-    verificarCorrecta(respuesta4, respuestas[indiceRespuestas[preguntaAleatoria]]);
   })
 
   respuesta4.addEventListener('click', function() {
     verificarCorrecta(respuesta4, respuestas[indiceRespuestas[preguntaAleatoria]]);
-    verificarCorrecta(respuesta1, respuestas[indiceRespuestas[preguntaAleatoria]]);
-    verificarCorrecta(respuesta2, respuestas[indiceRespuestas[preguntaAleatoria]]);
-    verificarCorrecta(respuesta3, respuestas[indiceRespuestas[preguntaAleatoria]]);
   })
 
   calcularTiempoRestante(tiempoRestante_span);
