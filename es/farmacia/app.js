@@ -9,6 +9,28 @@ const indiceRespuestaCorrecta = document.getElementById("indiceRespuestaCorrecta
 const respuestas_span = [respuesta1, respuesta2, respuesta3, respuesta4];
 const tiempoRestante_span = document.getElementById("tiempoRestante");
 
+function calcularTiempoRestante(tiempoRestante) {
+  var i = 100;
+  if (i == 100) {
+    i = 0;
+    var width = 100;
+    var id = setInterval(frame, 600);
+    function frame() {
+      if (width <= 0) {
+        setTimeout(function() {
+          body.style.backgroundColor = "#F63E52";
+        });
+        clearInterval(id);
+        i = 100;
+
+      } else {
+        width--;
+        tiempoRestante.style.width = width + "%";
+      }
+    }
+  }
+}
+
 async function obtenerArchivo() {
   const archivo = await fetch("farmacia_es.csv"); // Recibo el archivo con las preguntas y respuestas
   const datos = await archivo.text(); // Convierto el archivo a texto
