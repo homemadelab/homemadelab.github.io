@@ -20,6 +20,7 @@ function calcularTiempoRestante(tiempoRestante) {
       if (width <= 0) { // Cuando el tiempo se termina
         setTimeout(function() {
           body.style.backgroundColor = "#F63E52"; // Cambio el fondo a rojo
+          body.style.backgroundImage = "#F63E52";
           fuente.style.display = 'block'; // Muestro la fuente
         });
         clearInterval(id);
@@ -106,6 +107,7 @@ function verificarCorrecta(opcion, correcta) {
   if(opcion.innerHTML != correcta) {
     body.style.backgroundColor = "white";
     body.style.backgroundColor = "#F63E52";
+    body.style.backgroundImage = "#F63E52";
     opcion.style.background = "#D52444";
     console.log("La respuesta es incorrecta.");
     setTimeout(function() {
@@ -116,6 +118,7 @@ function verificarCorrecta(opcion, correcta) {
   else {
     body.style.backgroundColor = "white";
     body.style.backgroundColor = "#00A653";
+    body.style.backgroundImage = "#00A653";
     opcion.style.background = "#008747";
     console.log("La respuesta es correcta.");
     setTimeout(function() {
