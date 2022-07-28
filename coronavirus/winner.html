@@ -6,29 +6,18 @@
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-
-    <div class="seleccionar">
-      <span id="seleccionar">Language</span>
-    </div>
-
-    <div class="idiomas">
-      <div class="idioma">
-        <a href=en id="ingles">English</a>
-      </div>
-      <div class="idioma">
-        <a href=fr id="frances">Français</a>
-      </div>
-      <div class="idioma">
-        <a href=es id="espanol">Español</a>
-      </div>
-      <div class="idioma">
-        <a href=de id="deutsch">Deutsch</a>
-      </div>
-      <div class="idioma">
-        <a href=nl id="nederlands">Nederlands</a>
-      </div>
-    </div>
-
-    <script src="app.js" charset="utf-8"></script>
+    <script type="text/javascript">
+    // Do not name the function "play()"
+    function playVideo(){
+      var video = document.getElementById('video');
+      video.play();
+      video.addEventListener('ended',function(){
+        window.location = 'http://www.homemadelabgames.com';
+      });
+    }
+    </script>
+    <video id="video" width="100%" height="auto" onclick="playVideo()">
+    <source src="videos/animation2.mp4" type="video/mp4" />
+</video>
   </body>
 </html>
