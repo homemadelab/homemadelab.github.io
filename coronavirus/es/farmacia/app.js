@@ -11,11 +11,11 @@ const tiempoRestante_span = document.getElementById("tiempoRestante");
 const fuente = document.getElementById("fuente").style.display = 'none';
 
 function calcularTiempoRestante(tiempoRestante) {
-  var i = 1000;
-  if (i == 1000) {
+  var i = 100;
+  if (i == 100) {
     i = 0;
-    var width = 1000;
-    var id = setInterval(frame, 60);
+    var width = 100;
+    var id = setInterval(frame, 6000);
     function frame() {
       if (width <= 0) { // Cuando el tiempo se termina
         setTimeout(function() {
@@ -24,11 +24,11 @@ function calcularTiempoRestante(tiempoRestante) {
           fuente.style.display = 'block'; // Muestro la fuente
         });
         clearInterval(id);
-        i = 1000;
+        i = 100;
 
       } else {
         width--;
-        tiempoRestante.style.width = (width / 10) + "%";
+        tiempoRestante.style.width = width + "%";
       }
     }
   }
