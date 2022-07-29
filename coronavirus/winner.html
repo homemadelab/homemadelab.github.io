@@ -7,19 +7,25 @@
   </head>
   <body>
     <script type="text/javascript">
-
-    function playVideo(){
+    function reproducirVideo(){
       var video = document.getElementById('video');
       video.play();
+    }
+    function aleatorizarVideos(){
+      var videos = [],
+      index = 0;
+      videos[0] = "<video id='video' onclick='reproducirVideo()' src='videos/animation1.mp4' type='video/mp4' />"
+      videos[1] = "<video id='video' onclick='reproducirVideo()' src='videos/animation2.mp4' type='video/mp4' />"
+      videos[2] = "<video id='video' onclick='reproducirVideo()' src='videos/animation9.mp4' type='video/mp4' />"
+      videos[3] = "<video id='video' onclick='reproducirVideo()' src='videos/animation10.mp4' type='video/mp4' />"
+
+      index = Math.floor(Math.random() * videos.length);
+      document.write(videos[index]);
       video.addEventListener('ended',function(){
         window.location = 'http://www.homemadelabgames.com';
       });
     }
-
+    aleatorizarVideos();
     </script>
-
-    <video id="video" width="100%" height="auto" onclick="playVideo()">
-      <source src="videos/animation2.mp4" type="video/mp4" />
-    </video>
   </body>
 </html>

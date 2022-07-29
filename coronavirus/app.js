@@ -1,1 +1,0 @@
-const indiceRespuestaCorrecta = getElementById('indiceRespuestaCorrecta');
