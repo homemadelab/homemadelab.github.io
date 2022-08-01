@@ -3,8 +3,7 @@ background: linear-gradient(0deg, rgba(26,0,133,1) 0%, rgba(19,0,255,1) 100%);
 
 * {
   margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  padding: 0
 }
 
 video {

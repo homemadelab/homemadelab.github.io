@@ -7,25 +7,30 @@
   </head>
   <body>
     <script type="text/javascript">
-    function reproducirVideo(){
-      var video = document.getElementById('video');
-      video.play();
-    }
     function aleatorizarVideos(){
       var videos = [],
       index = 0;
-      videos[0] = "<video id='video' onclick='reproducirVideo()' src='videos/animation1.mp4' type='video/mp4' />"
-      videos[1] = "<video id='video' onclick='reproducirVideo()' src='videos/animation2.mp4' type='video/mp4' />"
-      videos[2] = "<video id='video' onclick='reproducirVideo()' src='videos/animation9.mp4' type='video/mp4' />"
-      videos[3] = "<video id='video' onclick='reproducirVideo()' src='videos/animation10.mp4' type='video/mp4' />"
+      videos[0] = "<video id='video' autoplay src='videos/animation1.mp4' type='video/mp4' />"
+      videos[1] = "<video id='video' autoplay src='videos/animation2.mp4' type='video/mp4' />"
+      videos[2] = "<video id='video' autoplay src='videos/animation9.mp4' type='video/mp4' />"
+      videos[3] = "<video id='video' autoplay src='videos/animation10.mp4' type='video/mp4' />"
 
       index = Math.floor(Math.random() * videos.length);
       document.write(videos[index]);
+      var video = document.getElementById('video');
+      video.play();
       video.addEventListener('ended',function(){
-        window.location = 'http://www.homemadelabgames.com';
+        window.location.replace('http://www.homemadelabgames.com');
       });
     }
-    aleatorizarVideos();
+
+    if (screen && screen.width > 900) {
+      document.write(aleatorizarVideos());
+    }
+    else {
+      video.addEventListener('ended',function() {alert('video is ended');
+      window.location.href = 'http://www.google.com';})
+    }
     </script>
   </body>
 </html>
