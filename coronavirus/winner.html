@@ -10,20 +10,23 @@
     function aleatorizarVideos(){
       var videos = [],
       index = 0;
-      videos[0] = "<video id='video' controls autoplay muted src='videos/animation1.mp4' type='video/mp4' />"
-      videos[1] = "<video id='video' controls autoplay muted src='videos/animation2.mp4' type='video/mp4' />"
-      videos[2] = "<video id='video' controls autoplay muted src='videos/animation9.mp4' type='video/mp4' />"
-      videos[3] = "<video id='video' controls autoplay muted src='videos/animation10.mp4' type='video/mp4' />"
+      video = "<video id='video' controls autoplay muted src='videos/animation"
 
-      index = Math.floor(Math.random() * videos.length);
-      document.write(videos[index]);
+      num = Math.floor(Math.random() * 4 + 1);
+      document.write(video.concat(num.toString(), ".mp4' type='video/mp4' />"));
+
       var video = document.getElementById('video');
       video.play();
       video.addEventListener('ended',function(){
-        window.location.replace('http://www.homemadelabgames.com');
+        document.getElementById("video").style.display = "none";
       });
     }
-    document.write(aleatorizarVideos());
+    if(document.documentElement.clientWidth > 900){
+          document.write(aleatorizarVideos());
+    }
+    else {
+
+    }
     </script>
   </body>
 </html>
