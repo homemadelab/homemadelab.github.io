@@ -3,7 +3,7 @@ background: linear-gradient(0deg, rgba(26,0,133,1) 0%, rgba(19,0,255,1) 100%);
 
 * {
   margin: 0;
-  padding: 0
+  padding: 0;
 }
 
 a {
@@ -12,9 +12,10 @@ a {
 }
 
 body {
-  margin: 0;
-  padding: 0;
+  margin: 0px;
+  padding: 0px;
   height: 100%;
+  width: 100%;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -69,7 +70,15 @@ header > h1 {
   font-size: 20px;
 }
 
-video {
+.video-js {
+  margin-top: 50%;
   width: 100%;
-  height: auto;
+  height: 100%;
+  z-index: 10;
 }
+
+.video-js .vjs-play-control {
+    display: none;
+}
+
+video::-webkit-media-controls{display: none !important;}
