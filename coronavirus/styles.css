@@ -11,8 +11,9 @@ a {
   color: white;
 }
 
-img {
+.pdf {
     pointer-events: none;
+    width: 100%;
 }
 
 body {
