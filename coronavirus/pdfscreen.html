@@ -5,6 +5,15 @@
 </head>
     <title>Congratulations!</title>
 <body oncontextmenu="return false;">
+  <style media="screen">
+    body {
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      -o-user-select: none;
+      user-select: none;
+    }
+  </style>
   <div class="pdf">
     <img src="PDFs/escuela/7-0.jpg">
     <img src="PDFs/escuela/7-1.jpg">
@@ -16,6 +25,6 @@
     <img src="PDFs/escuela/7-7.jpg">
     <img src="PDFs/escuela/7-8.jpg">
   </div>
-
+  <script>document.addEventListener('contextmenu', event => event.preventDefault());</script>
 </body>
 </html>
