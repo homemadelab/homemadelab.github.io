@@ -11,6 +11,10 @@ a {
   color: white;
 }
 
+img {
+    pointer-events: none;
+}
+
 body {
   margin: 0px;
   padding: 0px;
