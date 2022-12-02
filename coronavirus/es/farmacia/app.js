@@ -113,7 +113,6 @@ function verificarCorrecta(opcion, correcta) {
 
   else {
     document.body.setAttribute('style', 'background-color:#00A653');
-    opcion.setAttribute('style', 'background-color:#00A653');
     opcion.style.background = "#008747";
     console.log("La respuesta es correcta.");
   }
