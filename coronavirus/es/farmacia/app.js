@@ -15,7 +15,7 @@ function calcularTiempoRestante(tiempoRestante) {
   if (i == 100) {
     i = 0;
     var width = 100;
-    var id = setInterval(frame, 6000);
+    var id = setInterval(frame, 600);
     function frame() {
       if (width <= 0) { // Cuando el tiempo se termina
         setTimeout(function() {
