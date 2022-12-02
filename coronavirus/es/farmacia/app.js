@@ -107,13 +107,13 @@ function aleatorizarRespuestas2(cantRespuestas) {
 function verificarCorrecta(opcion, correcta) {
   if(opcion.innerHTML != correcta) {
     document.body.setAttribute('style', 'background-color:#F63E52');
-    opcion.setAttribute('style', 'background-color:#D52444');
+    opcion.setAttribute('style', 'background:#D52444');
     console.log("La respuesta es incorrecta.");
   }
 
   else {
     document.body.setAttribute('style', 'background-color:#00A653');
-    opcion.setAttribute('style', 'background-color:#008747');
+    opcion.setAttribute('style', 'background:#008747');
     console.log("La respuesta es correcta.");
   }
 
