@@ -116,7 +116,7 @@ function verificarCorrecta(opcion, correcta) {
   else {
     document.body.style.backgroundColor = "#00A653";
     document.body.style.backgroundImage = "#00A653";
-    document.body.setAttribute('style', 'background-image:#00A653 !important');
+    document.body.setAttribute('style', 'background-color:#00A653 !important');
     opcion.style.background = "#008747";
     console.log("La respuesta es correcta.");
   }
