@@ -106,7 +106,6 @@ function aleatorizarRespuestas2(cantRespuestas) {
 
 function verificarCorrecta(opcion, correcta) {
   if(opcion.innerHTML != correcta) {
-    body.style.backgroundColor = "white";
     body.style.backgroundColor = "#F63E52";
     body.style.backgroundImage = "#F63E52";
     body.setAttribute('style', 'background-image:#F63E52 !important');
@@ -115,7 +114,6 @@ function verificarCorrecta(opcion, correcta) {
   }
 
   else {
-    body.style.backgroundColor = "white";
     body.style.backgroundColor = "#00A653";
     body.style.backgroundImage = "#00A653";
     body.setAttribute('style', 'background-image:#00A653 !important');
