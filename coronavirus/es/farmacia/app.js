@@ -21,6 +21,7 @@ function calcularTiempoRestante(tiempoRestante) {
         setTimeout(function() {
           body.style.backgroundColor = "#F63E52"; // Cambio el fondo a rojo
           body.style.backgroundImage = "#F63E52";
+          body.setAttribute('style', 'background-image:#F63E52 !important');
           fuente.style.display = 'block'; // Muestro la fuente
         });
         clearInterval(id);
