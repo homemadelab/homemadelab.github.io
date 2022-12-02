@@ -106,18 +106,12 @@ function aleatorizarRespuestas2(cantRespuestas) {
 
 function verificarCorrecta(opcion, correcta) {
   if(opcion.innerHTML != correcta) {
-    document.body.style.backgroundColor = "#F63E52";
-    document.body.style.backgroundImage = "#F63E52";
-    document.body.setAttribute('style', 'background-color:#F63E52 !important');
-    opcion.style.background = "#D52444";
+    document.body.setAttribute('style', 'background-color:#F63E52');
     console.log("La respuesta es incorrecta.");
   }
 
   else {
-    document.body.style.backgroundColor = "#00A653";
-    document.body.style.backgroundImage = "#00A653";
-    document.body.setAttribute('style', 'background-color:#00A653 !important');
-    opcion.style.background = "#008747";
+    document.body.setAttribute('style', 'background-color:#00A653');
     console.log("La respuesta es correcta.");
   }
 
