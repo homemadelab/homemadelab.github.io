@@ -19,9 +19,9 @@ function calcularTiempoRestante(tiempoRestante) {
     function frame() {
       if (width <= 0) { // Cuando el tiempo se termina
         setTimeout(function() {
-          body.style.backgroundColor = "#F63E52"; // Cambio el fondo a rojo
-          body.style.backgroundImage = "#F63E52";
-          body.setAttribute('style', 'background-image:#F63E52 !important');
+          document.body.style.backgroundColor = "#F63E52"; // Cambio el fondo a rojo
+          document.body.style.backgroundImage = "#F63E52";
+          document.body.setAttribute('style', 'background-image:#F63E52 !important');
           fuente.style.display = 'block'; // Muestro la fuente
         });
         clearInterval(id);
@@ -106,17 +106,17 @@ function aleatorizarRespuestas2(cantRespuestas) {
 
 function verificarCorrecta(opcion, correcta) {
   if(opcion.innerHTML != correcta) {
-    body.style.backgroundColor = "#F63E52";
-    body.style.backgroundImage = "#F63E52";
-    body.setAttribute('style', 'background-image:#F63E52 !important');
+    document.body.style.backgroundColor = "#F63E52";
+    document.body.style.backgroundImage = "#F63E52";
+    document.body.setAttribute('style', 'background-image:#F63E52 !important');
     opcion.style.background = "#D52444";
     console.log("La respuesta es incorrecta.");
   }
 
   else {
-    body.style.backgroundColor = "#00A653";
-    body.style.backgroundImage = "#00A653";
-    body.setAttribute('style', 'background-image:#00A653 !important');
+    document.body.style.backgroundColor = "#00A653";
+    document.body.style.backgroundImage = "#00A653";
+    document.body.setAttribute('style', 'background-image:#00A653 !important');
     opcion.style.background = "#008747";
     console.log("La respuesta es correcta.");
   }
