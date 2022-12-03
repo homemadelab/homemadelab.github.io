@@ -83,7 +83,8 @@ img {
   display: grid;
   position: relative;
   justify-content: center;
-  transition: 1s;
+  transition: hover 0.3s ease;
+  transition: display 1s;
 }
 
 #logo {
