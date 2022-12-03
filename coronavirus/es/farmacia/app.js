@@ -2,6 +2,7 @@ var correcta = false;
 var seleccionada = false;
 const body = document.getElementById("body");
 const id = document.getElementById("id");
+const ids = ["farmacia_es", "farmacia_en"]
 const pregunta = document.getElementById("pregunta");
 const respuesta1 = document.getElementById("respuesta1");
 const respuesta2 = document.getElementById("respuesta2");
@@ -11,6 +12,7 @@ const indiceRespuestaCorrecta = document.getElementById("indiceRespuestaCorrecta
 const respuestas_span = [respuesta1, respuesta2, respuesta3, respuesta4];
 const tiempoRestante_span = document.getElementById("tiempoRestante");
 const fuente = document.getElementById("fuente").style.display = 'none';
+
 
 
 function calcularTiempoRestante(tiempoRestante) {
