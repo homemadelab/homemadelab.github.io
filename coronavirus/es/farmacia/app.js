@@ -1,7 +1,6 @@
 var correcta = false;
 var seleccionada = false;
 const body = document.getElementById("body");
-const id = document.getElementById("id");
 const pregunta = document.getElementById("pregunta");
 const respuesta1 = document.getElementById("respuesta1");
 const respuesta2 = document.getElementById("respuesta2");
@@ -44,9 +43,9 @@ function calcularTiempoRestante(tiempoRestante) {
   }
 }
 
-async function obtenerArchivo(id) {
-  const archivo = await fetch((id.innerHTML).toString() + ".csv"); // Recibo el archivo con las preguntas y respuestas
-  console.log(id.innerHTML);
+async function obtenerArchivo() {
+  const archivo = await fetch((document.getElementById("id").innerHTML).toString() + ".csv"); // Recibo el archivo con las preguntas y respuestas
+  console.log(document.getElementById("id").innerHTML);
   const datos = await archivo.text(); // Convierto el archivo a texto
   const tabla = datos.split("\n"); // Separo las preguntas
   return Promise.resolve(tabla);
@@ -177,7 +176,7 @@ async function main() {
   respuestas_span[2].style.display = 'none';
   respuestas_span[3].style.display = 'none';
 
-  preguntas = obtenerPreguntas(await obtenerArchivo(id));
+  preguntas = obtenerPreguntas(await obtenerArchivo());
   respuestas = obtenerRespuestas(await obtenerArchivo());
 
   pregunta.innerHTML = preguntas[preguntaAleatoria];
