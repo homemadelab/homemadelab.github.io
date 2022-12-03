@@ -1,4 +1,5 @@
 var correcta = false;
+var seleccionada = false;
 const body = document.getElementById("body");
 const pregunta = document.getElementById("pregunta");
 const respuesta1 = document.getElementById("respuesta1");
@@ -105,6 +106,9 @@ function aleatorizarRespuestas2(cantRespuestas) {
 }
 
 function verificarCorrecta(opcion, correcta) {
+  if(seleccionado == true){
+    return;
+  }
   if(opcion.innerHTML != correcta) {
     document.body.setAttribute('style', 'background-color:#F63E52');
     opcion.style.background = "#D52444";
@@ -117,7 +121,6 @@ function verificarCorrecta(opcion, correcta) {
     opcion.style.background = "#008747";
     console.log("La respuesta es correcta.");
   }
-
 }
 
 async function main() {
@@ -174,18 +177,22 @@ async function main() {
 
   respuesta1.addEventListener('click', function() {
     verificarCorrecta(respuesta1, respuestas[indiceRespuestas[preguntaAleatoria]]);
+    selecionado = true;
   })
 
   respuesta2.addEventListener('click', function() {
     verificarCorrecta(respuesta2, respuestas[indiceRespuestas[preguntaAleatoria]]);
+    selecionado = true;
   })
 
   respuesta3.addEventListener('click', function() {
     verificarCorrecta(respuesta3, respuestas[indiceRespuestas[preguntaAleatoria]]);
+    selecionado = true;
   })
 
   respuesta4.addEventListener('click', function() {
     verificarCorrecta(respuesta4, respuestas[indiceRespuestas[preguntaAleatoria]]);
+    selecionado = true;
   })
 
   calcularTiempoRestante(tiempoRestante_span);
