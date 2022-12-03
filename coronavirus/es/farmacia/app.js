@@ -167,11 +167,7 @@ async function main() {
   var j = 0;
   var indiceAleatorio = indiceRespuestas[preguntaAleatoria];
 
-<<<<<<< HEAD
   pdf.href = "/coronavirus/pdfs/escuela/" + (preguntaAleatoria+1).toString() + ".html";
-=======
-  pdf.href = "/coronavirus/pdf/escuela/" + (preguntaAleatoria+1).toString() + ".html";
->>>>>>> 314772345c8e05934dbfc76630ce5d5da5770c26
 
   indiceRespuestaCorrecta.innerHTML = indiceAleatorio;
   console.log(preguntaAleatoria+1);
