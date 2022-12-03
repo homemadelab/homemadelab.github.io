@@ -31,6 +31,7 @@ function calcularTiempoRestante(tiempoRestante) {
       } else if(seleccionada == true){
         clearInterval(id);
         i = 100;
+        fuente.style.display = 'block'; // Muestro la fuente
 
       } else {
         width--;
