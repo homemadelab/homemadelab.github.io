@@ -23,7 +23,7 @@ function calcularTiempoRestante(tiempoRestante) {
           document.body.style.backgroundColor = "#F63E52"; // Cambio el fondo a rojo
           document.body.style.backgroundImage = "#F63E52";
           document.body.setAttribute('style', 'background-color:#F63E52 !important');
-          fuente.style.display = 'block'; // Muestro la fuente
+          document.getElementById("fuente").style.display = 'block'; // Muestro la fuente
         });
         clearInterval(id);
         i = 100;
@@ -130,7 +130,7 @@ function verificarCorrecta(opcion, correcta, respuesta1, respuesta2, respuesta3,
 
   setTimeout(function(){ // Despues de 1 segundo de elegir muestro si las otras opciones son correctas o no
     mostrarOpciones(respuesta1, respuesta2, respuesta3, respuesta4);
-    fuente.style.display = 'block'; // Muestro la fuente
+    document.getElementById("fuente").style.display = 'block'; // Muestro la fuente
   }, 1000);
 }
 
