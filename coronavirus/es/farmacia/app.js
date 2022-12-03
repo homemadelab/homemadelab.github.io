@@ -104,9 +104,9 @@ function aleatorizarRespuestas2(cantRespuestas) {
   return Math.floor(Math.random() * 30); // Cantidad de preguntas
 }
 
-function verificarCorrecta(opcion, correcta, respuesta1, respuesta2, respuesta3, respuesta4) {
+var seleccionar = (verificarCorrecta(opcion, correcta) {
   var executed = false;
-  return verificarCorrecta()
+  return verificarCorrecta() {
     if(!executed){
       executed = true;
       if(opcion.innerHTML != correcta) {
@@ -122,7 +122,8 @@ function verificarCorrecta(opcion, correcta, respuesta1, respuesta2, respuesta3,
         console.log("La respuesta es correcta.");
       }
     }
-}
+  };
+})();
 
 async function main() {
   var preguntas = [];
@@ -177,19 +178,19 @@ async function main() {
   }
 
   respuesta1.addEventListener('click', function() {
-    verificarCorrecta(respuesta1, respuestas[indiceRespuestas[preguntaAleatoria]]);
+    seleccionar(respuesta1, respuestas[indiceRespuestas[preguntaAleatoria]]);
   })
 
   respuesta2.addEventListener('click', function() {
-    verificarCorrecta(respuesta2, respuestas[indiceRespuestas[preguntaAleatoria]]);
+    seleccionar(respuesta2, respuestas[indiceRespuestas[preguntaAleatoria]]);
   })
 
   respuesta3.addEventListener('click', function() {
-    verificarCorrecta(respuesta3, respuestas[indiceRespuestas[preguntaAleatoria]]);
+    seleccionar(respuesta3, respuestas[indiceRespuestas[preguntaAleatoria]]);
   })
 
   respuesta4.addEventListener('click', function() {
-    verificarCorrecta(respuesta4, respuestas[indiceRespuestas[preguntaAleatoria]]);
+    seleccionar(respuesta4, respuestas[indiceRespuestas[preguntaAleatoria]]);
   }
 
   calcularTiempoRestante(tiempoRestante_span);
