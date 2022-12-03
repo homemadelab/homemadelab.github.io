@@ -105,7 +105,7 @@ function aleatorizarRespuestas2(cantRespuestas) {
 }
 
 function verificarCorrecta(opcion, correcta, respuesta1, respuesta2, respuesta3, respuesta4) {
-  if(opcion.innerHTML != correcta) {
+  if(correcta == undefined) {
     document.body.setAttribute('style', 'background-color:#F63E52');
     opcion.style.background = "#D52444";
     correcta.style.background = "#008747";
