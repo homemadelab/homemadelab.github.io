@@ -9,7 +9,7 @@ const respuesta4 = document.getElementById("respuesta4");
 const indiceRespuestaCorrecta = document.getElementById("indiceRespuestaCorrecta");
 const respuestas_span = [respuesta1, respuesta2, respuesta3, respuesta4];
 const tiempoRestante_span = document.getElementById("tiempoRestante");
-const fuente = document.getElementsByClassName("logo_fuente");
+const fuente = document.getElementsByElementId("fuente");
 
 function calcularTiempoRestante(tiempoRestante) {
   var i = 100;
@@ -183,21 +183,33 @@ async function main() {
   respuesta1.addEventListener('click', function() {
     verificarCorrecta(respuesta1, respuestas[indiceRespuestas[preguntaAleatoria]]);
     seleccionada = true;
+    verificarCorrecta(respuesta2, respuestas[indiceRespuestas[preguntaAleatoria]]);
+    verificarCorrecta(respuesta3, respuestas[indiceRespuestas[preguntaAleatoria]]);
+    verificarCorrecta(respuesta4, respuestas[indiceRespuestas[preguntaAleatoria]]);
   })
 
   respuesta2.addEventListener('click', function() {
     verificarCorrecta(respuesta2, respuestas[indiceRespuestas[preguntaAleatoria]]);
     seleccionada = true;
+    verificarCorrecta(respuesta1, respuestas[indiceRespuestas[preguntaAleatoria]]);
+    verificarCorrecta(respuesta3, respuestas[indiceRespuestas[preguntaAleatoria]]);
+    verificarCorrecta(respuesta4, respuestas[indiceRespuestas[preguntaAleatoria]]);
   })
 
   respuesta3.addEventListener('click', function() {
     verificarCorrecta(respuesta3, respuestas[indiceRespuestas[preguntaAleatoria]]);
     seleccionada = true;
+    verificarCorrecta(respuesta2, respuestas[indiceRespuestas[preguntaAleatoria]]);
+    verificarCorrecta(respuesta1, respuestas[indiceRespuestas[preguntaAleatoria]]);
+    verificarCorrecta(respuesta4, respuestas[indiceRespuestas[preguntaAleatoria]]);
   })
 
   respuesta4.addEventListener('click', function() {
     verificarCorrecta(respuesta4, respuestas[indiceRespuestas[preguntaAleatoria]]);
     seleccionada = true;
+    verificarCorrecta(respuesta2, respuestas[indiceRespuestas[preguntaAleatoria]]);
+    verificarCorrecta(respuesta3, respuestas[indiceRespuestas[preguntaAleatoria]]);
+    verificarCorrecta(respuesta1, respuestas[indiceRespuestas[preguntaAleatoria]]);
   })
 
   calcularTiempoRestante(tiempoRestante_span);
