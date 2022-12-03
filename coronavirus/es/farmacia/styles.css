@@ -80,7 +80,7 @@ img {
 }
 
 .logo_fuente{
-  display: none;
+  display: grid;
   position: relative;
   justify-content: center;
 }
