@@ -111,6 +111,7 @@ function aleatorizarRespuestas2(cantRespuestas) {
 }
 
 function verificarCorrecta(opcion, correcta, respuesta1, respuesta2, respuesta3, respuesta4) {
+  var respuestas = [respuesta1, respuesta2, respuesta3, respuesta4];
   if(seleccionada == true){
     return;
   }
@@ -126,6 +127,15 @@ function verificarCorrecta(opcion, correcta, respuesta1, respuesta2, respuesta3,
     opcion.style.background = "#008747";
     console.log("La respuesta es correcta.");
     console.log(opcion.innerHTML, opcion, correcta, respuesta1, respuesta2, respuesta3, respuesta4);
+  }
+  if(opcion == respuesta1){
+    console.log("1");
+  } else if(opcion == respuesta2){
+    console.log("2");
+  } else if(opcion == respuesta3){
+    console.log("3");
+  } else{
+    console.log("4");
   }
 }
 
