@@ -47,8 +47,9 @@ function calcularTiempoRestante(tiempoRestante) {
 
 async function obtenerArchivo() {
   for (let i = 0; i < ids.length; i++) {
-	   if(ids[i] == id.innerHTML){
+	   if(ids[i] == (id.innerHTML).toString()){
        const archivo = await fetch((id.innerHTML).toString() + ".csv"); // Recibo el archivo con las preguntas y respuestas
+       console.log(id.innerHTML);
      }
   }
 
