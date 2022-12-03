@@ -44,7 +44,7 @@ function calcularTiempoRestante(tiempoRestante) {
   }
 }
 
-async function obtenerArchivo() {
+async function obtenerArchivo(id) {
   const archivo = await fetch((id.innerHTML).toString() + ".csv"); // Recibo el archivo con las preguntas y respuestas
   console.log(id.innerHTML);
   const datos = await archivo.text(); // Convierto el archivo a texto
@@ -177,7 +177,7 @@ async function main() {
   respuestas_span[2].style.display = 'none';
   respuestas_span[3].style.display = 'none';
 
-  preguntas = obtenerPreguntas(await obtenerArchivo());
+  preguntas = obtenerPreguntas(await obtenerArchivo(id));
   respuestas = obtenerRespuestas(await obtenerArchivo());
 
   pregunta.innerHTML = preguntas[preguntaAleatoria];
