@@ -16,9 +16,9 @@ function calcularTiempoRestante(tiempoRestante) {
   if (i == 100) {
     i = 0;
     var width = 100;
-    var id = setInterval(frame, 600);
-    function frame() {
-      if (width <= 0) { // Cuando el tiempo se termina
+    var id = setInterval(tiempo, 600);
+    function tiempo() {
+      if (width <= 0 || seleccionada == true) { // Cuando el tiempo se termina
         setTimeout(function() {
           document.body.style.backgroundColor = "#F63E52"; // Cambio el fondo a rojo
           document.body.style.backgroundImage = "#F63E52";
@@ -105,7 +105,7 @@ function aleatorizarRespuestas2(cantRespuestas) {
   return Math.floor(Math.random() * 30); // Cantidad de preguntas
 }
 
-function verificarCorrecta(opcion, correcta) {
+function verificarCorrecta(opcion, correcta, respuesta1, respuesta2, respuesta3, respuesta4) {
   if(seleccionada == true){
     return;
   }
@@ -121,6 +121,8 @@ function verificarCorrecta(opcion, correcta) {
     opcion.style.background = "#008747";
     console.log("La respuesta es correcta.");
   }
+  var id = setInterval(frame, 10);
+
 }
 
 async function main() {
