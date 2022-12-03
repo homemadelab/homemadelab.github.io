@@ -121,8 +121,6 @@ function verificarCorrecta(opcion, correcta, respuesta1, respuesta2, respuesta3,
     opcion.style.background = "#008747";
     console.log("La respuesta es correcta.");
   }
-  var id = setInterval(frame, 10);
-
 }
 
 async function main() {
