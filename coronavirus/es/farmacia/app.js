@@ -104,20 +104,29 @@ function aleatorizarRespuestas2(cantRespuestas) {
   return Math.floor(Math.random() * 30); // Cantidad de preguntas
 }
 
-function verificarCorrecta(opcion, correcta, respuestas) {
+function verificarCorrecta(opcion, correcta, respuesta1, respuesta2, respuesta3, respuesta4) {
   if(opcion.innerHTML != correcta) {
     document.body.setAttribute('style', 'background-color:#F63E52');
     opcion.style.background = "#D52444";
     correcta.style.background = "#008747";
     console.log("La respuesta es incorrecta.");
     console.log(opcion, correcta);
+    respuesta1.disabled = true;
+    respuesta2.disabled = true;
+    respuesta3.disabled = true;
+    respuesta4.disabled = true;
   }
 
   else {
     document.body.setAttribute('style', 'background-color:#00A653');
     opcion.style.background = "#008747";
     console.log("La respuesta es correcta.");
+    respuesta1.disabled = true;
+    respuesta2.disabled = true;
+    respuesta3.disabled = true;
+    respuesta4.disabled = true;
   }
+
 
 }
 
