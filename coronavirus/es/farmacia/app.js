@@ -2,7 +2,6 @@ var correcta = false;
 var seleccionada = false;
 const body = document.getElementById("body");
 const id = document.getElementById("id");
-const ids = ["farmacia_es", "farmacia_en"]
 const pregunta = document.getElementById("pregunta");
 const respuesta1 = document.getElementById("respuesta1");
 const respuesta2 = document.getElementById("respuesta2");
@@ -46,13 +45,8 @@ function calcularTiempoRestante(tiempoRestante) {
 }
 
 async function obtenerArchivo() {
-  for (let i = 0; i < ids.length; i++) {
-	   if(ids[i] == (id.innerHTML).toString()){
-       const archivo = await fetch((id.innerHTML).toString() + ".csv"); // Recibo el archivo con las preguntas y respuestas
-       console.log(id.innerHTML);
-     }
-  }
-
+  const archivo = await fetch((id.innerHTML).toString() + ".csv"); // Recibo el archivo con las preguntas y respuestas
+  console.log(id.innerHTML);
   const datos = await archivo.text(); // Convierto el archivo a texto
   const tabla = datos.split("\n"); // Separo las preguntas
   return Promise.resolve(tabla);
