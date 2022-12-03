@@ -128,8 +128,10 @@ function verificarCorrecta(opcion, correcta, respuesta1, respuesta2, respuesta3,
     console.log("La respuesta es correcta.");
     console.log(opcion.innerHTML, opcion, correcta, respuesta1, respuesta2, respuesta3, respuesta4);
   }
-  mostrarOpciones(respuesta1, respuesta2, respuesta3, respuesta4);
-  // Despues de 1 segundo ejecuto mostrarOpciones
+
+  setTimeout(function(){ // Despues de 1 segundo de elegir muestro si las otras opciones son correctas o no
+    mostrarOpciones(respuesta1, respuesta2, respuesta3, respuesta4);
+  }, 1000);
 }
 
 function mostrarOpciones(respuesta1, respuesta2, respuesta3, respuesta4){
