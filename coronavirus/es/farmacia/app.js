@@ -24,6 +24,7 @@ function calcularTiempoRestante(tiempoRestante) {
           document.body.style.backgroundImage = "#F63E52";
           document.body.setAttribute('style', 'background-color:#F63E52 !important');
           document.getElementById("fuente").style.display = 'block'; // Muestro la fuente
+          mostrarOpciones(respuesta1, respuesta2, respuesta3, respuesta4);
         });
         clearInterval(id);
         i = 100;
