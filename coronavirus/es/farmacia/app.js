@@ -9,7 +9,7 @@ const respuesta4 = document.getElementById("respuesta4");
 const indiceRespuestaCorrecta = document.getElementById("indiceRespuestaCorrecta");
 const respuestas_span = [respuesta1, respuesta2, respuesta3, respuesta4];
 const tiempoRestante_span = document.getElementById("tiempoRestante");
-const fuente = document.getElementById("fuente").style.display = 'none';
+const fuente = document.getElementById("fuente");
 
 function calcularTiempoRestante(tiempoRestante) {
   var i = 100;
