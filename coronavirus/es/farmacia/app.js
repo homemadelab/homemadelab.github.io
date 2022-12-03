@@ -104,9 +104,9 @@ function aleatorizarRespuestas2(cantRespuestas) {
   return Math.floor(Math.random() * 30); // Cantidad de preguntas
 }
 
-var seleccionar = (verificarCorrecta(opcion, correcta) {
+var verificarCorrecta = (function(opcion, correcta) {
   var executed = false;
-  return verificarCorrecta() {
+  return function() {
     if(!executed){
       executed = true;
       if(opcion.innerHTML != correcta) {
@@ -178,19 +178,19 @@ async function main() {
   }
 
   respuesta1.addEventListener('click', function() {
-    seleccionar(respuesta1, respuestas[indiceRespuestas[preguntaAleatoria]]);
+    verificarCorrecta(respuesta1, respuestas[indiceRespuestas[preguntaAleatoria]]);
   })
 
   respuesta2.addEventListener('click', function() {
-    seleccionar(respuesta2, respuestas[indiceRespuestas[preguntaAleatoria]]);
+    verificarCorrecta(respuesta2, respuestas[indiceRespuestas[preguntaAleatoria]]);
   })
 
   respuesta3.addEventListener('click', function() {
-    seleccionar(respuesta3, respuestas[indiceRespuestas[preguntaAleatoria]]);
+    verificarCorrecta(respuesta3, respuestas[indiceRespuestas[preguntaAleatoria]]);
   })
 
   respuesta4.addEventListener('click', function() {
-    seleccionar(respuesta4, respuestas[indiceRespuestas[preguntaAleatoria]]);
+    verificarCorrecta(respuesta4, respuestas[indiceRespuestas[preguntaAleatoria]]);
   }
 
   calcularTiempoRestante(tiempoRestante_span);
