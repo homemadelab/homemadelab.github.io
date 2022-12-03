@@ -45,7 +45,7 @@ function calcularTiempoRestante(tiempoRestante) {
 
 async function obtenerArchivo() {
   const archivo = await fetch((document.getElementById("id").innerHTML).toString() + ".csv"); // Recibo el archivo con las preguntas y respuestas
-  console.log(document.getElementById("id").innerHTML);
+  console.log(document.getElementById("id"));
   const datos = await archivo.text(); // Convierto el archivo a texto
   const tabla = datos.split("\n"); // Separo las preguntas
   return Promise.resolve(tabla);
