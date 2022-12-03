@@ -111,7 +111,6 @@ function aleatorizarRespuestas2(cantRespuestas) {
 }
 
 function verificarCorrecta(opcion, correcta, respuesta1, respuesta2, respuesta3, respuesta4) {
-  var respuestas = [respuesta1, respuesta2, respuesta3, respuesta4];
   if(seleccionada == true){
     return;
   }
