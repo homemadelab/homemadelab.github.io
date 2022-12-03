@@ -12,8 +12,6 @@ const respuestas_span = [respuesta1, respuesta2, respuesta3, respuesta4];
 const tiempoRestante_span = document.getElementById("tiempoRestante");
 const fuente = document.getElementById("fuente").style.display = 'none';
 
-
-
 function calcularTiempoRestante(tiempoRestante) {
   var i = 100;
   if (i == 100) {
@@ -46,7 +44,6 @@ function calcularTiempoRestante(tiempoRestante) {
 
 async function obtenerArchivo() {
   const archivo = await fetch(id.innerHTML + ".csv"); // Recibo el archivo con las preguntas y respuestas
-  console.log(id.innerHTML);
   const datos = await archivo.text(); // Convierto el archivo a texto
   const tabla = datos.split("\n"); // Separo las preguntas
   return Promise.resolve(tabla);
@@ -171,7 +168,7 @@ async function main() {
   var j = 0;
   var indiceAleatorio = indiceRespuestas[preguntaAleatoria];
   indiceRespuestaCorrecta.innerHTML = indiceAleatorio;
-
+  console.log(preguntaAleatoria);
   respuestas_span[0].style.display = 'none';
   respuestas_span[1].style.display = 'none';
   respuestas_span[2].style.display = 'none';
