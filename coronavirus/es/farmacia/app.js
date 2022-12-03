@@ -11,6 +11,7 @@ const indiceRespuestaCorrecta = document.getElementById("indiceRespuestaCorrecta
 const respuestas_span = [respuesta1, respuesta2, respuesta3, respuesta4];
 const tiempoRestante_span = document.getElementById("tiempoRestante");
 const fuente = document.getElementById("fuente").style.display = 'none';
+const pdf = document.getElementById("pdf");
 
 function calcularTiempoRestante(tiempoRestante) {
   var i = 100;
@@ -119,14 +120,12 @@ function verificarCorrecta(opcion, correcta, respuesta1, respuesta2, respuesta3,
     document.body.setAttribute('style', 'background-color:#F63E52');
     opcion.style.background = "#D52444";
     console.log("La respuesta es incorrecta.");
-    console.log(opcion.innerHTML, opcion, correcta, respuesta1, respuesta2, respuesta3, respuesta4);
   }
 
   else {
     document.body.setAttribute('style', 'background-color:#00A653');
     opcion.style.background = "#008747";
     console.log("La respuesta es correcta.");
-    console.log(opcion.innerHTML, opcion, correcta, respuesta1, respuesta2, respuesta3, respuesta4);
   }
 
   setTimeout(function(){ // Despues de 1 segundo de elegir muestro si las otras opciones son correctas o no
@@ -167,8 +166,11 @@ async function main() {
   var preguntaAleatoria = aleatorizarPreguntas();
   var j = 0;
   var indiceAleatorio = indiceRespuestas[preguntaAleatoria];
+
+  pdf.href = "/coronavirus/pdf/escuela/" + (preguntaAleatoria+1).toString() + ".html";
+
   indiceRespuestaCorrecta.innerHTML = indiceAleatorio;
-  console.log(preguntaAleatoria);
+  console.log(preguntaAleatoria+1);
   respuestas_span[0].style.display = 'none';
   respuestas_span[1].style.display = 'none';
   respuestas_span[2].style.display = 'none';
