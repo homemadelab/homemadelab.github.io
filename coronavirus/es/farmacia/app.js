@@ -128,14 +128,31 @@ function verificarCorrecta(opcion, correcta, respuesta1, respuesta2, respuesta3,
     console.log("La respuesta es correcta.");
     console.log(opcion.innerHTML, opcion, correcta, respuesta1, respuesta2, respuesta3, respuesta4);
   }
-  if(opcion == respuesta1){
-    console.log("1");
-  } else if(opcion == respuesta2){
-    console.log("2");
-  } else if(opcion == respuesta3){
-    console.log("3");
+  mostrarOpciones(respuesta1, respuesta2, respuesta3, respuesta4);
+  // Despues de 1 segundo ejecuto mostrarOpciones
+}
+
+function mostrarOpciones(respuesta1, respuesta2, respuesta3, respuesta4){
+  if(respuesta1.innerHTML == correcta){
+    respuesta1.style.background = "#008747";
+    respuesta2.style.background = "#D52444";
+    respuesta3.style.background = "#D52444";
+    respuesta4.style.background = "#D52444";
+  } else if(respuesta2.innerHTML == correcta){
+    respuesta1.style.background = "#D52444";
+    respuesta2.style.background = "#008747";
+    respuesta3.style.background = "#D52444";
+    respuesta4.style.background = "#D52444";
+  } else if(respuesta3.innerHTML == correcta){
+    respuesta1.style.background = "#D52444";
+    respuesta2.style.background = "#D52444";
+    respuesta3.style.background = "#008747";
+    respuesta4.style.background = "#D52444";
   } else{
-    console.log("4");
+    respuesta1.style.background = "#D52444";
+    respuesta2.style.background = "#D52444";
+    respuesta3.style.background = "#D52444";
+    respuesta4.style.background = "#008747";
   }
 }
 
