@@ -118,14 +118,17 @@ function verificarCorrecta(opcion, correcta, respuesta1, respuesta2, respuesta3,
     document.body.setAttribute('style', 'background-color:#F63E52');
     opcion.style.background = "#D52444";
     console.log("La respuesta es incorrecta.");
-    console.log(opcion, correcta);
+    console.log(opcion.innerHTML\n, correcta);
   }
 
   else {
     document.body.setAttribute('style', 'background-color:#00A653');
     opcion.style.background = "#008747";
     console.log("La respuesta es correcta.");
+    console.log(opcion.innerHTML\n, correcta);
   }
+
+
 }
 
 async function main() {
