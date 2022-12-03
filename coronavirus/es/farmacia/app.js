@@ -182,22 +182,22 @@ async function main() {
   }
 
   respuesta1.addEventListener('click', function() {
-    verificarCorrecta(respuesta1, respuestas[indiceRespuestas[preguntaAleatoria]]);
+    verificarCorrecta(respuesta1, respuestas[indiceRespuestas[preguntaAleatoria]], respuesta1, respuesta2, respuesta3, respuesta4);
     seleccionada = true;
   })
 
   respuesta2.addEventListener('click', function() {
-    verificarCorrecta(respuesta2, respuestas[indiceRespuestas[preguntaAleatoria]]);
+    verificarCorrecta(respuesta2, respuestas[indiceRespuestas[preguntaAleatoria]], respuesta1, respuesta2, respuesta3, respuesta4);
     seleccionada = true;
   })
 
   respuesta3.addEventListener('click', function() {
-    verificarCorrecta(respuesta3, respuestas[indiceRespuestas[preguntaAleatoria]]);
+    verificarCorrecta(respuesta3, respuestas[indiceRespuestas[preguntaAleatoria]], respuesta1, respuesta2, respuesta3, respuesta4);
     seleccionada = true;
   })
 
   respuesta4.addEventListener('click', function() {
-    verificarCorrecta(respuesta4, respuestas[indiceRespuestas[preguntaAleatoria]]);
+    verificarCorrecta(respuesta4, respuestas[indiceRespuestas[preguntaAleatoria]], respuesta1, respuesta2, respuesta3, respuesta4);
     seleccionada = true;
   })
 
