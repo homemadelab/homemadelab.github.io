@@ -18,13 +18,17 @@ function calcularTiempoRestante(tiempoRestante) {
     var width = 100;
     var id = setInterval(tiempo, 600);
     function tiempo() {
-      if (width <= 0 || seleccionada == true) { // Cuando el tiempo se termina
+      if (width <= 0) { // Cuando el tiempo se termina
         setTimeout(function() {
           document.body.style.backgroundColor = "#F63E52"; // Cambio el fondo a rojo
           document.body.style.backgroundImage = "#F63E52";
           document.body.setAttribute('style', 'background-color:#F63E52 !important');
           fuente.style.display = 'block'; // Muestro la fuente
         });
+        clearInterval(id);
+        i = 100;
+
+      } else if(seleccionada == true){
         clearInterval(id);
         i = 100;
 
