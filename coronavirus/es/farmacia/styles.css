@@ -83,6 +83,7 @@ img {
   display: grid;
   position: relative;
   justify-content: center;
+  transition: opacity 1s ease-out;
 }
 
 #logo {
