@@ -106,7 +106,7 @@ function aleatorizarRespuestas2(cantRespuestas) {
 
 function verificarCorrecta(opcion, correcta, respuesta1, respuesta2, respuesta3, respuesta4) {
   var executed = false;
-  return verificarCorrecta(){
+  return verificarCorrecta()
     if(!executed){
       executed = true;
       if(opcion.innerHTML != correcta) {
@@ -122,7 +122,6 @@ function verificarCorrecta(opcion, correcta, respuesta1, respuesta2, respuesta3,
         console.log("La respuesta es correcta.");
       }
     }
-  };
 }
 
 async function main() {
