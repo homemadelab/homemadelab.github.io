@@ -105,26 +105,17 @@ function aleatorizarRespuestas2(cantRespuestas) {
 }
 
 function verificarCorrecta(opcion, correcta, respuesta1, respuesta2, respuesta3, respuesta4) {
-  if(correcta == undefined) {
+  if(opcion.innerHTML != correcta) {
     document.body.setAttribute('style', 'background-color:#F63E52');
     opcion.style.background = "#D52444";
-    correcta.style.background = "#008747";
     console.log("La respuesta es incorrecta.");
     console.log(opcion, correcta);
-    respuesta1.disabled = true;
-    respuesta2.disabled = true;
-    respuesta3.disabled = true;
-    respuesta4.disabled = true;
   }
 
   else {
     document.body.setAttribute('style', 'background-color:#00A653');
     opcion.style.background = "#008747";
     console.log("La respuesta es correcta.");
-    respuesta1.disabled = true;
-    respuesta2.disabled = true;
-    respuesta3.disabled = true;
-    respuesta4.disabled = true;
   }
 
 
@@ -184,19 +175,39 @@ async function main() {
 
   respuesta1.addEventListener('click', function() {
     verificarCorrecta(respuesta1, respuestas[indiceRespuestas[preguntaAleatoria]]);
+    respuesta1.disabled = true;
+    respuesta2.disabled = true;
+    respuesta3.disabled = true;
+    respuesta4.disabled = true;
   })
 
   respuesta2.addEventListener('click', function() {
     verificarCorrecta(respuesta2, respuestas[indiceRespuestas[preguntaAleatoria]]);
+    respuesta1.disabled = true;
+    respuesta2.disabled = true;
+    respuesta3.disabled = true;
+    respuesta4.disabled = true;
   })
 
   respuesta3.addEventListener('click', function() {
     verificarCorrecta(respuesta3, respuestas[indiceRespuestas[preguntaAleatoria]]);
+    respuesta1.disabled = true;
+    respuesta2.disabled = true;
+    respuesta3.disabled = true;
+    respuesta4.disabled = true;
   })
 
   respuesta4.addEventListener('click', function() {
     verificarCorrecta(respuesta4, respuestas[indiceRespuestas[preguntaAleatoria]]);
+    respuesta1.disabled = true;
+    respuesta2.disabled = true;
+    respuesta3.disabled = true;
+    respuesta4.disabled = true;
   })
+  respuesta1.disabled = true;
+  respuesta2.disabled = true;
+  respuesta3.disabled = true;
+  respuesta4.disabled = true;
 
   calcularTiempoRestante(tiempoRestante_span);
 
