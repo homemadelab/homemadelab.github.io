@@ -8,7 +8,7 @@ const respuesta4 = document.getElementById("respuesta4");
 const indiceRespuestaCorrecta = document.getElementById("indiceRespuestaCorrecta");
 const respuestas_span = [respuesta1, respuesta2, respuesta3, respuesta4];
 const tiempoRestante_span = document.getElementById("tiempoRestante");
-const fuente = document.getElementById("fuente").style.display = 'none';
+const fuente = document.getElementById("fuente").style.display = 'grid';
 
 function calcularTiempoRestante(tiempoRestante) {
   var i = 100;
@@ -179,34 +179,18 @@ async function main() {
 
   respuesta1.addEventListener('click', function() {
     verificarCorrecta(respuesta1, respuestas[indiceRespuestas[preguntaAleatoria]]);
-    respuesta1.disabled = true;
-    respuesta2.disabled = true;
-    respuesta3.disabled = true;
-    respuesta4.disabled = true;
   })
 
   respuesta2.addEventListener('click', function() {
     verificarCorrecta(respuesta2, respuestas[indiceRespuestas[preguntaAleatoria]]);
-    respuesta1.disabled = true;
-    respuesta2.disabled = true;
-    respuesta3.disabled = true;
-    respuesta4.disabled = true;
   })
 
   respuesta3.addEventListener('click', function() {
     verificarCorrecta(respuesta3, respuestas[indiceRespuestas[preguntaAleatoria]]);
-    respuesta1.disabled = true;
-    respuesta2.disabled = true;
-    respuesta3.disabled = true;
-    respuesta4.disabled = true;
   })
 
   respuesta4.addEventListener('click', function() {
     verificarCorrecta(respuesta4, respuestas[indiceRespuestas[preguntaAleatoria]]);
-    respuesta1.disabled = true;
-    respuesta2.disabled = true;
-    respuesta3.disabled = true;
-    respuesta4.disabled = true;
   }
 
   calcularTiempoRestante(tiempoRestante_span);
