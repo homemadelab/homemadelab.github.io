@@ -104,26 +104,21 @@ function aleatorizarRespuestas2(cantRespuestas) {
   return Math.floor(Math.random() * 30); // Cantidad de preguntas
 }
 
-var verificarCorrecta = (function(opcion, correcta) {
-  var executed = false;
-  return function() {
-    if(!executed){
-      executed = true;
-      if(opcion.innerHTML != correcta) {
-        document.body.setAttribute('style', 'background-color:#F63E52');
-        opcion.style.background = "#D52444";
-        console.log("La respuesta es incorrecta.");
-        console.log(opcion, correcta);
-      }
+function verificarCorrecta(opcion, correcta) {
+  if(opcion.innerHTML != correcta) {
+    document.body.setAttribute('style', 'background-color:#F63E52');
+    opcion.style.background = "#D52444";
+    console.log("La respuesta es incorrecta.");
+    console.log(opcion, correcta);
+  }
 
-      else {
-        document.body.setAttribute('style', 'background-color:#00A653');
-        opcion.style.background = "#008747";
-        console.log("La respuesta es correcta.");
-      }
-    }
-  };
-})();
+  else {
+    document.body.setAttribute('style', 'background-color:#00A653');
+    opcion.style.background = "#008747";
+    console.log("La respuesta es correcta.");
+  }
+
+}
 
 async function main() {
   var preguntas = [];
@@ -191,7 +186,7 @@ async function main() {
 
   respuesta4.addEventListener('click', function() {
     verificarCorrecta(respuesta4, respuestas[indiceRespuestas[preguntaAleatoria]]);
-  }
+  })
 
   calcularTiempoRestante(tiempoRestante_span);
 
