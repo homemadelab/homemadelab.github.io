@@ -179,7 +179,7 @@ async function main() {
 
   var indiceAleatorio = indiceRespuestas[preguntaAleatoria];
 
-  pdf.href = "/coronavirus/pdfs/" + (id.innerHTML).slice(0, -3) +"/" + (preguntaAleatoria+1).toString() + ".html"; // Redirijo a página de fuente
+  pdf.href = "/coronavirus/pdfs/" + (id.innerHTML).slice(0, -3) +"/" + (preguntaAleatoria+1).toString(); // Redirijo a página de fuente
 
   indiceRespuestaCorrecta.innerHTML = indiceAleatorio;
   console.log(preguntaAleatoria+1);
