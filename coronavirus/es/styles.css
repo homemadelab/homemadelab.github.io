@@ -27,6 +27,15 @@ body {
   display: none;
 }
 
+.seleccionar {
+  margin: 2%;
+  text-align: center;
+  color: white;
+  font-size: 500%;
+  font-family: Asap, sans-serif;
+  font-weight: bold;
+}
+
 #casa, #farmacia, #hospital, #supermercado, #escuela, #banco, #laboratorio, #zoologico {
   margin: 2%;
   border: 3px solid white;
