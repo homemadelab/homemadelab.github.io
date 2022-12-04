@@ -12,7 +12,14 @@ a {
 }
 
 body {
-  background-color: #1F5FA7;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  background-color: #2f308b;
 }
 
 header {
@@ -26,8 +33,8 @@ header > h1 {
   font-family: Asap, sans-serif;
 }
 
-.seleccionar {
-  margin: 2% auto;
+.seleccionar, .correcta, .incorrecta, .fuente {
+  margin: 2%;
   text-align: center;
   color: white;
   font-size: 500%;
@@ -35,7 +42,7 @@ header > h1 {
   font-weight: bold;
 }
 
-.sector {
+#casa, #farmacia, #hospital, #supermercado, #escuela, #banco, #laboratorio, #zoologico {
   margin: 2%;
   border: 3px solid white;
   border-radius: 4px;
@@ -46,9 +53,15 @@ header > h1 {
   font-size: 500%;
   font-family: Asap, sans-serif;
   transition: all 0.3s ease;
+  display: block;
 }
 
-.sector:hover {
+#casa:hover, #farmacia:hover, #hospital:hover, #supermercado:hover, #escuela:hover, #banco:hover, #laboratorio:hover, #zoologico:hover {
   cursor: pointer;
-  background: #3B79BF;
+  background: #140069;
+}
+
+img {
+  width: 150px;
+  display: grid;
 }

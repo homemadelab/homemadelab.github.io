@@ -6,13 +6,23 @@
   box-sizing: border-box;
 }
 
-#body {
-  background-color: #1F5FA7;
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  background-color: #2f308b;
   transition: background 1s;
 }
 
+#id {
+  display: none;
+}
+
 header {
-  background: white;
   padding: 20px;
 }
 
@@ -29,7 +39,7 @@ header > h1 {
 }
 
 .pregunta {
-  margin: 2% auto;
+  margin: 2%;
   text-align: center;
   color: white;
   font-size: 500%;
@@ -37,7 +47,12 @@ header > h1 {
   font-weight: bold;
 }
 
-.respuesta {
+#respuesta1:hover, #respuesta2:hover, #respuesta3:hover, #respuesta4:hover {
+  cursor: pointer;
+  background: #140069;
+}
+
+#respuesta1, #respuesta2, #respuesta3, #respuesta4 {
   margin: 2%;
   text-align: center;
   width: auto;
@@ -46,17 +61,14 @@ header > h1 {
   font-family: Asap, sans-serif;
   transition: hover 0.3s ease;
   transition: background 1s;
-}
-
-.respuesta:hover {
-  cursor: pointer;
-  background: #3B79BF;
-}
-
-#respuesta1, #respuesta2, #respuesta3, #respuesta4 {
   padding: 20px;
   border: 3px solid white;
   border-radius: 4px;
+  display: none;
+}
+
+#indiceRespuestaCorrecta {
+  display: none;
 }
 
 .tiempo {
@@ -69,5 +81,16 @@ header > h1 {
 
 img {
   width: 150px;
-  border-radius: 50%;
+}
+
+.logo_fuente{
+  display: grid;
+  position: relative;
+  justify-content: center;
+  transition: hover 0.3s ease;
+  transition: display 1s;
+}
+
+#logo {
+  position: absolute;
 }

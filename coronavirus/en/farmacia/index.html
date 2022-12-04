@@ -6,12 +6,13 @@
     <link rel="stylesheet" href="styles.css">
   </head>
   <body id="body">
+    <span id="id">farmacia_es</span>
     <div id="tiempoRestante">
       <div></div>
     </div>
 
-    <div class="correcta">
-      <span id="correcta">La respuesta es correcta</span>
+    <div class="pregunta">
+      <span id="pregunta"></span>
     </div>
 
     <div class="respuestas">
@@ -27,19 +28,17 @@
       <div class="respuesta">
         <p id="respuesta4">Respuesta 4</p>
       </div>
+      <div class="respuestaCorrecta">
+        <span id="indiceRespuestaCorrecta"></span>
+      </div>
+    </div>
+    <div class="logo_fuente">
+      <a id="pdf" href="/coronavirus/pdfscreen.html">
+        <span id="fuente"><img src="/coronavirus/imagenes/fuente.png" href=""></span>
+      </a>
+      <img id="logo" src="/coronavirus/imagenes/logo.png">
     </div>
 
-    <div class="logo">
-      <img src="imagenes/logo.png" alt="">
-    </div>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script>
-      $("#test").click(function() {
-          alert("Handler for .click() called.");
-        });
-    </script>
-    <script src="app.js" charset="utf-8"></script>
-
+    <script src="/coronavirus/app.js" charset="utf-8"></script>
   </body>
 </html>
