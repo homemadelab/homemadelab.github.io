@@ -170,11 +170,11 @@ async function main() {
   var j = 0;
 
   if((id.innerHTML).slice(0, -3) == "farmacia"){
-    indiceRespuestas = indiceRespuestasFarmacia[preguntaAleatoria];
+    indiceRespuestas = indiceRespuestasFarmacia;
   } else if((id.innerHTML).slice(0, -3) == "escuela"){
-    indiceRespuestas = indiceRespuestasEscuela[preguntaAleatoria];
+    indiceRespuestas = indiceRespuestasEscuela;
   } else if((id.innerHTML).slice(0, -3) == "zoologico"){
-    indiceRespuestas = indiceRespuestasZoologico[preguntaAleatoria];
+    indiceRespuestas = indiceRespuestasZoologico;
   }
 
   var indiceAleatorio = indiceRespuestas[preguntaAleatoria];
