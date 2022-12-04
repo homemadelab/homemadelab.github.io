@@ -162,10 +162,20 @@ async function main() {
   var preguntas = [];
   var respuestas = [];
   var opciones = [];
-  var indiceRespuestas = [0, 3, 5, 8, 11, 14, 16, 19, 22, 24, 27, 30, 33, 35, 38, 41, 43, 45, 47, 50, 53, 56, 59, 62, 65, 67, 70, 73, 76, 79];
+  var indiceRespuestasFarmacia = [0, 3, 5, 8, 11, 14, 16, 19, 22, 24, 27, 30, 33, 35, 38, 41, 43, 45, 47, 50, 53, 56, 59, 62, 65, 67, 70, 73, 76, 79];
+  var indiceRespuestasEscuela = [0, 3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78, 81, 84, 87];
+  var indiceRespuestasZoologico = [0, 3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78, 81, 84, 87];
   var preguntaAleatoria = aleatorizarPreguntas();
   var j = 0;
-  var indiceAleatorio = indiceRespuestas[preguntaAleatoria];
+
+  if((id.innerHTML).slice(0, -3) == "farmacia"){
+    var indiceAleatorio = indiceRespuestasFarmacia[preguntaAleatoria];
+  } else if((id.innerHTML).slice(0, -3) == "escuela"){
+    var indiceAleatorio = indiceRespuestasEscuela[preguntaAleatoria];
+  } else if((id.innerHTML).slice(0, -3) == "zoologico"){
+    var indiceAleatorio = indiceRespuestasZoologico[preguntaAleatoria];
+  }
+
 
   pdf.href = "/coronavirus/pdfs/" + (id.innerHTML).slice(0, -3) +"/" + (preguntaAleatoria+1).toString() + ".html"; // Redirijo a página de fuente
 
