@@ -16,6 +16,18 @@ body {
   background-attachment: fixed;
   background-color: #2f308b;
   transition: background 1s;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+@media print {
+  html,
+  body {
+    display: none;
+  }
 }
 
 img {
