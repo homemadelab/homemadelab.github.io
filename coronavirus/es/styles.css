@@ -115,7 +115,7 @@ header > h1 {
 img {
   width: 150px;
   display: grid;
-  margin: 2%;
+  padding-bottom: 1%;
 }
 
 .logo_fuente{
