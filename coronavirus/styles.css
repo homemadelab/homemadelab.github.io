@@ -3,6 +3,7 @@
 * {
   margin: 0;
   padding: 0;
+  user-select: none;
 }
 
 a {
@@ -91,9 +92,4 @@ video::-webkit-media-controls {
 .pdf img {
     pointer-events: none;
     width: 100%;
-}
-
-@-o-viewport {
-	width: 372px;
-	user-zoom: fixed;
 }
