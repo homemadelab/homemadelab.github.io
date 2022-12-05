@@ -12,15 +12,15 @@ a {
 }
 
 body {
-  margin: 0;
-  padding: 0;
+  margin: 0px;
+  padding: 0px;
   height: 100%;
+  width: 100%;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
   background-attachment: fixed;
   background-color: #2f308b;
-  transition: background 1s;
 }
 
 #id {
