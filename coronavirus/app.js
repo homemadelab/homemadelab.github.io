@@ -174,6 +174,22 @@ async function main() {
   var preguntaAleatoria = aleatorizarPreguntas();
   var j = 0;
 
+  // Desactivo pinch-to-zoom
+  document.addEventListener('touchmove', function (event) {
+    if (event.scale !== 1) { event.preventDefault();
+    }
+  }, false);
+
+  // Desactivo doble tap
+  var lastTouchEnd = 0;
+  document.addEventListener('touchend', function (event) {
+  var now = (new Date()).getTime();
+  if (now - lastTouchEnd <= 300) {
+    event.preventDefault();
+  }
+  lastTouchEnd = now;
+  }, false);
+
   if((id.innerHTML).slice(0, -3) == "casa"){
     indiceRespuestas = indiceRespuestasCasa;
   } else if((id.innerHTML).slice(0, -3) == "farmacia"){
