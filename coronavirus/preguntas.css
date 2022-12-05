@@ -122,8 +122,6 @@ img {
   display: grid;
   position: relative;
   justify-content: center;
-  transition: hover 0.3s ease;
-  transition: display 1s;
 }
 
 #logo {
@@ -131,5 +129,7 @@ img {
 }
 
 #fuente {
-  display: none;
+  opacity: 0;
+  transition: all 0.3s ease;
+  -webkit-transition: opacity 0.3s ease;
 }
