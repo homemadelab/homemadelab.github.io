@@ -21,9 +21,11 @@ function calcularTiempoRestante(tiempoRestante) {
     function tiempo() {
       if (width <= 0) { // Cuando el tiempo se termina
         setTimeout(function() {
+          document.body.style.transitionDuration = "0.3s";
           document.body.style.backgroundColor = '#F63E52'; // Cambio el fondo a rojo
           document.body.setAttribute('style', 'background-color:#F63E52 !important');
           document.getElementById("fuente").style.display = 'block';
+          document.getElementById("fuente").style.transitionDuration = '0.3s';
           document.getElementById("fuente").style.opacity = '1';
           mostrarOpciones(respuesta1, respuesta2, respuesta3, respuesta4);
         });
@@ -130,6 +132,7 @@ function verificarCorrecta(opcion, correcta, respuesta1, respuesta2, respuesta3,
   setTimeout(function(){ // Despues de 1 segundo de elegir muestro si las otras opciones son correctas o no
     mostrarOpciones(respuesta1, respuesta2, respuesta3, respuesta4);
     document.getElementById("fuente").style.display = 'block';
+    document.getElementById("fuente").style.transitionDuration = '0.3s';
     document.getElementById("fuente").style.opacity = '1';
   }, 1000);
 }
