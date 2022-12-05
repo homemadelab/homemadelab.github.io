@@ -21,6 +21,7 @@ body {
   background-position: center center;
   background-attachment: fixed;
   background-color: #2f308b;
+  transition: background-color 1s;
 }
 
 #id {
@@ -130,6 +131,6 @@ img {
 #fuente {
   display: none;
   opacity: 0;
-  transition: all 0.3s ease;
+  transition: opacity 0.3s ease;
   -webkit-transition: opacity 0.3s ease;
 }
