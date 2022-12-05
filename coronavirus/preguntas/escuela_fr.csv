@@ -20,11 +20,11 @@ Qu’est-ce que "virophage" veut dire?;Virus capable d’infecter d’autres vir
 Un virus peut-il infecter un autre virus?;Oui;Non;Non, parce qu'un virus n'a pas de machinerie cellulaire
 Quelle est la classe du SARS-CoV-2?;Pisonviricetes;Coronaviridae;Betacoronavireae
 Est-ce que tous les virus sont néfastes?;Non. Les bacteriophages infectent seulement les bactéries qui peuvent être dangereuses pour les humains;Non. Il y a de virus qui soignent certaines maladies chez l'homme;Oui
-Qu’est-ce que „ARN“ veut dire?;Acide ribonucléique;Acide ribinucléique;Acide désoxyribonucléique
-Qu’est-ce que „ADN“ veut dire?;Acide désoxyribonucléique;Acide désoxyribinucléique;Acide ribonucléique
-Qu’est-ce que „gène“ veut dire?;Unité d'hérédité;Unité d'ADN;Unité de génome
-Qu’est-ce que „génome“ veut dire?;Série de matériel génétique de l’organisme;Ensemble de gènes;Unité de matériel génétique
-Qu’est-ce que „bacteriophage“ veut dire?;Virus qui infectent des bactéries uniquement.;Virus créé exclusivement par des bactéries;Virus capable d'infecter bactéries
+Qu’est-ce que "ARN" veut dire?;Acide ribonucléique;Acide ribinucléique;Acide désoxyribonucléique
+Qu’est-ce que "ADN" veut dire?;Acide désoxyribonucléique;Acide désoxyribinucléique;Acide ribonucléique
+Qu’est-ce que "gène" veut dire?;Unité d'hérédité;Unité d'ADN;Unité de génome
+Qu’est-ce que "génome" veut dire?;Série de matériel génétique de l’organisme;Ensemble de gènes;Unité de matériel génétique
+Qu’est-ce que "bacteriophage" veut dire?;Virus qui infectent des bactéries uniquement.;Virus créé exclusivement par des bactéries;Virus capable d'infecter bactéries
 Quelle est la différence entre virus et virion?;Le terme virus désigne le processus d’infection virale, pendant que virion désigne, plus précisément, la particule virale produite après réplication;Le terme virus désigne le virus initial, pendant que virion désigne, les virus produits après réplication;Le terme virus désigne tous les virus de taille supérieure à 5 nanomètres, pendant que virion désigne tous les virus de taille inférieure à 5 nanomètres
 Quel est l'origine du mot virus?;Il vient du latin et veut dire "sécrétion vénéneuse";Il vient du grec et veut dire "sécrétion  vénéneuse";Il vient du latin et veut dire "microbe"
 Comment s’appelle l’ancêtre universal de toutes les cellules?;LUCA (Last Universal Common Ancestor);FUCA (First Universal Common Ancestor);UCA (Universal Common Ancestor)
