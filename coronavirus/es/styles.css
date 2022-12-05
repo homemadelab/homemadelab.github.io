@@ -119,7 +119,7 @@ img {
 }
 
 .logo_fuente{
-  display: grid;
+  display: none;
   position: relative;
   justify-content: center;
   transition: hover 0.3s ease;
