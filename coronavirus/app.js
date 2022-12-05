@@ -174,9 +174,6 @@ async function main() {
   var preguntaAleatoria = aleatorizarPreguntas();
   var j = 0;
 
-  var audio = new Audio("/coronavirus/audios/clock.mp3");
-  audio.play();
-
   if((id.innerHTML).slice(0, -3) == "casa"){
     indiceRespuestas = indiceRespuestasCasa;
   } else if((id.innerHTML).slice(0, -3) == "farmacia"){
