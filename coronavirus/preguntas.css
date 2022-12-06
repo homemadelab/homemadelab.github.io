@@ -128,12 +128,14 @@ img {
 #logo {
   display: none;
   position: absolute;
+  bottom: 0px;
 }
 
 #fuente {
   width: 100%;
   display: none;
   position: absolute;
+  bottom: 0px;
   opacity: 0;
   transition: opacity 0.3s;
   justify-content: center;
