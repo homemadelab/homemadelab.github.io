@@ -132,7 +132,6 @@ img {
 }
 
 #fuente img {
-  display: none;
   position: fixed;
   bottom: 0px;
   opacity: 0;
