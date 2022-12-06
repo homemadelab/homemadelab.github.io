@@ -138,4 +138,5 @@ img {
   opacity: 0;
   transition: opacity 0.3s;
   justify-content: center;
+  text-align:center;
 }
