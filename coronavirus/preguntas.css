@@ -127,16 +127,13 @@ img {
 
 #logo {
   display: none;
-  position: sticky;
-  bottom: 0px;
-  left: 0px;
+  position: absolute;
 }
 
 #fuente {
   width: 100%;
   display: none;
-  position: sticky;
-  bottom: 0px;
+  position: absolute;
   opacity: 0;
   transition: opacity 0.3s;
   justify-content: center;
