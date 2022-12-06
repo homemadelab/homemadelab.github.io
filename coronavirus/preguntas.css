@@ -129,6 +129,7 @@ img {
   display: none;
   position: sticky;
   bottom: 0px;
+  top: 0px;
 }
 
 #fuente {
