@@ -124,10 +124,10 @@ img {
 
 #logo {
   display: none;
-  position: sticky;
+  position: fixed;
   bottom: 0px;
   left: 0px;
-  padding-top: 2%;
+  padding-top: 100px;
 }
 
 #fuente {
