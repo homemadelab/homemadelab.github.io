@@ -11,6 +11,7 @@ const indiceRespuestaCorrecta = document.getElementById("indiceRespuestaCorrecta
 const respuestas_span = [respuesta1, respuesta2, respuesta3, respuesta4];
 const tiempoRestante_span = document.getElementById("tiempoRestante");
 const pdf = document.getElementById("pdf");
+document.getElementById("logo").style.display = 'block';
 
 function calcularTiempoRestante(tiempoRestante) {
   var i = 100;

@@ -119,20 +119,17 @@ img {
   padding-bottom: 1%;
 }
 
-.logo_fuente{
-  display: grid;
-  position: relative;
-  justify-content: center;
-}
-
 #logo {
-  position: absolute;
+  display: none;
+  position: fixed;
   bottom: 0px;
   left: 0px;
 }
 
 #fuente {
   display: none;
+  position: relative;
   opacity: 0;
   transition: opacity 0.3s;
+  justify-content: center;
 }
