@@ -127,7 +127,7 @@ img {
 
 #logo {
   display: none;
-  position: fixed;
+  position: sticky;
   bottom: 0px;
   left: 0px;
   padding-top: 100px;
@@ -136,7 +136,7 @@ img {
 #fuente {
   width: 100%;
   display: none;
-  position: fixed;
+  position: sticky;
   bottom: 0px;
   opacity: 0;
   transition: opacity 0.3s;
