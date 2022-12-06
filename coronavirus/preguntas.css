@@ -123,6 +123,8 @@ img {
 
 .logo_fuente {
   display: grid;
+  height: 150px;
+  padding: 2%;
 }
 
 #logo {
@@ -141,9 +143,4 @@ img {
   transition: opacity 0.3s;
   justify-content: center;
   text-align: center;
-}
-
-footer {
-  height: 150px;
-  padding: 2%;
 }
