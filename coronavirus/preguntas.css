@@ -137,7 +137,8 @@ img {
 
 #fuente {
   display: none;
-  position: relative;
+  position: fixed;
+  bottom: 0px;
   opacity: 0;
   transition: opacity 0.3s;
   justify-content: center;
