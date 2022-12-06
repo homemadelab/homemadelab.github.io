@@ -124,6 +124,7 @@ img {
   position: fixed;
   bottom: 0px;
   left: 0px;
+  padding-top: 100px;
 }
 
 #fuente {
