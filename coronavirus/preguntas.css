@@ -113,6 +113,10 @@ header > h1 {
   font-size: 20px;
 }
 
+#tiempoRestante {
+  position: fixed;
+}
+
 img {
   width: 150px;
   display: grid;
