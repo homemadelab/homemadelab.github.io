@@ -151,5 +151,5 @@ img {
 footer {
   height: 150px;
   bottom: 0px;
-  position: fixed;
+  position: absolute;
 }
