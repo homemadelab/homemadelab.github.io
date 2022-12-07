@@ -1,7 +1,6 @@
 var correcta = false;
 var seleccionada = false;
 const body = document.getElementById("body");
-const id = obtenerCategoria(id);
 const pregunta = document.getElementById("pregunta");
 const respuesta1 = document.getElementById("respuesta1");
 const respuesta2 = document.getElementById("respuesta2");
@@ -165,6 +164,7 @@ function mostrarOpciones(respuesta1, respuesta2, respuesta3, respuesta4){
 }
 
 async function main() {
+  const id = obtenerCategoria(id);
   var preguntas = [];
   var respuestas = [];
   var opciones = [];
@@ -180,27 +180,27 @@ async function main() {
   var preguntaAleatoria = aleatorizarPreguntas();
   var j = 0;
 
-  if((id.innerHTML).slice(0, -3) == "casa"){
+  if((id).slice(0, -3) == "casa"){
     indiceRespuestas = indiceRespuestasCasa;
-  } else if((id.innerHTML).slice(0, -3) == "farmacia"){
+  } else if((id).slice(0, -3) == "farmacia"){
     indiceRespuestas = indiceRespuestasFarmacia;
-  } else if((id.innerHTML).slice(0, -3) == "hospital"){
+  } else if((id).slice(0, -3) == "hospital"){
     indiceRespuestas = indiceRespuestasHospital;
-  } else if((id.innerHTML).slice(0, -3) == "supermercado"){
+  } else if((id).slice(0, -3) == "supermercado"){
     indiceRespuestas = indiceRespuestasSupermercado;
-  } else if((id.innerHTML).slice(0, -3) == "escuela"){
+  } else if((id).slice(0, -3) == "escuela"){
     indiceRespuestas = indiceRespuestasEscuela;
-  } else if((id.innerHTML).slice(0, -3) == "banco"){
+  } else if((id).slice(0, -3) == "banco"){
     indiceRespuestas = indiceRespuestasBanco;
-  } else if((id.innerHTML).slice(0, -3) == "Laboratorio"){
+  } else if((id).slice(0, -3) == "Laboratorio"){
     indiceRespuestas = indiceRespuestasLaboratorio;
-  } else if((id.innerHTML).slice(0, -3) == "Zoologico"){
+  } else if((id).slice(0, -3) == "Zoologico"){
     indiceRespuestas = indiceRespuestasZoologico;
   }
 
   var indiceAleatorio = indiceRespuestas[preguntaAleatoria];
 
-  pdf.href = "/coronavirus/pdfs/" + (id.innerHTML).slice(0, -3) +"/" + (preguntaAleatoria+1).toString(); // Redirijo a página de fuente
+  pdf.href = "/coronavirus/pdfs/" + (id).slice(0, -3) +"/" + (preguntaAleatoria+1).toString(); // Redirijo a página de fuente
 
   indiceRespuestaCorrecta.innerHTML = indiceAleatorio;
   console.log("Pregunta", preguntaAleatoria+1);
