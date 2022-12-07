@@ -43,8 +43,7 @@ function calcularTiempoRestante(tiempoRestante) {
 }
 
 function obtenerCategoria(id){
-  console.log(id
-  location.href = '/coronavirus/play';
+  console.log(id)
   return id;
 }
 
