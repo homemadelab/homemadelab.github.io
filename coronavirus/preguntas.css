@@ -133,23 +133,17 @@ img {
 
 #logo {
   display: none;
-  position: static;
+  position: fixed;
   bottom: 0px;
 }
 
 #fuente {
   width: 100%;
   display: none;
-  position: static;
+  position: fixed;
   bottom: 0px;
   opacity: 0;
   transition: opacity 0.3s;
   justify-content: center;
   text-align: center;
-}
-
-footer {
-  height: 150px;
-  bottom: 0px;
-  position: absolute;
 }
