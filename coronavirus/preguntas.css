@@ -125,12 +125,6 @@ img {
   padding-bottom: 1%;
 }
 
-.logo_fuente {
-  display: grid;
-  height: 150px;
-  padding: 2%;
-}
-
 #logo {
   display: none;
   position: fixed;
