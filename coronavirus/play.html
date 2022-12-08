@@ -6,12 +6,9 @@
     <link rel="stylesheet" href="/coronavirus/preguntas.css">
   </head>
   <body id="body">
-    <script src="/coronavirus/app.js" charset="utf-8"></script>
+
     <span id="id"></span>
-    <script type="text/javascript">
-      console.log(localStorage.getItem("id"));
-      obtenerCategoria(localStorage.getItem("id"));
-    </script>
+
     <div id="tiempoRestante">
       <div></div>
     </div>
@@ -43,5 +40,10 @@
       </a>
       <img id="logo" src="/coronavirus/imagenes/logo.png">
     </div>
+    <script src="/coronavirus/app.js" charset="utf-8"></script>
+    <script type="text/javascript">
+      console.log(localStorage.getItem("id"));
+      obtenerCategoria(localStorage.getItem("id"));
+    </script>
   </body>
 </html>
