@@ -165,6 +165,7 @@ function mostrarOpciones(respuesta1, respuesta2, respuesta3, respuesta4){
 
 async function main() {
   const id = localStorage.getItem("id");
+  console.log(id);
   var preguntas = [];
   var respuestas = [];
   var opciones = [];
