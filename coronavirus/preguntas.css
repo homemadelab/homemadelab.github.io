@@ -42,6 +42,19 @@ body {
   font-weight: bold;
 }
 
+button {
+  margin: 2%;
+  border: 3px solid white;
+  border-radius: 4px;
+  text-align: center;
+  width: auto;
+  padding: 20px;
+  color: white;
+  font-size: 500%;
+  font-family: Asap, sans-serif;
+  display: block;
+}
+
 #casa, #farmacia, #hospital, #supermercado, #escuela, #banco, #laboratorio, #zoologico {
   margin: 2%;
   border: 3px solid white;
