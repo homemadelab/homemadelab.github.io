@@ -160,14 +160,9 @@ function mostrarOpciones(respuesta1, respuesta2, respuesta3, respuesta4){
 
 async function main() {
   const id = localStorage.getItem("id");
-  try {
-    const categoria = (id).slice(0, -3);
-  } catch (e) {
-    alert("There was an error, try selecting the category again.")
-  }
+  const categoria = (id).slice(0, -3);
 
   console.log(id);
-  const categorias = ["casa", "farmacia", "hospital", "supermercado", "escuela", "banco", "laboratorio", "zoologico"];
   var preguntas = [];
   var respuestas = [];
   var opciones = [];
