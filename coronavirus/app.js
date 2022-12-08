@@ -164,7 +164,7 @@ function mostrarOpciones(respuesta1, respuesta2, respuesta3, respuesta4){
 }
 
 async function main() {
-  const id = obtenerCategoria(id);
+  const id = localStorage.getItem("id");
   var preguntas = [];
   var respuestas = [];
   var opciones = [];
