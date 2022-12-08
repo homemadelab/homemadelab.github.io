@@ -164,11 +164,10 @@ async function main() {
     const categoria = (id).slice(0, -3);
   } catch (e) {
     alert("There was an error, try selecting the category again.")
-  } finally {
-
   }
 
   console.log(id);
+  const categorias = ["casa", "farmacia", "hospital", "supermercado", "escuela", "banco", "laboratorio", "zoologico"];
   var preguntas = [];
   var respuestas = [];
   var opciones = [];
@@ -184,22 +183,33 @@ async function main() {
   var preguntaAleatoria = aleatorizarPreguntas();
   var j = 0;
 
-  if(categoria == "casa"){
-    indiceRespuestas = indiceRespuestasCasa;
-  } else if(categoria == "farmacia"){
-    indiceRespuestas = indiceRespuestasFarmacia;
-  } else if(categoria == "hospital"){
-    indiceRespuestas = indiceRespuestasHospital;
-  } else if(categoria == "supermercado"){
-    indiceRespuestas = indiceRespuestasSupermercado;
-  } else if(categoria == "escuela"){
-    indiceRespuestas = indiceRespuestasEscuela;
-  } else if(categoria == "banco"){
-    indiceRespuestas = indiceRespuestasBanco;
-  } else if(categoria == "Laboratorio"){
-    indiceRespuestas = indiceRespuestasLaboratorio;
-  } else if(categoria == "Zoologico"){
-    indiceRespuestas = indiceRespuestasZoologico;
+  switch(categoria) {
+    case "casa":
+      indiceRespuestas = indiceRespuestasCasa;
+      break;
+    case "farmacia":
+      indiceRespuestas = indiceRespuestasFarmacia;
+      break;
+    case "hospital":
+      indiceRespuestas = indiceRespuestasHospital;
+      break;
+    case "supermercado":
+      indiceRespuestas = indiceRespuestasSupermercado;
+      break;
+    case "escuela":
+      indiceRespuestas = indiceRespuestasEscuela;
+      break;
+    case "banco":
+      indiceRespuestas = indiceRespuestasBanco;
+      break;
+    case "laboratorio":
+      indiceRespuestas = indiceRespuestasLaboratorio;
+      break;
+    case "zoologico":
+      indiceRespuestas = indiceRespuestasZoologico;
+      break;
+    default:
+      alert("There was an error, try selecting the category again.")
   }
 
   var indiceAleatorio = indiceRespuestas[preguntaAleatoria];
