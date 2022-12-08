@@ -160,6 +160,14 @@ function mostrarOpciones(respuesta1, respuesta2, respuesta3, respuesta4){
 
 async function main() {
   const id = localStorage.getItem("id");
+  try {
+    const categoria = (id).slice(0, -3);
+  } catch (e) {
+    alert("There was an error, try selecting the category again.")
+  } finally {
+
+  }
+
   console.log(id);
   var preguntas = [];
   var respuestas = [];
@@ -176,21 +184,21 @@ async function main() {
   var preguntaAleatoria = aleatorizarPreguntas();
   var j = 0;
 
-  if((id).slice(0, -3) == "casa"){
+  if(categoria == "casa"){
     indiceRespuestas = indiceRespuestasCasa;
-  } else if((id).slice(0, -3) == "farmacia"){
+  } else if(categoria == "farmacia"){
     indiceRespuestas = indiceRespuestasFarmacia;
-  } else if((id).slice(0, -3) == "hospital"){
+  } else if(categoria == "hospital"){
     indiceRespuestas = indiceRespuestasHospital;
-  } else if((id).slice(0, -3) == "supermercado"){
+  } else if(categoria == "supermercado"){
     indiceRespuestas = indiceRespuestasSupermercado;
-  } else if((id).slice(0, -3) == "escuela"){
+  } else if(categoria == "escuela"){
     indiceRespuestas = indiceRespuestasEscuela;
-  } else if((id).slice(0, -3) == "banco"){
+  } else if(categoria == "banco"){
     indiceRespuestas = indiceRespuestasBanco;
-  } else if((id).slice(0, -3) == "Laboratorio"){
+  } else if(categoria == "Laboratorio"){
     indiceRespuestas = indiceRespuestasLaboratorio;
-  } else if((id).slice(0, -3) == "Zoologico"){
+  } else if(categoria == "Zoologico"){
     indiceRespuestas = indiceRespuestasZoologico;
   }
 
