@@ -42,13 +42,8 @@ function calcularTiempoRestante(tiempoRestante) {
   }
 }
 
-function obtenerCategoria(id){
-  console.log(id)
-  return id;
-}
-
 async function obtenerArchivo() {
-  const archivo = await fetch("/coronavirus/preguntas/" + id.innerHTML + ".csv"); // Recibo el archivo con las preguntas y respuestas
+  const archivo = await fetch("/coronavirus/preguntas/" + id.toString() + ".csv"); // Recibo el archivo con las preguntas y respuestas
   const datos = await archivo.text(); // Convierto el archivo a texto
   const tabla = datos.split("\n"); // Separo las preguntas
   return Promise.resolve(tabla);
