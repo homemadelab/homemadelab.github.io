@@ -42,7 +42,7 @@ function calcularTiempoRestante(tiempoRestante) {
   }
 }
 
-async function obtenerArchivo() {
+async function obtenerArchivo(id) {
   const archivo = await fetch("/coronavirus/preguntas/" + id.toString() + ".csv"); // Recibo el archivo con las preguntas y respuestas
   const datos = await archivo.text(); // Convierto el archivo a texto
   const tabla = datos.split("\n"); // Separo las preguntas
@@ -205,8 +205,8 @@ async function main() {
   respuestas_span[2].style.display = 'none';
   respuestas_span[3].style.display = 'none';
 
-  preguntas = obtenerPreguntas(await obtenerArchivo());
-  respuestas = obtenerRespuestas(await obtenerArchivo());
+  preguntas = obtenerPreguntas(await obtenerArchivo(id));
+  respuestas = obtenerRespuestas(await obtenerArchivo(id));
 
   pregunta.innerHTML = preguntas[preguntaAleatoria];
 
