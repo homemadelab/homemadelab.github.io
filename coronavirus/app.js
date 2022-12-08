@@ -178,7 +178,7 @@ async function main() {
   var preguntaAleatoria = aleatorizarPreguntas();
   var j = 0;
 
-  switch(categoria) {
+  switch(categoria){
     case "casa":
       indiceRespuestas = indiceRespuestasCasa;
       break;
