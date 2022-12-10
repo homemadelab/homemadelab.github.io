@@ -86,7 +86,11 @@ header > h1 {
   justify-content: space-around;
 }
 
+<<<<<<< HEAD
 #dado {
+=======
+#die {
+>>>>>>> 5a7f4b1d0579add632ffb763d8607fee8ee0d251
   width: 150px;
 }
 
