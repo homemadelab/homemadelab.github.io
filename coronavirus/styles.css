@@ -79,19 +79,21 @@ header > h1 {
 }
 
 .dice-wrapper {
+    margin: 2%;
+    margin-top: 10%;
     width: 100%;
     display: flex;
     justify-content: space-around;
 }
 
-@keyframes shake{
-    0%{
+@keyframes shake {
+    0% {
         transform: rotate(6deg);
     }
-    50%{
+    50% {
         transform: rotate(-6deg);
     }
-    100%{
+    100% {
         transform: rotate(6deg);
     }
 }
