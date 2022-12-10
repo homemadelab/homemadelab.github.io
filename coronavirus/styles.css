@@ -75,27 +75,31 @@ header > h1 {
 }
 
 .shake {
-    animation: shake 0.5s infinite;
+  animation: shake 0.5s infinite;
 }
 
 .dice-wrapper {
-    margin: 2%;
-    margin-top: 10%;
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
+  margin: 2%;
+  margin-top: 10%;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+#die {
+  width: 150px;
 }
 
 @keyframes shake {
-    0% {
-        transform: rotate(6deg);
-    }
-    50% {
-        transform: rotate(-6deg);
-    }
-    100% {
-        transform: rotate(6deg);
-    }
+  0% {
+      transform: rotate(6deg);
+  }
+  50% {
+      transform: rotate(-6deg);
+  }
+  100% {
+      transform: rotate(6deg);
+  }
 }
 
 .video-js {
