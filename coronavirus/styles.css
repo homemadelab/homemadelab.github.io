@@ -75,36 +75,13 @@ header > h1 {
 }
 
 .dice-wrapper {
-    width: 90%;
+    width: 100%;
     display: flex;
     justify-content: space-around;
 }
 
 .shake {
     animation: shake 0.5s infinite;
-}
-
-#total-dado {
-    font-size: 16px;
-    margin: 30px 0;
-    font-weight: 500;
-    font-family: Asap, sans-serif;
-    color: #ffffff;
-}
-
-#boton-dado {
-    margin: 2%;
-    padding: 2%;
-    background-color: #ffffff;
-    border: none;
-    outline: none;
-    color: #2f308b;
-    width: 150px;
-    letter-spacing: 1px;
-    border-radius: 5px;
-    cursor: pointer;
-    text-align: center;
-    font-family: Asap, sans-serif;
 }
 
 @keyframes shake{
