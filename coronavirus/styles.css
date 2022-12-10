@@ -74,12 +74,6 @@ header > h1 {
   font-size: 20px;
 }
 
-.dice-wrapper {
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-}
-
 .shake {
     animation: shake 0.5s infinite;
 }
