@@ -91,26 +91,27 @@ header > h1 {
 }
 
 button {
-    background-color: #e92e3d;
+    background-color: #ffffff;
     border: none;
     outline: none;
-    color: #ffffff;
+    color: #2f308b;
     padding: 15px 0;
     width: 150px;
     letter-spacing: 1px;
     border-radius: 5px;
     cursor: pointer;
+    text-align: center;
 }
 
 @keyframes shake{
     0%{
-        transform: rotate(8deg);
+        transform: rotate(6deg);
     }
     50%{
-        transform: rotate(-8deg);
+        transform: rotate(-6deg);
     }
     100%{
-        transform: rotate(8deg);
+        transform: rotate(6deg);
     }
 }
 
