@@ -94,11 +94,11 @@ header > h1 {
 
 #boton-dado {
     margin: 2%;
+    padding: 2%;
     background-color: #ffffff;
     border: none;
     outline: none;
     color: #2f308b;
-    padding: 15px 0;
     width: 150px;
     letter-spacing: 1px;
     border-radius: 5px;

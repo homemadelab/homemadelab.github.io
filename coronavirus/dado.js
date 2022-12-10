@@ -17,7 +17,6 @@ function roll(){
         let valorDado = Math.floor(Math.random() * 6);
         console.log(valorDado);
         document.querySelector("#die").setAttribute("src", "/coronavirus/imagenes/" + images[valorDado]);
-        document.querySelector("#total-dado").innerHTML = "Your roll is " + (valorDado + 1);
     },
     1000
     );
