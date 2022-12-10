@@ -91,6 +91,7 @@ header > h1 {
 }
 
 button {
+    margin: 2%;
     background-color: #ffffff;
     border: none;
     outline: none;
@@ -101,6 +102,7 @@ button {
     border-radius: 5px;
     cursor: pointer;
     text-align: center;
+    font-family: Asap, sans-serif;
 }
 
 @keyframes shake{
