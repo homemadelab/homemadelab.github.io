@@ -243,7 +243,6 @@ async function main() {
     else {
       opciones[j] = respuestas[i];
     }
-
     j++;
   }
 

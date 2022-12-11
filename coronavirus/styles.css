@@ -80,7 +80,7 @@ header > h1 {
 
 .dice-wrapper {
   margin: 2%;
-  margin-top: 10%;
+  margin-top: 30%;
   margin-left: 0px;
   width: 100%;
   display: flex;
@@ -93,13 +93,13 @@ header > h1 {
 
 @keyframes shake {
   0% {
-      transform: rotate(6deg);
+      transform: rotate(8deg);
   }
   50% {
-      transform: rotate(-6deg);
+      transform: rotate(-8deg);
   }
   100% {
-      transform: rotate(6deg);
+      transform: rotate(8deg);
   }
 }
 
