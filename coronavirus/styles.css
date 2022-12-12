@@ -81,9 +81,9 @@ header > h1 {
 }
 
 .container {
-  width: 100%;
   position: relative;
   display: inline-block;
+  top: 200px;
 }
 
 .dice {
@@ -103,9 +103,8 @@ header > h1 {
   box-shadow: inset 2px 2px #242469;}
 
 .dice-one {
-  width: 100%;
-  margin-left: 50%;
-  margin-top: 30%;
+  left: 450px;
+  top: -200px;
 }
 
 .side {
@@ -120,8 +119,7 @@ header > h1 {
 }
 
 .side:nth-child(1) {
-  transform: translateZ(3.1em);
-}
+  transform: translateZ(3.1em); }
 
 .side:nth-child(6) {
   transform: rotateY(90deg) translateZ(3.1em); }
@@ -140,33 +138,27 @@ header > h1 {
 
 .two-1, .three-1, .four-1, .five-1, .six-1 {
   top: 20%;
-  left: 20%;
-}
+  left: 20%; }
 
 .four-3, .five-3, .six-4 {
   top: 20%;
-  left: 80%;
-}
+  left: 80%; }
 
 .one-1, .three-2, .five-5 {
   top: 50%;
-  left: 50%;
-}
+  left: 50%; }
 
 .four-2, .five-2, .six-3 {
   top: 80%;
-  left: 20%;
-}
+  left: 20%; }
 
 .two-2, .three-3, .four-4, .five-4, .six-6 {
   top: 80%;
-  left: 80%;
-}
+  left: 80%; }
 
 .six-2 {
   top: 50%;
-  left: 20%;
-}
+  left: 20%; }
 
 .six-5 {
   top: 50%;
