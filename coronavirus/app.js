@@ -80,11 +80,11 @@ function obtenerRespuestas(tabla){
   return respuestas;
 }
 
-function aleatorizarPreguntas() {
-  return Math.floor(Math.random() * 30); // Cantidad de preguntas
+function aleatorizarPreguntas(cantPreguntas) {
+  return Math.floor(Math.random() * cantPreguntas);
 }
 
-function aleatorizarRepuestas(opciones) {
+function aleatorizarRespuestas(opciones) {
   var indiceActual = opciones.length,  indiceAleatorio;
 
   // Mientras haya elementos para aleatorizar
@@ -175,38 +175,46 @@ async function main() {
   var indiceRespuestasBanco = [0, 3, 5, 8, 11, 14, 16, 19, 22, 24, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78, 81, 84, 87];
   var indiceRespuestasLaboratorio = [0, 3, 5, 8, 11, 14, 16, 19, 22, 24, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78, 81, 84, 87];
   var indiceRespuestasZoologico = [0, 3, 6, 9, 12];
-  var preguntaAleatoria = aleatorizarPreguntas();
   var j = 0;
 
   switch(categoria){
     case "casa":
       indiceRespuestas = indiceRespuestasCasa;
+      cantPreguntas = indiceRespuestasCasa.length;
       break;
     case "farmacia":
       indiceRespuestas = indiceRespuestasFarmacia;
+      cantPreguntas = indiceRespuestasFarmacia.length;
       break;
     case "hospital":
       indiceRespuestas = indiceRespuestasHospital;
+      cantPreguntas = indiceRespuestasHospital.length;
       break;
     case "supermercado":
       indiceRespuestas = indiceRespuestasSupermercado;
+      cantPreguntas = indiceRespuestasSupermercado.length;
       break;
     case "escuela":
       indiceRespuestas = indiceRespuestasEscuela;
+      cantPreguntas = indiceRespuestasEscuela.length;
       break;
     case "banco":
       indiceRespuestas = indiceRespuestasBanco;
+      cantPreguntas = indiceRespuestasBanco.length;
       break;
     case "laboratorio":
       indiceRespuestas = indiceRespuestasLaboratorio;
+      cantPreguntas = indiceRespuestasLaboratorio.length;
       break;
     case "zoologico":
       indiceRespuestas = indiceRespuestasZoologico;
+      cantPreguntas = indiceRespuestasZoologico.length;
       break;
     default:
       alert("There was an error, try selecting the category again.")
   }
 
+  var preguntaAleatoria = aleatorizarPreguntas(cantPreguntas);
   var indiceAleatorio = indiceRespuestas[preguntaAleatoria];
 
   pdf.href = "/coronavirus/pdfs/" + (id).slice(0, -3) +"/" + (preguntaAleatoria+1).toString(); // Redirijo a página de fuente
@@ -246,7 +254,7 @@ async function main() {
     j++;
   }
 
-  opciones = aleatorizarRepuestas(opciones);
+  opciones = aleatorizarRespuestas(opciones);
 
   for (var k = 0; k < opciones.length; k++) {
     respuestas_span[k].style.display = 'block';
