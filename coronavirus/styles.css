@@ -103,8 +103,9 @@ header > h1 {
   box-shadow: inset 2px 2px #242469;}
 
 .dice-one {
-  left: 450px;
-  top: -200px;
+  width: 100%;
+  margin-left: 50%;
+  margin-top: 30%;
 }
 
 .side {
