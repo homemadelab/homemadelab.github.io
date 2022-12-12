@@ -1,6 +1,6 @@
 var elDiceOne = document.getElementById('dice1');
 
-setTimeout(function rollDice() {
+function rollDice() {
 
   var diceOne = Math.floor((Math.random() * 6) + 1);
 
@@ -12,5 +12,5 @@ setTimeout(function rollDice() {
       elDiceOne.classList.add('show-' + i);
     }
   }
-
-}, 1000);
+  setTimeout(rollDice(), 1000);
+}
