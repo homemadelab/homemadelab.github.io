@@ -1,5 +1,5 @@
 var elDiceOne = document.getElementById('dice1');
-var elComeOut       = document.getElementById('roll');
+var elComeOut = document.getElementById('roll');
 
 elComeOut.onclick = function() {
   rollDice();
