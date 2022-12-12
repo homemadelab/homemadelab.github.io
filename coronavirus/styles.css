@@ -101,7 +101,8 @@ header > h1 {
   margin: -20px 10px 10px -20px;
   border-radius: 40px;
   background-color: #35368f;
-  box-shadow: inset 4px 4px #242469;}
+  box-shadow: inset 4px 4px #242469;
+}
 
 .dice-one {
   left: 350px;
@@ -119,46 +120,58 @@ header > h1 {
 }
 
 .side:nth-child(1) {
-  transform: translateZ(6.2em); }
+  transform: translateZ(6.2em);
+}
 
 .side:nth-child(6) {
-  transform: rotateY(90deg) translateZ(6.2em); }
+  transform: rotateY(90deg) translateZ(6.2em);
+}
 
 .side:nth-child(3) {
-  transform: rotateY(-90deg) translateZ(6.2em); }
+  transform: rotateY(-90deg) translateZ(6.2em);
+}
 
 .side:nth-child(4) {
-  transform: rotateX(90deg) translateZ(6.2em); }
+  transform: rotateX(90deg) translateZ(6.2em);
+}
 
 .side:nth-child(5) {
-  transform: rotateX(-90deg) translateZ(6.2em); }
+  transform: rotateX(-90deg) translateZ(6.2em);
+}
 
 .side:nth-child(2) {
-  transform: rotateY(-180deg) translateZ(6.2em); }
+  transform: rotateY(-180deg) translateZ(6.2em);
+}
 
 .two-1, .three-1, .four-1, .five-1, .six-1 {
   top: 20%;
-  left: 20%; }
+  left: 20%;
+}
 
 .four-3, .five-3, .six-4 {
   top: 20%;
-  left: 80%; }
+  left: 80%;
+}
 
 .one-1, .three-2, .five-5 {
   top: 50%;
-  left: 50%; }
+  left: 50%;
+}
 
 .four-2, .five-2, .six-3 {
   top: 80%;
-  left: 20%; }
+  left: 20%;
+}
 
 .two-2, .three-3, .four-4, .five-4, .six-6 {
   top: 80%;
-  left: 80%; }
+  left: 80%;
+}
 
 .six-2 {
   top: 50%;
-  left: 20%; }
+  left: 20%;
+}
 
 .six-5 {
   top: 50%;
