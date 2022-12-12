@@ -110,7 +110,7 @@ header > h1 {
 .side {
   position: absolute;
   background-color: #ffffff;
-  border-radius:5px;
+  border-radius:10px;
   width: 200px;
   height: 200px;
   border: 2px solid #e5e5e5;
@@ -119,22 +119,22 @@ header > h1 {
 }
 
 .side:nth-child(1) {
-  transform: translateZ(3.1em); }
+  transform: translateZ(6.2em); }
 
 .side:nth-child(6) {
-  transform: rotateY(90deg) translateZ(3.1em); }
+  transform: rotateY(90deg) translateZ(6.2em); }
 
 .side:nth-child(3) {
-  transform: rotateY(-90deg) translateZ(3.1em); }
+  transform: rotateY(-90deg) translateZ(6.2em); }
 
 .side:nth-child(4) {
-  transform: rotateX(90deg) translateZ(3.1em); }
+  transform: rotateX(90deg) translateZ(6.2em); }
 
 .side:nth-child(5) {
-  transform: rotateX(-90deg) translateZ(3.1em); }
+  transform: rotateX(-90deg) translateZ(6.2em); }
 
 .side:nth-child(2) {
-  transform: rotateY(-180deg) translateZ(3.1em); }
+  transform: rotateY(-180deg) translateZ(6.2em); }
 
 .two-1, .three-1, .four-1, .five-1, .six-1 {
   top: 20%;
