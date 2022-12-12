@@ -1,7 +1,11 @@
 var elDiceOne = document.getElementById('dice1');
+var elComeOut       = document.getElementById('roll');
+
+elComeOut.onclick = function() {
+  rollDice();
+};
 
 function rollDice() {
-
   var diceOne = Math.floor((Math.random() * 6) + 1);
 
   console.log(diceOne);
