@@ -1,24 +1,28 @@
-let images = ["dado1.svg",
-"dado2.svg",
-"dado3.svg",
-"dado4.svg",
-"dado5.svg",
-"dado6.svg"];
-let dado = document.querySelectorAll("img");
+var elDiceOne = document.getElementById('dice1');
+var elDiceTwo = document.getElementById('dice2');
+var elComeOut = document.getElementById('roll');
 
-function roll(){
-    dado.forEach(function(die){
-        die.classList.add("shake");
-    });
-    setTimeout(function(){
-        dado.forEach(function(die){
-            die.classList.remove("shake");
-        });
-        let valorDado = Math.floor(Math.random() * 6);
-        console.log(valorDado);
-        document.querySelector("#dado").setAttribute("src", "/coronavirus/imagenes/" + images[valorDado]);
-    },
-    1000
-    );
+elComeOut.onclick = function () {rollDice();};
+
+function rollDice() {
+
+  var diceOne   = Math.floor((Math.random() * 6) + 1);
+  var diceTwo   = Math.floor((Math.random() * 6) + 1);
+
+  console.log(diceOne + ' ' + diceTwo);
+
+  for (var i = 1; i <= 6; i++) {
+    elDiceOne.classList.remove('show-' + i);
+    if (diceOne === i) {
+      elDiceOne.classList.add('show-' + i);
+    }
+  }
+
+  for (var k = 1; k <= 6; k++) {
+    elDiceTwo.classList.remove('show-' + k);
+    if (diceTwo === k) {
+      elDiceTwo.classList.add('show-' + k);
+    }
+  }
+  setTimeout(rollDice(), 1000);
 }
-roll();
