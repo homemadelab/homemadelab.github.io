@@ -135,15 +135,11 @@ img {
 
 #logo {
   display: none;
-  position: fixed;
-  bottom: 0px;
 }
 
 #fuente {
   width: 100%;
   display: none;
-  position: fixed;
-  bottom: 0px;
   opacity: 0;
   transition: opacity 0.3s;
   justify-content: center;
