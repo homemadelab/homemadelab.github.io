@@ -27,6 +27,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  overflow: auto;
 }
 
 .wrapper {
@@ -137,6 +138,7 @@ img {
   display: flex;
   justify-content: space-between;
   align-items: stretch;
+  overflow: auto;
 }
 
 #logo {
