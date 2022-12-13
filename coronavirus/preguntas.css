@@ -133,6 +133,11 @@ img {
   padding-bottom: 1%;
 }
 
+.logo_fuente {
+  display: flex;
+  justify-content: space-between;
+}
+
 #logo {
   display: none;
 }
