@@ -136,7 +136,7 @@ img {
 .logo_fuente {
   display: flex;
   justify-content: space-between;
-  bottom: 0px;
+  margin-bottom: 150px;
 }
 
 #logo {
