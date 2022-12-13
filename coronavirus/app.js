@@ -209,7 +209,6 @@ async function main() {
     case "zoologico":
       indiceRespuestas = indiceRespuestasZoologico;
       cantPreguntas = indiceRespuestasZoologico.length;
-      console.log(cantPreguntas);
       break;
     default:
       alert("There was an error, try selecting the category again.")
