@@ -6,43 +6,42 @@
     <link rel="stylesheet" href="/coronavirus/preguntas.css">
   </head>
   <body id="body">
-    <canvas id="canvas" width="100%" height="100dvh">
-      <span id="id"></span>
+    <canvas id="canvas" width="100%" height="100dvh"></canvas>
+    <span id="id"></span>
 
-      <div id="tiempoRestante">
-        <div></div>
+    <div id="tiempoRestante">
+      <div></div>
+    </div>
+    <div class="wrapper">
+      <div class="pregunta">
+        <span id="pregunta"></span>
       </div>
-      <div class="wrapper">
-        <div class="pregunta">
-          <span id="pregunta"></span>
-        </div>
 
-        <div class="respuestas">
-          <div class="respuesta">
-            <p id="respuesta1"></p>
-          </div>
-          <div class="respuesta">
-            <p id="respuesta2"></p>
-          </div>
-          <div class="respuesta">
-            <p id="respuesta3"></p>
-          </div>
-          <div class="respuesta">
-            <p id="respuesta4"></p>
-          </div>
-          <div class="respuestaCorrecta">
-            <span id="indiceRespuestaCorrecta"></span>
-          </div>
+      <div class="respuestas">
+        <div class="respuesta">
+          <p id="respuesta1"></p>
+        </div>
+        <div class="respuesta">
+          <p id="respuesta2"></p>
+        </div>
+        <div class="respuesta">
+          <p id="respuesta3"></p>
+        </div>
+        <div class="respuesta">
+          <p id="respuesta4"></p>
+        </div>
+        <div class="respuestaCorrecta">
+          <span id="indiceRespuestaCorrecta"></span>
         </div>
       </div>
-      <div class="logo_fuente">
-        <img id="logo" src="/coronavirus/imagenes/logo.png">
-        <a id="pdf" href="">
-          <span id="fuente"><img src="/coronavirus/imagenes/fuente.png" href=""></span>
-        </a>
-        <span id="space"></span>
-      </div>
-    </canvas>
+    </div>
+    <div class="logo_fuente">
+      <img id="logo" src="/coronavirus/imagenes/logo.png">
+      <a id="pdf" href="">
+        <span id="fuente"><img src="/coronavirus/imagenes/fuente.png" href=""></span>
+      </a>
+      <span id="space"></span>
+    </div>
     <script src="/coronavirus/app.js" charset="utf-8"></script>
   </body>
 </html>
