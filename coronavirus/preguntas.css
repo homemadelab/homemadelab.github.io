@@ -142,6 +142,7 @@ img {
   justify-content: space-between;
   align-items: stretch;
   overflow: auto;
+  bottom: -150px;
 }
 
 #logo {
