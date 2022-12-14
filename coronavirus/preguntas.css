@@ -126,7 +126,6 @@ header > h1 {
 
 img {
   width: 150px;
-  height: 150px;
   padding-bottom: 1%;
 }
 
@@ -135,7 +134,8 @@ img {
   justify-content: space-between;
   align-items: stretch;
   overflow: auto;
-  height: 160px;
+  position: fixed;
+  bottom: 0;
 }
 
 #logo {
