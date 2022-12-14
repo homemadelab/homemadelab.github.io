@@ -19,7 +19,7 @@ a {
 body {
   margin: 0px;
   padding: 0px;
-  height: 100%;
+  height: calc(100% - 150px);
   width: 100%;
   background-size: cover;
   background-repeat: no-repeat;
@@ -138,8 +138,10 @@ img {
 }
 
 .logo_fuente {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
   overflow: auto;
-  margin-bottom: 150px;
 }
 
 #logo {
