@@ -16,20 +16,13 @@ body {
   margin: 0px;
   padding: 0px;
   width: 100%;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-attachment: fixed;
+  height: 100%;
   background-color: #2f308b;
   transition: background-color 1s;
   text-align: center;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-}
-
-.wrapper {
-  height: calc(100% - 160px);
 }
 
 #id {
