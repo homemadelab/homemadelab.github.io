@@ -33,14 +33,16 @@ body {
   min-height: 100vh;
 }
 
-@media only screen and (max-width: 1200px) {
-  body {
-    height: calc(100% - 150px);
-  }
-}
-
 .wrapper {
   flex: 1;
+  min-height: 100%;
+  margin-bottom: -160px;
+}
+
+.wrapper:after {
+  content: "";
+  display: block;
+  height: 160px;
 }
 
 #id {
@@ -148,6 +150,7 @@ img {
   justify-content: space-between;
   align-items: stretch;
   overflow: auto;
+  height: 160px;
 }
 
 #logo {
