@@ -29,6 +29,10 @@ body {
   min-height: 100vh;
 }
 
+.wrapper {
+  height: calc(100% - 160px);
+}
+
 #id {
   display: none;
 }
