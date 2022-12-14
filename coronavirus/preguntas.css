@@ -19,7 +19,7 @@ a {
 body {
   margin: 0px;
   padding: 0px;
-  height: auto;
+  height: calc(100vh - calc(100vh - 100%));
   width: 100%;
   background-size: cover;
   background-repeat: no-repeat;
