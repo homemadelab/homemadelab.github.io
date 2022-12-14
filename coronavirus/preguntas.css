@@ -32,14 +32,6 @@ body {
 
 .wrapper {
   flex: 1;
-  min-height: 100%;
-  margin-bottom: -160px;
-}
-
-.wrapper:after {
-  content: "";
-  display: block;
-  height: 160px;
 }
 
 #id {
@@ -146,8 +138,6 @@ img {
   display: flex;
   justify-content: space-between;
   align-items: stretch;
-  overflow: auto;
-  height: 160px;
 }
 
 #logo {
