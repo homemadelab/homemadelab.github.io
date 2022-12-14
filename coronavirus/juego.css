@@ -16,7 +16,6 @@ body {
   margin: 0px;
   padding: 0px;
   width: 100%;
-  height: calc(100% - 160px);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
