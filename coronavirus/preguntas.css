@@ -44,6 +44,7 @@ button {
   font-size: 500%;
   font-family: Asap, sans-serif;
   font-weight: bold;
+  text-shadow: 0px 0px 14px #00000040;
 }
 
 #casa, #farmacia, #hospital, #supermercado, #escuela, #banco, #laboratorio, #zoologico {
@@ -57,6 +58,7 @@ button {
   font-size: 500%;
   font-family: Asap, sans-serif;
   display: block;
+  text-shadow: 0px 0px 14px #00000040;
 }
 
 #casa:hover, #farmacia:hover, #hospital:hover, #supermercado:hover, #escuela:hover, #banco:hover, #laboratorio:hover, #zoologico:hover {
@@ -110,6 +112,7 @@ header > h1 {
   border: 3px solid white;
   border-radius: 4px;
   display: none;
+  text-shadow: 0px 0px 14px #00000040;
 }
 
 #indiceRespuestaCorrecta {
