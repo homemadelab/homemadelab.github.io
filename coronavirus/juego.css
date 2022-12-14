@@ -133,6 +133,7 @@ img {
 @media screen and (max-width: 1200px) {
     _::-webkit-full-page-media, _:future, :root .logo_fuente {
         padding-bottom: 200px;
+        background-color: #2f308b;
     }
 }
 
@@ -142,6 +143,7 @@ img {
   align-items: stretch;
   overflow: auto;
   margin-top: auto;
+  background-color: #2f308b;
 }
 
 #logo {
