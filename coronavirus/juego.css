@@ -137,9 +137,9 @@ img {
   padding-bottom: 1%;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 1200px) {
     _::-webkit-full-page-media, _:future, :root .logo_fuente {
-        padding-bottom: 65px; //resize
+        padding-bottom: 200px;
     }
 }
 
