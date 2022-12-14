@@ -33,9 +33,9 @@ body {
   min-height: 100vh;
 }
 
-@supports (-webkit-touch-callout: none) {
+@media only screen and (max-width: 1200px) {
   body {
-    height: calc(100% - 300px);
+    height: calc(100% - 150px);
   }
 }
 
