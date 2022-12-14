@@ -5,68 +5,70 @@
     <title>HomeMadeLab</title>
     <link rel="stylesheet" href="styles.css">
   </head>
+
   <body>
+    <canvas id="canvas" width="100%" height="100dvh">
+      <div class="seleccionar">
+        <span id="seleccionar">Language</span>
+      </div>
 
-    <div class="seleccionar">
-      <span id="seleccionar">Language</span>
-    </div>
-
-    <div class="idiomas">
-      <div class="idioma">
-        <a href=/coronavirus/en id="ingles">English</a>
+      <div class="idiomas">
+        <div class="idioma">
+          <a href=/coronavirus/en id="ingles">English</a>
+        </div>
+        <div class="idioma">
+          <a href=/coronavirus/fr id="frances">Français</a>
+        </div>
+        <div class="idioma">
+          <a href=/coronavirus/es id="espanol">Español</a>
+        </div>
+        <div class="idioma">
+          <a href=/coronavirus/de id="deutsch">Deutsch</a>
+        </div>
+        <div class="idioma">
+          <a href=/coronavirus/nl id="nederlands">Nederlands</a>
+        </div>
       </div>
-      <div class="idioma">
-        <a href=/coronavirus/fr id="frances">Français</a>
-      </div>
-      <div class="idioma">
-        <a href=/coronavirus/es id="espanol">Español</a>
-      </div>
-      <div class="idioma">
-        <a href=/coronavirus/de id="deutsch">Deutsch</a>
-      </div>
-      <div class="idioma">
-        <a href=/coronavirus/nl id="nederlands">Nederlands</a>
-      </div>
-    </div>
-    <div class="dado" id="roll">
-      <div class="container">
-        <div id='dice1' class="dice dice-one">
-          <div id="dice-one-side-one" class='side one'>
-            <div class="dot one-1"></div>
-          </div>
-          <div id="dice-one-side-two" class='side two'>
-            <div class="dot two-1"></div>
-            <div class="dot two-2"></div>
-          </div>
-          <div id="dice-one-side-three" class='side three'>
-            <div class="dot three-1"></div>
-            <div class="dot three-2"></div>
-            <div class="dot three-3"></div>
-          </div>
-          <div id="dice-one-side-four" class='side four'>
-            <div class="dot four-1"></div>
-            <div class="dot four-2"></div>
-            <div class="dot four-3"></div>
-            <div class="dot four-4"></div>
-          </div>
-          <div id="dice-one-side-five" class='side five'>
-            <div class="dot five-1"></div>
-            <div class="dot five-2"></div>
-            <div class="dot five-3"></div>
-            <div class="dot five-4"></div>
-            <div class="dot five-5"></div>
-          </div>
-          <div id="dice-one-side-six" class='side six'>
-            <div class="dot six-1"></div>
-            <div class="dot six-2"></div>
-            <div class="dot six-3"></div>
-            <div class="dot six-4"></div>
-            <div class="dot six-5"></div>
-            <div class="dot six-6"></div>
+      <div class="dado" id="roll">
+        <div class="container">
+          <div id='dice1' class="dice dice-one">
+            <div id="dice-one-side-one" class='side one'>
+              <div class="dot one-1"></div>
+            </div>
+            <div id="dice-one-side-two" class='side two'>
+              <div class="dot two-1"></div>
+              <div class="dot two-2"></div>
+            </div>
+            <div id="dice-one-side-three" class='side three'>
+              <div class="dot three-1"></div>
+              <div class="dot three-2"></div>
+              <div class="dot three-3"></div>
+            </div>
+            <div id="dice-one-side-four" class='side four'>
+              <div class="dot four-1"></div>
+              <div class="dot four-2"></div>
+              <div class="dot four-3"></div>
+              <div class="dot four-4"></div>
+            </div>
+            <div id="dice-one-side-five" class='side five'>
+              <div class="dot five-1"></div>
+              <div class="dot five-2"></div>
+              <div class="dot five-3"></div>
+              <div class="dot five-4"></div>
+              <div class="dot five-5"></div>
+            </div>
+            <div id="dice-one-side-six" class='side six'>
+              <div class="dot six-1"></div>
+              <div class="dot six-2"></div>
+              <div class="dot six-3"></div>
+              <div class="dot six-4"></div>
+              <div class="dot six-5"></div>
+              <div class="dot six-6"></div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </canvas>
     <script src="dado.js"></script>
   </body>
 </html>
