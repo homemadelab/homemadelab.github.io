@@ -137,7 +137,7 @@ img {
   display: flex;
   justify-content: space-between;
   align-items: stretch;
-  overflow: hidden;
+  overflow: auto;
 }
 
 #logo {
