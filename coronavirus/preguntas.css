@@ -28,11 +28,6 @@ body {
   min-height: 100vh;
 }
 
-.wrapper {
-  flex: 1;
-  position: fixed;
-}
-
 #id {
   display: none;
 }
