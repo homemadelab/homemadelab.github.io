@@ -45,6 +45,7 @@ header > h1 {
   font-size: 500%;
   font-family: Asap, sans-serif;
   font-weight: bold;
+  text-shadow: 0px 0px 14px #00000040;
 }
 
 #ingles, #frances, #espanol, #deutsch, #nederlands {
@@ -59,6 +60,7 @@ header > h1 {
   font-family: Asap, sans-serif;
   transition: all 0.3s ease;
   display: block;
+  text-shadow: 0px 0px 14px #00000040;
 }
 
 #ingles:hover, #frances:hover, #espanol:hover, #deutsch:hover, #nederlands:hover {
