@@ -92,6 +92,7 @@ header > h1 {
   font-size: 500%;
   font-family: Asap, sans-serif;
   font-weight: bold;
+  text-shadow: 0px 0px 14px #00000040;
 }
 
 #respuesta1:hover, #respuesta2:hover, #respuesta3:hover, #respuesta4:hover {
@@ -130,6 +131,12 @@ header > h1 {
 img {
   width: 150px;
   padding-bottom: 1%;
+}
+
+@media screen and (max-width: 767px) {
+    _::-webkit-full-page-media, _:future, :root .logo_fuente {
+        padding-bottom: 65px; //resize
+    }
 }
 
 .logo_fuente {
