@@ -19,6 +19,9 @@ body {
   height: 100%;
   background-color: #2f308b;
   background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
   background: #2f308b;
   transition: background-color 1s;
   text-align: center;
