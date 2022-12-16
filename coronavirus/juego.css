@@ -23,6 +23,7 @@ body {
   background-position: center center;
   background-attachment: fixed;
   background: #2f308b;
+  background-image: #2f308b;
   transition: background-color 1s;
   text-align: center;
   display: flex;
