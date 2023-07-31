@@ -79,6 +79,13 @@ header > h1 {
   font-size: 20px;
 }
 
+.dificultad {
+  margin: 2%;
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+}
+
 .dado {
   position: relative;
   width: auto;
@@ -215,7 +222,7 @@ header > h1 {
 }
 
 .video-js .vjs-play-control {
-    display: none;
+  display: none;
 }
 
 video::-webkit-media-controls {
@@ -223,6 +230,6 @@ video::-webkit-media-controls {
 }
 
 .pdf img {
-    pointer-events: none;
-    width: 100%;
+  pointer-events: none;
+  width: 100%;
 }
