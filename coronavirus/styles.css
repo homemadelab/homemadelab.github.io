@@ -79,14 +79,6 @@ header > h1 {
   font-size: 20px;
 }
 
-.dificultad {
-  margin: 2%;
-  border-radius: 50%;
-  width: 200px;
-  height: 200px;
-  background-color: blue;
-}
-
 .dado {
   position: relative;
   width: auto;
