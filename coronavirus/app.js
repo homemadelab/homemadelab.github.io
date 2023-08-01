@@ -119,13 +119,13 @@ function verificarCorrecta(opcion, correcta, respuesta1, respuesta2, respuesta3,
     return;
   }
   if(opcion.innerHTML != correcta) {
-    document.body.setAttribute('style', 'background-color:#F63E52');
+    document.body.setAttribute('style', 'background-color: #F63E52');
     opcion.style.background = "#D52444";
     console.log("The answer is incorrect.");
   }
 
   else {
-    document.body.setAttribute('style', 'background-color:#00A653');
+    document.body.setAttribute('style', 'background-color: #00A653');
     opcion.style.background = "#008747";
     console.log("The answer is correct.");
   }
@@ -165,7 +165,7 @@ async function main() {
   const id = localStorage.getItem("id");
   const categoria = (id).slice(0, -3);
 
-  console.log("ID: ", id);
+  console.log("ID:", id);
   let preguntas = [];
   let respuestas = [];
   let opciones = [];
@@ -196,8 +196,8 @@ async function main() {
     case "supermercado":
       indiceRespuestas = indiceRespuestasSupermercado;
       cantPreguntas = indiceRespuestasSupermercado.length;
-      console.log(indiceRespuestas);
-      console.log(cantPreguntas);
+      //console.log(indiceRespuestas);
+      //console.log(cantPreguntas);
       break;
     case "escuela":
       indiceRespuestas = indiceRespuestasEscuela;
@@ -225,7 +225,7 @@ async function main() {
   pdf.href = "/coronavirus/pdfs/" + (id).slice(0, -3) +"/" + (preguntaAleatoria+1).toString(); // Redirijo a página de fuente
 
   indiceRespuestaCorrecta.innerHTML = indiceAleatorio;
-  console.log("Question: ", preguntaAleatoria+1);
+  console.log("Question:", preguntaAleatoria+1);
   respuestas_span[0].style.display = 'none';
   respuestas_span[1].style.display = 'none';
   respuestas_span[2].style.display = 'none';
@@ -261,16 +261,17 @@ async function main() {
 
   opciones = aleatorizarRespuestas(opciones);
 
-  switch (dificultades[preguntaAleatoria]){
-    case "1":
-      dificultad.style.backgroundImage = "-webkit-radial-gradient(45px 45px, circle cover, #10a20b, #2df156)";
-    case "2":
-      dificultad.style.backgroundImage = "-webkit-radial-gradient(45px 45px, circle cover, #d75400, #ff7d20)";
-    case "3":
-      dificultad.style.backgroundImage = "-webkit-radial-gradient(45px 45px, circle cover, #dd1717, #ff1c47)";
+  if (dificultades[preguntaAleatoria] == 1) {
+    dificultad.style.backgroundImage = "-webkit-radial-gradient(45px 45px, circle cover, #10a20b, #2df156)";
+  }
+  else if (dificultades[preguntaAleatoria] == 2) {
+    dificultad.style.backgroundImage = "-webkit-radial-gradient(45px 45px, circle cover, #d75400, #ff7d20)";
+  }
+  else {
+    dificultad.style.backgroundImage = "-webkit-radial-gradient(45px 45px, circle cover, #dd1717, #ff1c47)";
   }
 
-  console.log("Difficulty: ", dificultades[preguntaAleatoria])
+  console.log("Difficulty:", dificultades[preguntaAleatoria])
 
   for (let k = 0; k < opciones.length; k++) {
     respuestas_span[k].style.display = 'block';
