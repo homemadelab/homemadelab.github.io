@@ -57,7 +57,7 @@ function obtenerPreguntas(tabla) {
     const fila = columna.split(";"); // Separo las preguntas de las respuestas
     const pregunta = fila[0];
     preguntas.push(pregunta); // Agrego al array 'preguntas' cada pregunta
-    //console.log(pregunta);
+    console.log(pregunta);
   });
   preguntas.pop(); // Elimino el último elemento que debe estar vacío
 
@@ -76,7 +76,7 @@ function obtenerRespuestas(tabla){
         respuestas.push(respuesta);
       }
     }
-    //console.log(respuestas);
+    console.log(respuestas);
   });
   return respuestas;
 }
@@ -171,7 +171,7 @@ async function main() {
   let indiceRespuestasCasa = [0, 3, 5, 8, 11, 14, 16, 19, 22, 24, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78, 81, 84, 87];
   let indiceRespuestasFarmacia = [0, 3, 5, 8, 11, 14, 16, 19, 22, 24, 27, 30, 33, 35, 38, 41, 43, 45, 47, 50, 53, 56, 59, 62, 65, 67, 70, 73, 76, 79];
   let indiceRespuestasHospital = [0, 3, 5, 8, 11, 14, 16, 19, 22, 24, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78, 81, 84, 87];
-  let indiceRespuestasSupermercado = [1, 4, 7, 10, 13, 16, 19, 22, 25, 28, 31, 34, 37, 40, 43, 46, 49, 52, 55, 58, 61, 64, 67, 70, 73, 76, 79, 82, 85, 88, 91, 94, 97, 100, 103];
+  let indiceRespuestasSupermercado = [1, 5, 9, 13, 17, 21, 25, 29, 33, 37, 41, 45, 49, 53, 57, 61, 65, 69, 73, 77, 81, 85, 89, 93, 97, 101, 105, 109, 113, 117, 121, 125, 129, 133, 137];
   let indiceRespuestasEscuela = [0, 3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78, 81, 84, 87];
   let indiceRespuestasBanco = [0, 3, 5, 8, 11, 14, 16, 19, 22, 24, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78, 81, 84, 87];
   let indiceRespuestasLaboratorio = [0, 3, 5, 8, 11, 14, 16, 19, 22, 24, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78, 81, 84, 87];
@@ -194,6 +194,8 @@ async function main() {
     case "supermercado":
       indiceRespuestas = indiceRespuestasSupermercado;
       cantPreguntas = indiceRespuestasSupermercado.length;
+      console.log(indiceRespuestas);
+      console.log(cantPreguntas);
       break;
     case "escuela":
       indiceRespuestas = indiceRespuestasEscuela;
