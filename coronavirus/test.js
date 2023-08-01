@@ -102,7 +102,7 @@ function aleatorizarRespuestas(opciones) {
 }
 
 function aleatorizarRespuestas2(cantRespuestas) {
-  for (let i = cantRespuestas; i < 100; i++) {
+  for (let i = cantRespuestas; i < 135; i++) {
     indiceRespuestas[preguntaAleatoria];
   }
   if(indiceRespuesta == cantRespuestas){
