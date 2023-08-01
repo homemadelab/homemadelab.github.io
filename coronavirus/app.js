@@ -1,5 +1,6 @@
 let correcta = false;
 let seleccionada = false;
+let dificultades = [];
 const body = document.getElementById("body");
 const pregunta = document.getElementById("pregunta");
 const respuesta1 = document.getElementById("respuesta1");
@@ -56,8 +57,10 @@ function obtenerPreguntas(tabla) {
   tabla.forEach(columna => {
     const fila = columna.split(";"); // Separo las preguntas de las respuestas
     const pregunta = fila[0];
-    preguntas.push(pregunta); // Agrego al array 'preguntas' cada pregunta
+    preguntas.push(pregunta.slice(0, -1)); // Agrego al array 'preguntas' cada pregunta
     //console.log(pregunta);
+    dificultades.push(pregunta.slice(-1));
+    console.log(dificultad);
   });
   preguntas.pop(); // Elimino el último elemento que debe estar vacío
 
