@@ -263,11 +263,11 @@ async function main() {
   opciones = aleatorizarRespuestas(opciones);
 
   switch (dificultades[preguntaAleatoria]){
-    case 1:
+    case "1":
       dificultad.style.backgroundImage = "-webkit-radial-gradient(45px 45px, circle cover, #10a20b, #2df156)";
-    case 2:
+    case "2":
       dificultad.style.backgroundImage = "-webkit-radial-gradient(45px 45px, circle cover, #d75400, #ff7d20)";
-    case 3:
+    case "3":
       dificultad.style.backgroundImage = "-webkit-radial-gradient(45px 45px, circle cover, #dd1717, #ff1c47)";
   }
 
