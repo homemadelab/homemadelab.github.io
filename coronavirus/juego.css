@@ -36,18 +36,21 @@ body {
 #id {
   display: none;
 }
-/*
+
 #dificultad {
   margin: 2%;
   border-radius: 50%;
   width: 50px;
   height: 50px;
-}*/
+  display: none;
+}
+
 
 #nivel {
   font-family: "etna", sans-serif;
   font-weight: 900;
   font-style: normal;
+  font-size: 500%;
 }
 
 .seleccionar {
