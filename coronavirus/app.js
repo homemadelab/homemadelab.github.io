@@ -60,7 +60,7 @@ function obtenerPreguntas(tabla) {
     preguntas.push(pregunta.slice(0, -1)); // Agrego al array 'preguntas' cada pregunta
     //console.log(pregunta);
     dificultades.push(pregunta.slice(-1));
-    console.log(dificultad);
+    console.log(pregunta.slice(-1));
   });
   preguntas.pop(); // Elimino el último elemento que debe estar vacío
 
