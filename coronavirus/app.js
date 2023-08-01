@@ -12,6 +12,7 @@ const respuestas_span = [respuesta1, respuesta2, respuesta3, respuesta4];
 const tiempoRestante_span = document.getElementById("tiempoRestante");
 const pdf = document.getElementById("pdf");
 const dificultad = document.getElementById("dificultad");
+const nivel = document.getElementById("nivel");
 document.getElementById("logo").style.display = 'block';
 
 function calcularTiempoRestante(tiempoRestante) {
@@ -263,12 +264,15 @@ async function main() {
 
   if (dificultades[preguntaAleatoria] == 1) {
     dificultad.style.backgroundImage = "-webkit-radial-gradient(45px 45px, circle cover, #10a20b, #2df156)";
+    nivel.innerHTML = "Level 1";
   }
   else if (dificultades[preguntaAleatoria] == 2) {
     dificultad.style.backgroundImage = "-webkit-radial-gradient(45px 45px, circle cover, #d75400, #ff7d20)";
+    nivel.innerHTML = "Level 2";
   }
   else {
     dificultad.style.backgroundImage = "-webkit-radial-gradient(45px 45px, circle cover, #dd1717, #ff1c47)";
+    nivel.innerHTML = "Level 3";
   }
 
   console.log("Difficulty:", dificultades[preguntaAleatoria])

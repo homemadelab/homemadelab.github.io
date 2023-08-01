@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Asap:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Calistoga&display=swap');
+@import url("https://use.typekit.net/exr0fge.css");
 
 * {
   margin: 0;
@@ -34,12 +36,18 @@ body {
 #id {
   display: none;
 }
-
+/*
 #dificultad {
   margin: 2%;
   border-radius: 50%;
   width: 50px;
   height: 50px;
+}*/
+
+#nivel {
+  font-family: "etna", sans-serif;
+  font-weight: 900;
+  font-style: normal;
 }
 
 .seleccionar {
