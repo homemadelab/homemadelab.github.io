@@ -232,7 +232,7 @@ async function main() {
   preguntas = obtenerPreguntas(await obtenerArchivo(id));
   respuestas = obtenerRespuestas(await obtenerArchivo(id));
 
-  pregunta.innerHTML = preguntas[preguntaAleatoria];
+  pregunta.innerHTML = preguntas[preguntaAleatoria+1];
 
   correcta = respuestas[indiceRespuestas[preguntaAleatoria]];
 
