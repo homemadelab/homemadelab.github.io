@@ -56,6 +56,7 @@ function obtenerPreguntas(tabla) {
   tabla.forEach(columna => {
     const fila = columna.split(";"); // Separo las preguntas de las respuestas
     const pregunta = fila[0];
+    pregunta.slice(0, -1)
     preguntas.push(pregunta); // Agrego al array 'preguntas' cada pregunta
     //console.log(pregunta);
   });
@@ -109,7 +110,7 @@ function aleatorizarRespuestas2(cantRespuestas) {
     correcta = true;
   }
 
-  return Math.floor(Math.random() * 30); // Cantidad de preguntas
+  return Math.floor(Math.random() * 34); // Cantidad de preguntas
 }
 
 function verificarCorrecta(opcion, correcta, respuesta1, respuesta2, respuesta3, respuesta4) {
