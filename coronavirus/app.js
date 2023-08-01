@@ -32,7 +32,7 @@ function calcularTiempoRestante(tiempoRestante) {
         clearInterval(id);
         i = 100;
 
-      } else if(seleccionada == true){
+      } else if (seleccionada == true){
         clearInterval(id);
         i = 100;
 
@@ -181,7 +181,7 @@ async function main() {
   let indiceRespuestasZoologico = [0, 3, 6, 9, 12];
   let j = 0;
 
-  switch(categoria){
+  switch (categoria){
     case "casa":
       indiceRespuestas = indiceRespuestasCasa;
       cantPreguntas = indiceRespuestasCasa.length;
@@ -240,7 +240,7 @@ async function main() {
   correcta = respuestas[indiceRespuestas[preguntaAleatoria]];
 
   for (let i = indiceRespuestas[preguntaAleatoria]; i < 100; i++) {
-    if(respuestas[i].includes("\r")) {
+    if (respuestas[i].includes("\r")) {
 
       respuestas_span[j].innerHTML = respuestas[i];
       try {                                           // En el caso de que la pregunta tenga 2 opciones
@@ -261,16 +261,15 @@ async function main() {
   }
 
   opciones = aleatorizarRespuestas(opciones);
-  if(dificultades[preguntaAleatoria] == 1) {
-    dificultad.style.backgroundImage = "-webkit-radial-gradient(45px 45px, circle cover, #10a20b, #2df156)";
-  }
-  else if(dificultades[preguntaAleatoria] == 2) {
-    dificultad.style.backgroundImage = "-webkit-radial-gradient(45px 45px, circle cover, #d75400, #ff7d20)";
-  }
-  else {
-    dificultad.style.backgroundImage = "-webkit-radial-gradient(45px 45px, circle cover, #dd1717, #ff1c47)";
-  }
 
+  switch (dificultades[preguntaAleatoria]){
+    case 1:
+      dificultad.style.backgroundImage = "-webkit-radial-gradient(45px 45px, circle cover, #10a20b, #2df156)";
+    case 2:
+      dificultad.style.backgroundImage = "-webkit-radial-gradient(45px 45px, circle cover, #d75400, #ff7d20)";
+    case 3:
+      dificultad.style.backgroundImage = "-webkit-radial-gradient(45px 45px, circle cover, #dd1717, #ff1c47)";
+  }
 
   for (let k = 0; k < opciones.length; k++) {
     respuestas_span[k].style.display = 'block';
