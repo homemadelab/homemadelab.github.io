@@ -60,7 +60,6 @@ function obtenerPreguntas(tabla) {
     preguntas.push(pregunta.slice(0, -1)); // Agrego al array 'preguntas' cada pregunta
     //console.log(pregunta);
     dificultades.push(pregunta.slice(-1));
-    console.log(pregunta.slice(-1));
   });
   preguntas.pop(); // Elimino el último elemento que debe estar vacío
 
@@ -166,7 +165,7 @@ async function main() {
   const id = localStorage.getItem("id");
   const categoria = (id).slice(0, -3);
 
-  console.log(id);
+  console.log("ID: ", id);
   let preguntas = [];
   let respuestas = [];
   let opciones = [];
@@ -226,7 +225,7 @@ async function main() {
   pdf.href = "/coronavirus/pdfs/" + (id).slice(0, -3) +"/" + (preguntaAleatoria+1).toString(); // Redirijo a página de fuente
 
   indiceRespuestaCorrecta.innerHTML = indiceAleatorio;
-  console.log("Question", preguntaAleatoria+1);
+  console.log("Question: ", preguntaAleatoria+1);
   respuestas_span[0].style.display = 'none';
   respuestas_span[1].style.display = 'none';
   respuestas_span[2].style.display = 'none';
@@ -270,6 +269,8 @@ async function main() {
     case "3":
       dificultad.style.backgroundImage = "-webkit-radial-gradient(45px 45px, circle cover, #dd1717, #ff1c47)";
   }
+
+  console.log("Difficulty: ", dificultades[preguntaAleatoria])
 
   for (let k = 0; k < opciones.length; k++) {
     respuestas_span[k].style.display = 'block';
