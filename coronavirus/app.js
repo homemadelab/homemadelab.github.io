@@ -1,5 +1,5 @@
-var correcta = false;
-var seleccionada = false;
+let correcta = false;
+let seleccionada = false;
 const body = document.getElementById("body");
 const pregunta = document.getElementById("pregunta");
 const respuesta1 = document.getElementById("respuesta1");
@@ -10,19 +10,20 @@ const indiceRespuestaCorrecta = document.getElementById("indiceRespuestaCorrecta
 const respuestas_span = [respuesta1, respuesta2, respuesta3, respuesta4];
 const tiempoRestante_span = document.getElementById("tiempoRestante");
 const pdf = document.getElementById("pdf");
+const dificultad = document.getElementById("dificultad");
 document.getElementById("logo").style.display = 'block';
 
 function calcularTiempoRestante(tiempoRestante) {
-  var i = 100;
+  let i = 100;
   if (i == 100) {
     i = 0;
-    var width = 100;
-    var id = setInterval(tiempo, 600);
+    let width = 100;
+    let id = setInterval(tiempo, 600);
     function tiempo() {
       if (width <= 0) { // Cuando el tiempo se termina
         setTimeout(function() {
           document.body.style.backgroundColor = '#F63E52'; // Cambio el fondo a rojo
-          document.body.setAttribute('style', 'background-color:#F63E52 !important');
+          document.body.setAttribute('style', 'background-color: #F63E52 !important');
           document.getElementById("fuente").style.display = 'block';
           document.getElementById("fuente").style.opacity = '1';
           mostrarOpciones(respuesta1, respuesta2, respuesta3, respuesta4);
@@ -50,7 +51,7 @@ async function obtenerArchivo(id) {
 }
 
 function obtenerPreguntas(tabla) {
-  var preguntas = [];
+  let preguntas = [];
 
   tabla.forEach(columna => {
     const fila = columna.split(";"); // Separo las preguntas de las respuestas
@@ -64,7 +65,7 @@ function obtenerPreguntas(tabla) {
 }
 
 function obtenerRespuestas(tabla){
-  var respuestas = [];
+  let respuestas = [];
 
   tabla.forEach(columna => {
     const fila = columna.split(";"); // Separo las preguntas de las respuestas
@@ -85,7 +86,7 @@ function aleatorizarPreguntas(cantPreguntas) {
 }
 
 function aleatorizarRespuestas(opciones) {
-  var indiceActual = opciones.length,  indiceAleatorio;
+  let indiceActual = opciones.length,  indiceAleatorio;
 
   // Mientras haya elementos para aleatorizar
   while (0 !== indiceActual) {
@@ -101,7 +102,7 @@ function aleatorizarRespuestas(opciones) {
 }
 
 function aleatorizarRespuestas2(cantRespuestas) {
-  for (var i = cantRespuestas; i < 100; i++) {
+  for (let i = cantRespuestas; i < 100; i++) {
     indiceRespuestas[preguntaAleatoria];
   }
   if(indiceRespuesta == cantRespuestas){
@@ -163,19 +164,19 @@ async function main() {
   const categoria = (id).slice(0, -3);
 
   console.log(id);
-  var preguntas = [];
-  var respuestas = [];
-  var opciones = [];
-  var indiceRespuestas = [];
-  var indiceRespuestasCasa = [0, 3, 5, 8, 11, 14, 16, 19, 22, 24, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78, 81, 84, 87];
-  var indiceRespuestasFarmacia = [0, 3, 5, 8, 11, 14, 16, 19, 22, 24, 27, 30, 33, 35, 38, 41, 43, 45, 47, 50, 53, 56, 59, 62, 65, 67, 70, 73, 76, 79];
-  var indiceRespuestasHospital = [0, 3, 5, 8, 11, 14, 16, 19, 22, 24, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78, 81, 84, 87];
-  var indiceRespuestasSupermercado = [0, 3, 5, 8, 11, 14, 16, 19, 22, 24, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78, 81, 84, 87];
-  var indiceRespuestasEscuela = [0, 3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78, 81, 84, 87];
-  var indiceRespuestasBanco = [0, 3, 5, 8, 11, 14, 16, 19, 22, 24, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78, 81, 84, 87];
-  var indiceRespuestasLaboratorio = [0, 3, 5, 8, 11, 14, 16, 19, 22, 24, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78, 81, 84, 87];
-  var indiceRespuestasZoologico = [0, 3, 6, 9, 12];
-  var j = 0;
+  let preguntas = [];
+  let respuestas = [];
+  let opciones = [];
+  let indiceRespuestas = [];
+  let indiceRespuestasCasa = [0, 3, 5, 8, 11, 14, 16, 19, 22, 24, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78, 81, 84, 87];
+  let indiceRespuestasFarmacia = [0, 3, 5, 8, 11, 14, 16, 19, 22, 24, 27, 30, 33, 35, 38, 41, 43, 45, 47, 50, 53, 56, 59, 62, 65, 67, 70, 73, 76, 79];
+  let indiceRespuestasHospital = [0, 3, 5, 8, 11, 14, 16, 19, 22, 24, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78, 81, 84, 87];
+  let indiceRespuestasSupermercado = [0, 3, 5, 8, 11, 14, 16, 19, 22, 24, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78, 81, 84, 87];
+  let indiceRespuestasEscuela = [0, 3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78, 81, 84, 87];
+  let indiceRespuestasBanco = [0, 3, 5, 8, 11, 14, 16, 19, 22, 24, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78, 81, 84, 87];
+  let indiceRespuestasLaboratorio = [0, 3, 5, 8, 11, 14, 16, 19, 22, 24, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78, 81, 84, 87];
+  let indiceRespuestasZoologico = [0, 3, 6, 9, 12];
+  let j = 0;
 
   switch(categoria){
     case "casa":
@@ -214,8 +215,8 @@ async function main() {
       alert("There was an error, try selecting the category again.")
   }
 
-  var preguntaAleatoria = aleatorizarPreguntas(cantPreguntas);
-  var indiceAleatorio = indiceRespuestas[preguntaAleatoria];
+  let preguntaAleatoria = aleatorizarPreguntas(cantPreguntas);
+  let indiceAleatorio = indiceRespuestas[preguntaAleatoria];
 
   pdf.href = "/coronavirus/pdfs/" + (id).slice(0, -3) +"/" + (preguntaAleatoria+1).toString(); // Redirijo a página de fuente
 
@@ -233,7 +234,7 @@ async function main() {
 
   correcta = respuestas[indiceRespuestas[preguntaAleatoria]];
 
-  for (var i = indiceRespuestas[preguntaAleatoria]; i < 100; i++) {
+  for (let i = indiceRespuestas[preguntaAleatoria]; i < 100; i++) {
     if(respuestas[i].includes("\r")) {
 
       respuestas_span[j].innerHTML = respuestas[i];
@@ -256,7 +257,9 @@ async function main() {
 
   opciones = aleatorizarRespuestas(opciones);
 
-  for (var k = 0; k < opciones.length; k++) {
+  dificultad.style.backgroundImage = "-webkit-radial-gradient(45px 45px, circle cover, #dd1717, #ff1c47)";
+
+  for (let k = 0; k < opciones.length; k++) {
     respuestas_span[k].style.display = 'block';
     respuestas_span[k].innerHTML = opciones[k];
   }
