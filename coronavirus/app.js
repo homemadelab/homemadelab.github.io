@@ -57,7 +57,7 @@ function obtenerPreguntas(tabla) {
     const fila = columna.split(";"); // Separo las preguntas de las respuestas
     const pregunta = fila[0];
     preguntas.push(pregunta); // Agrego al array 'preguntas' cada pregunta
-    console.log(pregunta);
+    //console.log(pregunta);
   });
   preguntas.pop(); // Elimino el último elemento que debe estar vacío
 
@@ -76,7 +76,7 @@ function obtenerRespuestas(tabla){
         respuestas.push(respuesta);
       }
     }
-    console.log(respuestas);
+    //console.log(respuestas);
   });
   return respuestas;
 }
@@ -119,13 +119,13 @@ function verificarCorrecta(opcion, correcta, respuesta1, respuesta2, respuesta3,
   if(opcion.innerHTML != correcta) {
     document.body.setAttribute('style', 'background-color:#F63E52');
     opcion.style.background = "#D52444";
-    console.log("La respuesta es incorrecta.");
+    console.log("The answer is incorrect.");
   }
 
   else {
     document.body.setAttribute('style', 'background-color:#00A653');
     opcion.style.background = "#008747";
-    console.log("La respuesta es correcta.");
+    console.log("The answer is correct.");
   }
 
   setTimeout(function(){ // Despues de 1 segundo de elegir muestro si las otras opciones son correctas o no
@@ -223,7 +223,7 @@ async function main() {
   pdf.href = "/coronavirus/pdfs/" + (id).slice(0, -3) +"/" + (preguntaAleatoria+1).toString(); // Redirijo a página de fuente
 
   indiceRespuestaCorrecta.innerHTML = indiceAleatorio;
-  console.log("Pregunta", preguntaAleatoria+1);
+  console.log("Question", preguntaAleatoria+1);
   respuestas_span[0].style.display = 'none';
   respuestas_span[1].style.display = 'none';
   respuestas_span[2].style.display = 'none';
