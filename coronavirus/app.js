@@ -79,8 +79,8 @@ function obtenerRespuestas(tabla){
         respuestas.push(respuesta);
       }
     }
-    console.log(respuestas);
   });
+  console.log(respuestas);
   return respuestas;
 }
 
