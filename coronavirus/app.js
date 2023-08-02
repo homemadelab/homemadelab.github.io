@@ -240,7 +240,7 @@ async function main() {
   correcta = respuestas[indiceRespuestas[preguntaAleatoria]];
 
   for (let i = indiceRespuestas[preguntaAleatoria]; i < 100; i++) {
-    if (respuestas[i].includes("\n")) {
+    if (respuestas[i].includes("\r")) {
 
       respuestas_span[j].innerHTML = respuestas[i];
       try {                                           // En el caso de que la pregunta tenga 2 opciones
