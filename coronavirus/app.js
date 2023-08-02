@@ -275,7 +275,7 @@ async function main() {
     nivel.innerHTML = "Level 3";
   }
 
-  console.log("Level:", dificultades[preguntaAleatoria])
+  console.log("Level: ", dificultades[preguntaAleatoria])
 
   for (let k = 0; k < opciones.length; k++) {
     respuestas_span[k].style.display = 'block';
