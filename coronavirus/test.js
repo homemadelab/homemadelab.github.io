@@ -1,5 +1,6 @@
 let correcta = false;
 let seleccionada = false;
+let dificultades = [];
 const body = document.getElementById("body");
 const pregunta = document.getElementById("pregunta");
 const respuesta1 = document.getElementById("respuesta1");
@@ -11,6 +12,7 @@ const respuestas_span = [respuesta1, respuesta2, respuesta3, respuesta4];
 const tiempoRestante_span = document.getElementById("tiempoRestante");
 const pdf = document.getElementById("pdf");
 const dificultad = document.getElementById("dificultad");
+const nivel = document.getElementById("nivel");
 document.getElementById("logo").style.display = 'block';
 
 function calcularTiempoRestante(tiempoRestante) {
@@ -31,7 +33,7 @@ function calcularTiempoRestante(tiempoRestante) {
         clearInterval(id);
         i = 100;
 
-      } else if(seleccionada == true){
+      } else if (seleccionada == true){
         clearInterval(id);
         i = 100;
 
@@ -56,9 +58,9 @@ function obtenerPreguntas(tabla) {
   tabla.forEach(columna => {
     const fila = columna.split(";"); // Separo las preguntas de las respuestas
     const pregunta = fila[0];
-    pregunta.slice(0, -1)
-    preguntas.push(pregunta); // Agrego al array 'preguntas' cada pregunta
+    preguntas.push(pregunta.slice(0, -1)); // Agrego al array 'preguntas' cada pregunta
     //console.log(pregunta);
+    dificultades.push(pregunta.slice(-1));
   });
   preguntas.pop(); // Elimino el último elemento que debe estar vacío
 
@@ -77,8 +79,8 @@ function obtenerRespuestas(tabla){
         respuestas.push(respuesta);
       }
     }
-    //console.log(respuestas);
   });
+  console.log(respuestas);
   return respuestas;
 }
 
@@ -87,7 +89,7 @@ function aleatorizarPreguntas(cantPreguntas) {
 }
 
 function aleatorizarRespuestas(opciones) {
-  let indiceActual = opciones.length,  indiceAleatorio;
+  let indiceActual = opciones.length, indiceAleatorio;
 
   // Mientras haya elementos para aleatorizar
   while (0 !== indiceActual) {
@@ -103,14 +105,14 @@ function aleatorizarRespuestas(opciones) {
 }
 
 function aleatorizarRespuestas2(cantRespuestas) {
-  for (let i = cantRespuestas; i < 135; i++) {
+  for (let i = cantRespuestas; i < 100; i++) {
     indiceRespuestas[preguntaAleatoria];
   }
   if(indiceRespuesta == cantRespuestas){
     correcta = true;
   }
 
-  return Math.floor(Math.random() * 34); // Cantidad de preguntas
+  return Math.floor(Math.random() * 30); // Cantidad de preguntas
 }
 
 function verificarCorrecta(opcion, correcta, respuesta1, respuesta2, respuesta3, respuesta4) {
@@ -118,13 +120,13 @@ function verificarCorrecta(opcion, correcta, respuesta1, respuesta2, respuesta3,
     return;
   }
   if(opcion.innerHTML != correcta) {
-    document.body.setAttribute('style', 'background-color:#F63E52');
+    document.body.setAttribute('style', 'background-color: #F63E52');
     opcion.style.background = "#D52444";
     console.log("The answer is incorrect.");
   }
 
   else {
-    document.body.setAttribute('style', 'background-color:#00A653');
+    document.body.setAttribute('style', 'background-color: #00A653');
     opcion.style.background = "#008747";
     console.log("The answer is correct.");
   }
@@ -164,7 +166,7 @@ async function main() {
   const id = localStorage.getItem("id");
   const categoria = (id).slice(0, -3);
 
-  console.log(id);
+  console.log("ID:", id);
   let preguntas = [];
   let respuestas = [];
   let opciones = [];
@@ -172,14 +174,14 @@ async function main() {
   let indiceRespuestasCasa = [0, 3, 5, 8, 11, 14, 16, 19, 22, 24, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78, 81, 84, 87];
   let indiceRespuestasFarmacia = [0, 3, 5, 8, 11, 14, 16, 19, 22, 24, 27, 30, 33, 35, 38, 41, 43, 45, 47, 50, 53, 56, 59, 62, 65, 67, 70, 73, 76, 79];
   let indiceRespuestasHospital = [0, 3, 5, 8, 11, 14, 16, 19, 22, 24, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78, 81, 84, 87];
-  let indiceRespuestasSupermercado = [1, 5, 9, 13, 17, 21, 25, 29, 33, 37, 41, 45, 49, 53, 57, 61, 65, 69, 73, 77, 81, 85, 89, 93, 97, 101, 105, 109, 113, 117, 121, 125, 129, 133];
+  let indiceRespuestasSupermercado = [0, 3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78, 81, 84, 87, 90, 93, 96, 99];
   let indiceRespuestasEscuela = [0, 3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78, 81, 84, 87];
   let indiceRespuestasBanco = [0, 3, 5, 8, 11, 14, 16, 19, 22, 24, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78, 81, 84, 87];
   let indiceRespuestasLaboratorio = [0, 3, 5, 8, 11, 14, 16, 19, 22, 24, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78, 81, 84, 87];
   let indiceRespuestasZoologico = [0, 3, 6, 9, 12];
   let j = 0;
 
-  switch(categoria){
+  switch (categoria){
     case "casa":
       indiceRespuestas = indiceRespuestasCasa;
       cantPreguntas = indiceRespuestasCasa.length;
@@ -195,8 +197,8 @@ async function main() {
     case "supermercado":
       indiceRespuestas = indiceRespuestasSupermercado;
       cantPreguntas = indiceRespuestasSupermercado.length;
-      console.log(indiceRespuestas);
-      console.log(cantPreguntas);
+      //console.log(indiceRespuestas);
+      //console.log(cantPreguntas);
       break;
     case "escuela":
       indiceRespuestas = indiceRespuestasEscuela;
@@ -224,7 +226,7 @@ async function main() {
   pdf.href = "/coronavirus/pdfs/" + (id).slice(0, -3) +"/" + (preguntaAleatoria+1).toString(); // Redirijo a página de fuente
 
   indiceRespuestaCorrecta.innerHTML = indiceAleatorio;
-  console.log("Question", preguntaAleatoria+1);
+  console.log("Question:", preguntaAleatoria+1);
   respuestas_span[0].style.display = 'none';
   respuestas_span[1].style.display = 'none';
   respuestas_span[2].style.display = 'none';
@@ -238,7 +240,7 @@ async function main() {
   correcta = respuestas[indiceRespuestas[preguntaAleatoria]];
 
   for (let i = indiceRespuestas[preguntaAleatoria]; i < 100; i++) {
-    if(respuestas[i].includes("\r")) {
+    if (respuestas[i].includes("\r")) {
 
       respuestas_span[j].innerHTML = respuestas[i];
       try {                                           // En el caso de que la pregunta tenga 2 opciones
@@ -260,7 +262,20 @@ async function main() {
 
   opciones = aleatorizarRespuestas(opciones);
 
-  dificultad.style.backgroundImage = "-webkit-radial-gradient(45px 45px, circle cover, #dd1717, #ff1c47)";
+  if (dificultades[preguntaAleatoria] == 1) {
+    dificultad.style.backgroundImage = "-webkit-radial-gradient(45px 45px, circle cover, #10a20b, #2df156)";
+    nivel.innerHTML = "Level 1";
+  }
+  else if (dificultades[preguntaAleatoria] == 2) {
+    dificultad.style.backgroundImage = "-webkit-radial-gradient(45px 45px, circle cover, #d75400, #ff7d20)";
+    nivel.innerHTML = "Level 2";
+  }
+  else {
+    dificultad.style.backgroundImage = "-webkit-radial-gradient(45px 45px, circle cover, #dd1717, #ff1c47)";
+    nivel.innerHTML = "Level 3";
+  }
+
+  console.log("Level:", dificultades[preguntaAleatoria])
 
   for (let k = 0; k < opciones.length; k++) {
     respuestas_span[k].style.display = 'block';
