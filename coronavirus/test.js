@@ -135,7 +135,7 @@ function verificarCorrecta(opcion, correcta, respuesta1, respuesta2, respuesta3,
     mostrarOpciones(respuesta1, respuesta2, respuesta3, respuesta4);
     document.getElementById("fuente").style.display = 'block';
     document.getElementById("fuente").style.opacity = '1';
-  }, 1000);
+    }, 1000);
 }
 
 function mostrarOpciones(respuesta1, respuesta2, respuesta3, respuesta4){
@@ -186,38 +186,38 @@ async function main() {
       indiceRespuestas = indiceRespuestasCasa;
       cantPreguntas = indiceRespuestasCasa.length;
       break;
-    case "farmacia":
-      indiceRespuestas = indiceRespuestasFarmacia;
-      cantPreguntas = indiceRespuestasFarmacia.length;
-      break;
-    case "hospital":
-      indiceRespuestas = indiceRespuestasHospital;
-      cantPreguntas = indiceRespuestasHospital.length;
-      break;
-    case "supermercado":
-      indiceRespuestas = indiceRespuestasSupermercado;
-      cantPreguntas = indiceRespuestasSupermercado.length;
-      //console.log(indiceRespuestas);
+      case "farmacia":
+        indiceRespuestas = indiceRespuestasFarmacia;
+        cantPreguntas = indiceRespuestasFarmacia.length;
+        break;
+        case "hospital":
+          indiceRespuestas = indiceRespuestasHospital;
+          cantPreguntas = indiceRespuestasHospital.length;
+          break;
+          case "supermercado":
+            indiceRespuestas = indiceRespuestasSupermercado;
+            cantPreguntas = indiceRespuestasSupermercado.length;
+            //console.log(indiceRespuestas);
       //console.log(cantPreguntas);
       break;
-    case "escuela":
-      indiceRespuestas = indiceRespuestasEscuela;
-      cantPreguntas = indiceRespuestasEscuela.length;
-      break;
-    case "banco":
-      indiceRespuestas = indiceRespuestasBanco;
-      cantPreguntas = indiceRespuestasBanco.length;
-      break;
-    case "laboratorio":
-      indiceRespuestas = indiceRespuestasLaboratorio;
-      cantPreguntas = indiceRespuestasLaboratorio.length;
-      break;
-    case "zoologico":
-      indiceRespuestas = indiceRespuestasZoologico;
-      cantPreguntas = indiceRespuestasZoologico.length;
-      break;
-    default:
-      alert("There was an error, try selecting the category again.")
+      case "escuela":
+        indiceRespuestas = indiceRespuestasEscuela;
+        cantPreguntas = indiceRespuestasEscuela.length;
+        break;
+        case "banco":
+          indiceRespuestas = indiceRespuestasBanco;
+          cantPreguntas = indiceRespuestasBanco.length;
+          break;
+          case "laboratorio":
+            indiceRespuestas = indiceRespuestasLaboratorio;
+            cantPreguntas = indiceRespuestasLaboratorio.length;
+            break;
+            case "zoologico":
+              indiceRespuestas = indiceRespuestasZoologico;
+              cantPreguntas = indiceRespuestasZoologico.length;
+              break;
+              default:
+                alert("There was an error, try selecting the category again.")
   }
 
   let preguntaAleatoria = aleatorizarPreguntas(cantPreguntas);
@@ -306,4 +306,6 @@ async function main() {
 
 }
 
-main();
+document.addEventListener("DOMContentLoaded", function(event) {
+  main();
+});

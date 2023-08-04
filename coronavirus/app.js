@@ -306,4 +306,6 @@ async function main() {
 
 }
 
-main();
+document.addEventListener("DOMContentLoaded", function(event) {
+  main();
+});
