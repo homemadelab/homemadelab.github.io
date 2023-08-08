@@ -11,6 +11,7 @@ const indiceRespuestaCorrecta = document.getElementById("indiceRespuestaCorrecta
 const respuestas_span = [respuesta1, respuesta2, respuesta3, respuesta4];
 const tiempoRestante_span = document.getElementById("tiempoRestante");
 const pdf = document.getElementById("pdf");
+const dificultad = document.getElementById("dificultad");
 const nivel = document.getElementById("nivel");
 document.getElementById("logo").style.display = 'block';
 
@@ -79,7 +80,7 @@ function obtenerRespuestas(tabla){
       }
     }
   });
-  console.log(respuestas);
+  //console.log(respuestas);
   return respuestas;
 }
 
@@ -104,8 +105,8 @@ function aleatorizarRespuestas(opciones) {
 }
 
 function aleatorizarRespuestas2(cantRespuestas) {
-  for (let i = cantRespuestas; i < 100; i++) {
-    indiceRespuestas[preguntaAleatoria];
+  for (let i = cantRespuestas; i < 105; i++) {
+    indicesRespuestas[preguntaAleatoria];
   }
   if(indiceRespuesta == cantRespuestas){
     correcta = true;
@@ -169,58 +170,56 @@ async function main() {
   let preguntas = [];
   let respuestas = [];
   let opciones = [];
-  let indiceRespuestas = [];
-  let indiceRespuestasCasa = [0, 3, 5, 8, 11, 14, 16, 19, 22, 24, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78, 81, 84, 87];
-  let indiceRespuestasFarmacia = [0, 3, 5, 8, 11, 14, 16, 19, 22, 24, 27, 30, 33, 35, 38, 41, 43, 45, 47, 50, 53, 56, 59, 62, 65, 67, 70, 73, 76, 79];
-  let indiceRespuestasHospital = [0, 3, 5, 8, 11, 14, 16, 19, 22, 24, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78, 81, 84, 87];
-  let indiceRespuestasSupermercado = [0, 3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78, 81, 84, 87, 90, 93, 96, 99];
-  let indiceRespuestasEscuela = [0, 3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78, 81, 84, 87];
-  let indiceRespuestasBanco = [0, 3, 5, 8, 11, 14, 16, 19, 22, 24, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78, 81, 84, 87];
-  let indiceRespuestasLaboratorio = [0, 3, 5, 8, 11, 14, 16, 19, 22, 24, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78, 81, 84, 87];
-  let indiceRespuestasZoologico = [0, 3, 6, 9, 12];
+  let indicesRespuestas = [];
+  let indicesRespuestasCasa = [0, 3, 5, 8, 11, 14, 16, 19, 22, 24, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78, 81, 84, 87];
+  let indicesRespuestasFarmacia = [0, 3, 5, 8, 11, 14, 16, 19, 22, 24, 27, 30, 33, 35, 38, 41, 43, 45, 47, 50, 53, 56, 59, 62, 65, 67, 70, 73, 76, 79];
+  let indicesRespuestasHospital = [0, 3, 5, 8, 11, 14, 16, 19, 22, 24, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78, 81, 84, 87];
+  let indicesRespuestasSupermercado = [0, 3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78, 81, 84, 87, 90, 93, 96, 99];
+  let indicesRespuestasEscuela = [0, 3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78, 81, 84, 87];
+  let indicesRespuestasBanco = [0, 3, 5, 8, 11, 14, 16, 19, 22, 24, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78, 81, 84, 87];
+  let indicesRespuestasLaboratorio = [0, 3, 5, 8, 11, 14, 16, 19, 22, 24, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78, 81, 84, 87];
+  let indicesRespuestasZoologico = [0, 3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78, 81, 84];
   let j = 0;
 
   switch (categoria){
     case "casa":
-      indiceRespuestas = indiceRespuestasCasa;
-      cantPreguntas = indiceRespuestasCasa.length;
+      indicesRespuestas = indicesRespuestasCasa;
+      cantPreguntas = indicesRespuestasCasa.length;
       break;
     case "farmacia":
-      indiceRespuestas = indiceRespuestasFarmacia;
-      cantPreguntas = indiceRespuestasFarmacia.length;
+      indicesRespuestas = indicesRespuestasFarmacia;
+      cantPreguntas = indicesRespuestasFarmacia.length;
       break;
     case "hospital":
-      indiceRespuestas = indiceRespuestasHospital;
-      cantPreguntas = indiceRespuestasHospital.length;
+      indicesRespuestas = indicesRespuestasHospital;
+      cantPreguntas = indicesRespuestasHospital.length;
       break;
     case "supermercado":
-      indiceRespuestas = indiceRespuestasSupermercado;
-      cantPreguntas = indiceRespuestasSupermercado.length;
-      //console.log(indiceRespuestas);
-      //console.log(cantPreguntas);
+      indicesRespuestas = indicesRespuestasSupermercado;
+      cantPreguntas = indicesRespuestasSupermercado.length;
       break;
     case "escuela":
-      indiceRespuestas = indiceRespuestasEscuela;
-      cantPreguntas = indiceRespuestasEscuela.length;
+      indicesRespuestas = indicesRespuestasEscuela;
+      cantPreguntas = indicesRespuestasEscuela.length;
       break;
     case "banco":
-      indiceRespuestas = indiceRespuestasBanco;
-      cantPreguntas = indiceRespuestasBanco.length;
+      indicesRespuestas = indicesRespuestasBanco;
+      cantPreguntas = indicesRespuestasBanco.length;
       break;
     case "laboratorio":
-      indiceRespuestas = indiceRespuestasLaboratorio;
-      cantPreguntas = indiceRespuestasLaboratorio.length;
+      indicesRespuestas = indicesRespuestasLaboratorio;
+      cantPreguntas = indicesRespuestasLaboratorio.length;
       break;
     case "zoologico":
-      indiceRespuestas = indiceRespuestasZoologico;
-      cantPreguntas = indiceRespuestasZoologico.length;
+      indicesRespuestas = indicesRespuestasZoologico;
+      cantPreguntas = indicesRespuestasZoologico.length;
       break;
     default:
       alert("There was an error, try selecting the category again.")
   }
 
   let preguntaAleatoria = aleatorizarPreguntas(cantPreguntas);
-  let indiceAleatorio = indiceRespuestas[preguntaAleatoria];
+  let indiceAleatorio = indicesRespuestas[preguntaAleatoria];
 
   pdf.href = "/coronavirus/pdfs/" + (id).slice(0, -3) +"/" + (preguntaAleatoria+1).toString(); // Redirijo a página de fuente
 
@@ -236,9 +235,9 @@ async function main() {
 
   pregunta.innerHTML = preguntas[preguntaAleatoria];
 
-  correcta = respuestas[indiceRespuestas[preguntaAleatoria]];
+  correcta = respuestas[indicesRespuestas[preguntaAleatoria]];
 
-  for (let i = indiceRespuestas[preguntaAleatoria]; i < 100; i++) {
+  for (let i = indicesRespuestas[preguntaAleatoria]; i < 105; i++) {
     if (respuestas[i].includes("\r")) {
 
       respuestas_span[j].innerHTML = respuestas[i];
@@ -261,18 +260,7 @@ async function main() {
 
   opciones = aleatorizarRespuestas(opciones);
 
-  if (dificultades[preguntaAleatoria] == 1) {
-    dificultad.style.backgroundImage = "-webkit-radial-gradient(45px 45px, circle cover, #10a20b, #2df156)";
-    nivel.innerHTML = "Level 1";
-  }
-  else if (dificultades[preguntaAleatoria] == 2) {
-    dificultad.style.backgroundImage = "-webkit-radial-gradient(45px 45px, circle cover, #d75400, #ff7d20)";
-    nivel.innerHTML = "Level 2";
-  }
-  else {
-    dificultad.style.backgroundImage = "-webkit-radial-gradient(45px 45px, circle cover, #dd1717, #ff1c47)";
-    nivel.innerHTML = "Level 3";
-  }
+  nivel.innerHTML = ("Level" + dificultades[preguntaAleatoria]).toString();
 
   console.log("Level:", dificultades[preguntaAleatoria])
 
@@ -282,22 +270,22 @@ async function main() {
   }
 
   respuesta1.addEventListener('click', function() {
-    verificarCorrecta(respuesta1, respuestas[indiceRespuestas[preguntaAleatoria]], respuesta1, respuesta2, respuesta3, respuesta4);
+    verificarCorrecta(respuesta1, respuestas[indicesRespuestas[preguntaAleatoria]], respuesta1, respuesta2, respuesta3, respuesta4);
     seleccionada = true;
   })
 
   respuesta2.addEventListener('click', function() {
-    verificarCorrecta(respuesta2, respuestas[indiceRespuestas[preguntaAleatoria]], respuesta1, respuesta2, respuesta3, respuesta4);
+    verificarCorrecta(respuesta2, respuestas[indicesRespuestas[preguntaAleatoria]], respuesta1, respuesta2, respuesta3, respuesta4);
     seleccionada = true;
   })
 
   respuesta3.addEventListener('click', function() {
-    verificarCorrecta(respuesta3, respuestas[indiceRespuestas[preguntaAleatoria]], respuesta1, respuesta2, respuesta3, respuesta4);
+    verificarCorrecta(respuesta3, respuestas[indicesRespuestas[preguntaAleatoria]], respuesta1, respuesta2, respuesta3, respuesta4);
     seleccionada = true;
   })
 
   respuesta4.addEventListener('click', function() {
-    verificarCorrecta(respuesta4, respuestas[indiceRespuestas[preguntaAleatoria]], respuesta1, respuesta2, respuesta3, respuesta4);
+    verificarCorrecta(respuesta4, respuestas[indicesRespuestas[preguntaAleatoria]], respuesta1, respuesta2, respuesta3, respuesta4);
     seleccionada = true;
   })
 
