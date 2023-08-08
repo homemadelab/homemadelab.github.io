@@ -11,7 +11,6 @@ const indiceRespuestaCorrecta = document.getElementById("indiceRespuestaCorrecta
 const respuestas_span = [respuesta1, respuesta2, respuesta3, respuesta4];
 const tiempoRestante_span = document.getElementById("tiempoRestante");
 const pdf = document.getElementById("pdf");
-const dificultad = document.getElementById("dificultad");
 const nivel = document.getElementById("nivel");
 document.getElementById("logo").style.display = 'block';
 
