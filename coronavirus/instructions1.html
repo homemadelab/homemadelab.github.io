@@ -20,25 +20,40 @@
   </div>
   <div class="idiomas">
     <div class="idioma">
-      <a href=/coronavirus/en id="english">English</a>
+      <a id="english" onclick="loadVideo('en')">English</a>
     </div>
     <div class="idioma">
-      <a href=/coronavirus/fr id="french">Français</a>
+      <a id="french" onclick="loadVideo('fr')">Français</a>
     </div>
     <div class="idioma">
-      <a href=/coronavirus/es id="spanish">Español</a>
+      <a id="spanish" onclick="loadVideo('es')">Español</a>
     </div>
     <div class="idioma">
-      <a href=/coronavirus/de id="german">Deutsch</a>
+      <a id="german" onclick="loadVideo('de')">Deutsch</a>
     </div>
     <div class="idioma">
-      <a href=/coronavirus/nl id="dutch">Nederlands</a>
+      <a id="dutch" onclick="loadVideo('nl')">Nederlands</a>
     </div>
     <div class="idioma">
-      <a href=/coronavirus/nb id="norwegian">Norsk</a>
+      <a id="norwegian" onclick="loadVideo('nb')">Norsk</a>
     </div>
   </div>
+  <video id="videoPlayer" controls>
+    <source src="" type="video/mp4" id="videoSource">
+    Your browser does not support the video tag.
+  </video>
   <script src="instructions.js"></script>
+  <script>
+    function loadVideo(language) {
+      var videoElement = document.getElementById("videoSource");
+      var videoPlayer = document.getElementById("videoPlayer");
+
+      videoElement.src = "/coronavirus/instructions/qr1_" + language + ".mp4";
+
+      videoPlayer.load();
+      videoPlayer.play();
+    }
+  </script>
 </body>
 
 </html>
