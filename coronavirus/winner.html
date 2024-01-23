@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Congratulations!</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://vjs.zencdn.net/7.20.1/video-js.css" rel="stylesheet" />
+    <script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
+  </head>
+  <body>
+    <script type="text/javascript">
+    function aleatorizarVideos(){
+      var videos = [],
+      index = 0;
+      video = "<video class='video-js' id='video' controls playsinline src='videos/animation"
+
+      num = Math.floor(Math.random() * 4 + 1);
+      document.write(video.concat(num.toString(), ".mp4' type='video/mp4' />"));
+
+      var video = document.getElementById('video');
+      video.requestFullscreen();
+      video.play();
+
+      video.addEventListener('ended',function(){
+        document.getElementById("video").style.display = "none";
+      });
+    }
+    
+    if(document.documentElement.clientWidth > 900){
+      document.write(aleatorizarVideos());
+    }
+    else {
+      document.write(aleatorizarVideos());
+    }
+
+    </script>
+    <script src="https://vjs.zencdn.net/7.20.1/video.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>HomeMadeLab – Coronavirus</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="/coronavirus/imagenes/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/coronavirus/imagenes/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/coronavirus/imagenes/favicon/favicon-16x16.png">
+  <link rel="manifest" href="/coronavirus/imagenes/favicon/site.webmanifest">
+</head>
+
+<body>
+  <div class="titulo">
+    <span id="seleccionar">Language</span>
+  </div>
+
+  <div class="idiomas">
+    <div class="idioma">
+      <a href=/coronavirus/en id="english" onclick="localStorage.setItem('language', 'en');">English</a>
+    </div>
+    <div class="idioma">
+      <a href=/coronavirus/fr id="french" onclick="localStorage.setItem('language', 'fr');">Français</a>
+    </div>
+    <div class="idioma">
+      <a href=/coronavirus/es id="spanish" onclick="localStorage.setItem('language', 'es');">Español</a>
+    </div>
+    <div class="idioma">
+      <a href=/coronavirus/de id="german" onclick="localStorage.setItem('language', 'de');">Deutsch</a>
+    </div>
+    <div class="idioma">
+      <a href=/coronavirus/nl id="dutch" onclick="localStorage.setItem('language', 'nl');">Nederlands</a>
+    </div>
+    <div class="idioma">
+      <a href=/coronavirus/nb id="norwegian" onclick="localStorage.setItem('language', 'nb');">Norsk</a>
+    </div>
+  </div>
+  <div class="dado" id="roll">
+    <div class="container">
+      <div id='dice1' class="dice dice-one">
+        <div id="dice-one-side-one" class='side one'>
+          <div class="dot one-1"></div>
+        </div>
+        <div id="dice-one-side-two" class='side two'>
+          <div class="dot two-1"></div>
+          <div class="dot two-2"></div>
+        </div>
+        <div id="dice-one-side-three" class='side three'>
+          <div class="dot three-1"></div>
+          <div class="dot three-2"></div>
+          <div class="dot three-3"></div>
+        </div>
+        <div id="dice-one-side-four" class='side four'>
+          <div class="dot four-1"></div>
+          <div class="dot four-2"></div>
+          <div class="dot four-3"></div>
+          <div class="dot four-4"></div>
+        </div>
+        <div id="dice-one-side-five" class='side five'>
+          <div class="dot five-1"></div>
+          <div class="dot five-2"></div>
+          <div class="dot five-3"></div>
+          <div class="dot five-4"></div>
+          <div class="dot five-5"></div>
+        </div>
+        <div id="dice-one-side-six" class='side six'>
+          <div class="dot six-1"></div>
+          <div class="dot six-2"></div>
+          <div class="dot six-3"></div>
+          <div class="dot six-4"></div>
+          <div class="dot six-5"></div>
+          <div class="dot six-6"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="dado.js"></script>
+</body>
+
+</html>
