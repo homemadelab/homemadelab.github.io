@@ -1,52 +1,112 @@
-var currentUrl = window.location.href;
-document.getElementById("seleccionar").style.display = "none";
-const english = document.getElementById("english").style.display = "none";
-const french = document.getElementById("french").style.display = "none";
-const spanish = document.getElementById("spanish").style.display = "none";
-const german = document.getElementById("german").style.display = "none";
-const dutch = document.getElementById("dutch").style.display = "none";
-const norwegian = document.getElementById("norwegian").style.display = "none";
+function showVideo(language) {
+    var videoUrl = getVideoUrlForLanguage(language);
 
-let languages = [english, french, spanish, german, dutch, norwegian];
+    var videoContainer = document.getElementById('videoContainer');
+    videoContainer.innerHTML = '<iframe width="100%" height="100%" src="' + videoUrl + '" frameborder="0" allowfullscreen></iframe>';
+    videoContainer.style.display = 'block';
 
-function loadInstructions(language) {
-    if (currentUrl.includes('instructions1')) {
-        document.getElementById("instructions").innerHTML = "Instructions 1";
-        console.log('Instructions 1');
-    } else if (currentUrl.includes('instructions2')) {
-        document.getElementById("instructions").innerHTML = "Instructions 2";
-        console.log('Instructions 2');
-    } else if (currentUrl.includes('instructions3')) {
-        document.getElementById("instructions").innerHTML = "Instructions 3";
-        console.log('Instructions 3');
-    } else if (currentUrl.includes('instructions4')) {
-        document.getElementById("instructions").innerHTML = "Instructions 4";
-        console.log('Instructions 4');
-    } else {
-        console.log('Referrer does not match any expected URL');
-    }
-    document.getElementById("instructions").style.display = "block";
-    console.log("I loaded the instructions");
+    var idiomas = document.querySelector('.idiomas');
+    idiomas.style.display = 'none';
+
+    localStorage.setItem('language', language);
 }
 
-function loadLanguages(language) {
-    document.getElementById("seleccionar").style.display = "block";
-    for (let i = 0; i < languages.length; i++) {
-        languages[i].style.display = "block";
+function getVideoUrlForLanguage(language) {
+    var instructionSite = getCurrentInstructionSite();
+    var videoUrls = {
+        'instructions1': {
+            'en': 'https://www.youtube.com/embed/_8T-_jlSna0',
+            'fr': 'https://www.youtube.com/embed/4YGolp4HpCQ',
+            'es': 'https://www.youtube.com/embed/3tA6etkjHYo',
+            'de': 'https://www.youtube.com/embed/7rI63Ulkrrc',
+            'nl': 'https://www.youtube.com/embed/kTKr_AB8BlY',
+            'nb': 'https://www.youtube.com/embed/voK55sAvoH0',
+        },
+        'instructions2': {
+            'en': 'https://www.youtube.com/embed/3vsd2rb3iBU',
+            'fr': 'https://www.youtube.com/embed/JVru0a818B4',
+            'es': 'https://www.youtube.com/embed/3tA6etkjHYo', // Falta subir
+            'de': 'https://www.youtube.com/embed/oggoB-ZILU0',
+            'nl': 'https://www.youtube.com/embed/dFUXCdT7Ps8',
+            'nb': 'https://www.youtube.com/embed/voK55sAvoH0', // Falta subir
+        },
+        'instructions3': {
+            'en': 'https://www.youtube.com/embed/_8T-_jlSna0', // Falta subir
+            'fr': 'https://www.youtube.com/embed/4YGolp4HpCQ', // Falta subir
+            'es': 'https://www.youtube.com/embed/3tA6etkjHYo', // Falta subir
+            'de': 'https://www.youtube.com/embed/7rI63Ulkrrc', // Falta subir
+            'nl': 'https://www.youtube.com/embed/kTKr_AB8BlY', // Falta subir
+            'nb': 'https://www.youtube.com/embed/voK55sAvoH0', // Falta subir
+        },
+        'instructions4': {
+            'en': 'https://www.youtube.com/embed/_8T-_jlSna0', // Falta subir
+            'fr': 'https://www.youtube.com/embed/4YGolp4HpCQ', // Falta subir
+            'es': 'https://www.youtube.com/embed/3tA6etkjHYo', // Falta subir
+            'de': 'https://www.youtube.com/embed/7rI63Ulkrrc', // Falta subir
+            'nl': 'https://www.youtube.com/embed/kTKr_AB8BlY', // Falta subir
+            'nb': 'https://www.youtube.com/embed/voK55sAvoH0', // Falta subir
+
+        },
+    };
+    return videoUrls[instructionSite][language];
+}
+
+function getCurrentInstructionSite() {
+    var currentUrl = window.location.href;
+    if (currentUrl.includes('instructions1')) {
+        return 'instructions1';
+    } else if (currentUrl.includes('instructions2')) {
+        return 'instructions2';
+    } else if (currentUrl.includes('instructions3')) {
+        return 'instructions3';
+    } else if (currentUrl.includes('instructions4')) {
+        return 'instructions4';
     }
-    console.log("I loaded the languages");
+}
+
+function toggleLanguageSelection() {
+    var languageSelection = document.getElementById('languageSelection');
+    showLanguageSelection(languageSelection);
+}
+
+function showLanguageSelection(languageSelection) {
+    var videoContainer = document.getElementById('videoContainer');
+    videoContainer.style.display = 'none';
+
+    var idiomas = document.querySelector('.idiomas');
+    idiomas.style.display = 'block';
+
+    languageSelection.style.display = 'block';
+    languageSelection.classList.remove('fade-in');
+    void languageSelection.offsetWidth;
+    languageSelection.classList.add('fade-in');
 }
 
 function main() {
-    if (localStorage.getItem("language") != null) {
-        loadInstructions(localStorage.getItem("language"));
+    var currentUrl = window.location.href;
+    if (currentUrl.includes('instructions1')) {
+        document.getElementById('instructions').innerHTML = 'Instructions 1';
+    } else if (currentUrl.includes('instructions2')) {
+        document.getElementById('instructions').innerHTML = 'Instructions 2';
+    } else if (currentUrl.includes('instructions3')) {
+        document.getElementById('instructions').innerHTML = 'Instructions 3';
+    } else if (currentUrl.includes('instructions4')) {
+        document.getElementById('instructions').innerHTML = 'Instructions 4';
     } else {
-        loadLanguages(localStorage.getItem("language"));
+        console.log('Referrer does not match any expected URL');
     }
 
-    console.log(localStorage.getItem("language"));
+    // Check if the language is stored in localStorage
+    var storedLanguage = localStorage.getItem('language');
+    if (storedLanguage !== null) {
+        // If a language is stored, load the video for that language
+        showVideo(storedLanguage);
+    } else {
+        // If no language is stored, display the language selection
+        showLanguageSelection(document.getElementById('languageSelection'));
+    }
 }
 
-document.addEventListener("DOMContentLoaded", function (event) {
+document.addEventListener('DOMContentLoaded', function (event) {
     main();
 });

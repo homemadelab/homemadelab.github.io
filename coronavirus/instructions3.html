@@ -15,28 +15,38 @@
   <div class="titulo">
     <span id="instructions">Instructions</span>
   </div>
+
   <div class="titulo">
     <span id="seleccionar">Language</span>
   </div>
+
+  <button id="languageSelectionButton" onclick="toggleLanguageSelection()">Change Language</button>
+
+  <div id="languageSelection" class="fade-in"></div>
   <div class="idiomas">
     <div class="idioma">
-      <a href=/coronavirus/en id="english">English</a>
+      <a onclick="showVideo('en')" id="english">English</a>
     </div>
     <div class="idioma">
-      <a href=/coronavirus/fr id="french">Français</a>
+      <a onclick="showVideo('fr')" id="french">Français</a>
     </div>
     <div class="idioma">
-      <a href=/coronavirus/es id="spanish">Español</a>
+      <a onclick="showVideo('es')" id="spanish">Español</a>
     </div>
     <div class="idioma">
-      <a href=/coronavirus/de id="german">Deutsch</a>
+      <a onclick="showVideo('de')" id="german">Deutsch</a>
     </div>
     <div class="idioma">
-      <a href=/coronavirus/nl id="dutch">Nederlands</a>
+      <a onclick="showVideo('nl')" id="dutch">Nederlands</a>
     </div>
     <div class="idioma">
-      <a href=/coronavirus/nb id="norwegian">Norsk</a>
+      <a onclick="showVideo('nb')" id="norwegian">Norsk</a>
     </div>
+  </div>
+  </div>
+
+  <div id="videoContainer" class="video-container" style="display: none;">
+    <iframe width="100%" height="100%" src="" frameborder="0" allowfullscreen></iframe>
   </div>
   <script src="instructions.js"></script>
 </body>
