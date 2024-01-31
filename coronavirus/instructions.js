@@ -4,6 +4,7 @@ function showVideo(language) {
     var videoContainer = document.getElementById('videoContainer');
     videoContainer.innerHTML = '<iframe width="100%" height="100%" src="' + videoUrl + '" frameborder="0" allowfullscreen></iframe>';
     videoContainer.style.display = 'block';
+    document.getElementById('languageSelectionButton').style.display = 'block';
 
     var idiomas = document.querySelector('.idiomas');
     idiomas.style.display = 'none';
@@ -71,7 +72,10 @@ function toggleLanguageSelection() {
 
 function showLanguageSelection(languageSelection) {
     var videoContainer = document.getElementById('videoContainer');
+    videoContainer.innerHTML = '';
     videoContainer.style.display = 'none';
+
+    document.getElementById('languageSelectionButton').style.display = 'none';
 
     var idiomas = document.querySelector('.idiomas');
     idiomas.style.display = 'block';
