@@ -15,38 +15,37 @@ function showVideo(language) {
 function getVideoUrlForLanguage(language) {
     var instructionSite = getCurrentInstructionSite();
     var videoUrls = {
-        'instructions1': {
+        'instructions1': { // Acidic solution
+            'en': 'https://www.youtube.com/embed/3vsd2rb3iBU',
+            'fr': 'https://www.youtube.com/embed/JVru0a818B4',
+            'es': 'https://www.youtube.com/embed/5GI4iiW6Kfg',
+            'de': 'https://www.youtube.com/embed/oggoB-ZILU0',
+            'nl': 'https://www.youtube.com/embed/dFUXCdT7Ps8',
+            'nb': 'https://www.youtube.com/embed/z4MelvKku08'
+        },
+        'instructions2': { // Neutral solution
+            'en': 'https://www.youtube.com/embed/aQCeTKLzg3g',
+            'fr': 'https://www.youtube.com/embed/Xcw8oJAFnE0',
+            'es': 'https://www.youtube.com/embed/kwBc4fl_Qd0',
+            'de': 'https://www.youtube.com/embed/auWrAsqbXsc',
+            'nl': 'https://www.youtube.com/embed/9qwV1ales1U',
+            'nb': 'https://www.youtube.com/embed/qHtIGl92Jks',
+        },
+        'instructions3': { // Color indicator
+            'en': 'https://www.youtube.com/embed/_8T-_jlSna0', // Falta subir
+            'fr': 'https://www.youtube.com/embed/4YGolp4HpCQ', // Falta subir
+            'es': 'https://www.youtube.com/embed/3tA6etkjHYo', // Falta subir
+            'de': 'https://www.youtube.com/embed/7rI63Ulkrrc', // Falta subir
+            'nl': 'https://www.youtube.com/embed/kTKr_AB8BlY', // Falta subir
+            'nb': 'https://www.youtube.com/embed/voK55sAvoH0', // Falta subir
+        },
+        'instructions4': { // Basic solution
             'en': 'https://www.youtube.com/embed/_8T-_jlSna0',
             'fr': 'https://www.youtube.com/embed/4YGolp4HpCQ',
             'es': 'https://www.youtube.com/embed/3tA6etkjHYo',
             'de': 'https://www.youtube.com/embed/7rI63Ulkrrc',
             'nl': 'https://www.youtube.com/embed/kTKr_AB8BlY',
-            'nb': 'https://www.youtube.com/embed/voK55sAvoH0',
-        },
-        'instructions2': {
-            'en': 'https://www.youtube.com/embed/3vsd2rb3iBU',
-            'fr': 'https://www.youtube.com/embed/JVru0a818B4',
-            'es': 'https://www.youtube.com/embed/3tA6etkjHYo', // Falta subir
-            'de': 'https://www.youtube.com/embed/oggoB-ZILU0',
-            'nl': 'https://www.youtube.com/embed/dFUXCdT7Ps8',
-            'nb': 'https://www.youtube.com/embed/voK55sAvoH0', // Falta subir
-        },
-        'instructions3': {
-            'en': 'https://www.youtube.com/embed/_8T-_jlSna0', // Falta subir
-            'fr': 'https://www.youtube.com/embed/4YGolp4HpCQ', // Falta subir
-            'es': 'https://www.youtube.com/embed/3tA6etkjHYo', // Falta subir
-            'de': 'https://www.youtube.com/embed/7rI63Ulkrrc', // Falta subir
-            'nl': 'https://www.youtube.com/embed/kTKr_AB8BlY', // Falta subir
-            'nb': 'https://www.youtube.com/embed/voK55sAvoH0', // Falta subir
-        },
-        'instructions4': {
-            'en': 'https://www.youtube.com/embed/_8T-_jlSna0', // Falta subir
-            'fr': 'https://www.youtube.com/embed/4YGolp4HpCQ', // Falta subir
-            'es': 'https://www.youtube.com/embed/3tA6etkjHYo', // Falta subir
-            'de': 'https://www.youtube.com/embed/7rI63Ulkrrc', // Falta subir
-            'nl': 'https://www.youtube.com/embed/kTKr_AB8BlY', // Falta subir
-            'nb': 'https://www.youtube.com/embed/voK55sAvoH0', // Falta subir
-
+            'nb': 'https://www.youtube.com/embed/voK55sAvoH0'
         },
     };
     return videoUrls[instructionSite][language];
