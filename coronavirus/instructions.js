@@ -32,10 +32,10 @@ function getVideoUrlForLanguage(language) {
             'nb': 'https://www.youtube.com/embed/qHtIGl92Jks',
         },
         'instructions3': { // Color indicator
-            'en': 'https://www.youtube.com/embed/_8T-_jlSna0', // Falta subir
+            'en': 'https://www.youtube.com/embed/PZBN9ajBWOk',
             'fr': 'https://www.youtube.com/embed/4YGolp4HpCQ', // Falta subir
             'es': 'https://www.youtube.com/embed/3tA6etkjHYo', // Falta subir
-            'de': 'https://www.youtube.com/embed/7rI63Ulkrrc', // Falta subir
+            'de': 'https://www.youtube.com/embed/ZTFvDE2c88w',
             'nl': 'https://www.youtube.com/embed/kTKr_AB8BlY', // Falta subir
             'nb': 'https://www.youtube.com/embed/voK55sAvoH0', // Falta subir
         },
