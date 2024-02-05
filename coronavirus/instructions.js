@@ -29,15 +29,15 @@ function getVideoUrlForLanguage(language) {
             'es': 'https://www.youtube.com/embed/kwBc4fl_Qd0',
             'de': 'https://www.youtube.com/embed/auWrAsqbXsc',
             'nl': 'https://www.youtube.com/embed/9qwV1ales1U',
-            'nb': 'https://www.youtube.com/embed/qHtIGl92Jks',
+            'nb': 'https://www.youtube.com/embed/qHtIGl92Jks'
         },
         'instructions3': { // Color indicator
             'en': 'https://www.youtube.com/embed/PZBN9ajBWOk',
-            'fr': 'https://www.youtube.com/embed/4YGolp4HpCQ', // Falta subir
-            'es': 'https://www.youtube.com/embed/3tA6etkjHYo', // Falta subir
+            'fr': 'https://www.youtube.com/embed/7_LVnRCl5Go',
+            'es': 'https://www.youtube.com/embed/a86HAnRMmP8',
             'de': 'https://www.youtube.com/embed/ZTFvDE2c88w',
-            'nl': 'https://www.youtube.com/embed/kTKr_AB8BlY', // Falta subir
-            'nb': 'https://www.youtube.com/embed/voK55sAvoH0', // Falta subir
+            'nl': 'https://www.youtube.com/embed/GKtGI2Cf8kI',
+            'nb': 'https://www.youtube.com/embed/DbDCEB7XrqE'
         },
         'instructions4': { // Basic solution
             'en': 'https://www.youtube.com/embed/_8T-_jlSna0',
