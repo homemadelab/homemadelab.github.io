@@ -206,6 +206,8 @@ img {
 }
 
 #left_arrow {
+  margin-left: 1%;
+  margin-bottom: 1%;
   display: none;
   opacity: 0;
   padding: 4px;
