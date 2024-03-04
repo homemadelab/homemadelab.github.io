@@ -128,8 +128,6 @@ header>h1 {
   font-weight: bold;
   text-shadow: 0px 0px 14px #00000040;
   word-wrap: break-word;
-  white-space: -moz-pre-wrap;
-  white-space: pre-wrap;
 }
 
 #respuesta1:hover,
