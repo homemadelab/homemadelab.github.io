@@ -249,10 +249,6 @@ img {
   box-shadow: inset 4px 4px #242469;
 }
 
-.dice-one {
-  left: 350px;
-}
-
 .side {
   position: absolute;
   background-color: #ffffff;
