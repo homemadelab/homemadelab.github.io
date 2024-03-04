@@ -230,7 +230,7 @@ img {
 .container {
   position: relative;
   display: inline-block;
-  top: 200px;
+  top: 50px;
 }
 
 .dice {
