@@ -24,6 +24,8 @@ function calcularTiempoRestante() {
         document.body.setAttribute('style', 'background-color: #F63E52 !important');
         document.getElementById("fuente").style.display = 'block';
         document.getElementById("fuente").style.opacity = '1';
+        document.getElementById("left_arrow").style.display = 'block';
+        document.getElementById("left_arrow").style.opacity = '1';
         mostrarOpciones(respuesta1, respuesta2, respuesta3);
         seleccionada = true;
       });
@@ -128,6 +130,8 @@ function verificarCorrecta(opcion, correcta, respuesta1, respuesta2, respuesta3)
     mostrarOpciones(respuesta1, respuesta2, respuesta3);
     document.getElementById("fuente").style.display = 'block';
     document.getElementById("fuente").style.opacity = '1';
+    document.getElementById("left_arrow").style.display = 'block';
+    document.getElementById("left_arrow").style.opacity = '1';
   }, 1000);
 }
 
