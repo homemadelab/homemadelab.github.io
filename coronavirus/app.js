@@ -85,6 +85,11 @@ function obtenerRespuestas(tabla) {
 }
 
 function obtenerPreguntaAleatoria(cantPreguntas) {
+
+  if (preguntasMostradas.length === cantPreguntas) {  // Reinicio el array si está lleno
+    preguntasMostradas = [];
+  }
+
   let indice = aleatorizarPreguntas(cantPreguntas);
 
 
