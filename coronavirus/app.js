@@ -13,10 +13,10 @@ const pdf = document.getElementById("pdf");
 const dificultad = document.getElementById("dificultad");
 const nivel = document.getElementById("nivel");
 document.getElementById("logo").style.display = 'block';
-let preguntasMostradas = [];
+let preguntasMostradasPorCategoria = {};
 
-if (localStorage.getItem("preguntasMostradas")) {
-  preguntasMostradas = JSON.parse(localStorage.getItem("preguntasMostradas"));
+if (localStorage.getItem("preguntasMostradasPorCategoria")) {
+  preguntasMostradasPorCategoria = JSON.parse(localStorage.getItem("preguntasMostradasPorCategoria"));
 }
 
 function calcularTiempoRestante() {
@@ -84,22 +84,25 @@ function obtenerRespuestas(tabla) {
   return respuestas;
 }
 
-function obtenerPreguntaAleatoria(cantPreguntas) {
+function obtenerPreguntaAleatoria(categoria, cantPreguntas) {
 
-  if (preguntasMostradas.length === cantPreguntas) {  // Reinicio el array si está lleno
-    preguntasMostradas = [];
-    localStorage.setItem("preguntasMostradas", JSON.stringify(preguntasMostradas));
+  if (!preguntasMostradasPorCategoria.hasOwnProperty(categoria)) { // Verifico si la categoría tiene su propia lista de preguntas mostradas
+    preguntasMostradasPorCategoria[categoria] = [];
+  }
+
+  if (preguntasMostradasPorCategoria[categoria].length === cantPreguntas) { // Reinicio el array de preguntas mostradas
+    preguntasMostradasPorCategoria[categoria] = [];
+    localStorage.setItem("preguntasMostradasPorCategoria", JSON.stringify(preguntasMostradasPorCategoria));
   }
 
   let indice = aleatorizarPreguntas(cantPreguntas);
 
-
-  while (preguntasMostradas.includes(indice)) { // Verifico si la pregunta ya está en la lista de preguntas mostradas
+  while (preguntasMostradasPorCategoria[categoria].includes(indice)) { // Verifico si la pregunta ya está en la lista de preguntas mostradas
     indice = aleatorizarPreguntas(cantPreguntas);
   }
 
-  preguntasMostradas.push(indice); // Agrego el índice a la lista de preguntas mostradas
-  localStorage.setItem("preguntasMostradas", JSON.stringify(preguntasMostradas));
+  preguntasMostradasPorCategoria[categoria].push(indice); // Agrego el índice a la lista de preguntas mostradas de esa categoría
+  localStorage.setItem("preguntasMostradasPorCategoria", JSON.stringify(preguntasMostradasPorCategoria));
 
   return indice;
 }
@@ -225,7 +228,7 @@ async function main() {
     indicesRespuestas[i] = i * 3;
   }
 
-  let preguntaAleatoria = obtenerPreguntaAleatoria(cantPreguntas);
+  let preguntaAleatoria = obtenerPreguntaAleatoria(categoria, cantPreguntas);
   let indiceAleatorio = indicesRespuestas[preguntaAleatoria];
 
   pdf.href = "/coronavirus/pdfs/" + (id).slice(0, -3) + "/" + (preguntaAleatoria + 1).toString(); // Redirijo a página de fuente
