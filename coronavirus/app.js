@@ -13,6 +13,11 @@ const pdf = document.getElementById("pdf");
 const dificultad = document.getElementById("dificultad");
 const nivel = document.getElementById("nivel");
 document.getElementById("logo").style.display = 'block';
+let preguntasMostradas = [];
+
+if (localStorage.getItem("preguntasMostradas")) {
+  preguntasMostradas = JSON.parse(localStorage.getItem("preguntasMostradas"));
+}
 
 function calcularTiempoRestante() {
   let width = 99;
@@ -77,6 +82,20 @@ function obtenerRespuestas(tabla) {
   });
   //console.log(respuestas);
   return respuestas;
+}
+
+function obtenerPreguntaAleatoria(cantPreguntas) {
+  let indice = aleatorizarPreguntas(cantPreguntas);
+
+
+  while (preguntasMostradas.includes(indice)) { // Verifico si la pregunta ya está en la lista de preguntas mostradas
+    indice = aleatorizarPreguntas(cantPreguntas);
+  }
+
+  preguntasMostradas.push(indice); // Agrego el índice a la lista de preguntas mostradas
+  localStorage.setItem("preguntasMostradas", JSON.stringify(preguntasMostradas));
+
+  return indice;
 }
 
 function aleatorizarPreguntas(cantPreguntas) {
@@ -200,7 +219,7 @@ async function main() {
     indicesRespuestas[i] = i * 3;
   }
 
-  let preguntaAleatoria = aleatorizarPreguntas(cantPreguntas);
+  let preguntaAleatoria = obtenerPreguntaAleatoria(cantPreguntas);
   let indiceAleatorio = indicesRespuestas[preguntaAleatoria];
 
   pdf.href = "/coronavirus/pdfs/" + (id).slice(0, -3) + "/" + (preguntaAleatoria + 1).toString(); // Redirijo a página de fuente
