@@ -88,6 +88,7 @@ function obtenerPreguntaAleatoria(cantPreguntas) {
 
   if (preguntasMostradas.length === cantPreguntas) {  // Reinicio el array si está lleno
     preguntasMostradas = [];
+    localStorage.setItem("preguntasMostradas", JSON.stringify(preguntasMostradas));
   }
 
   let indice = aleatorizarPreguntas(cantPreguntas);
