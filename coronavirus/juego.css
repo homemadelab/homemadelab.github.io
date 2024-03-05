@@ -7,6 +7,7 @@
   padding: 0;
   box-sizing: border-box;
   user-select: none;
+  hyphens: auto;
 }
 
 a {
@@ -127,7 +128,6 @@ header>h1 {
   font-family: Asap, sans-serif;
   font-weight: bold;
   text-shadow: 0px 0px 14px #00000040;
-  word-wrap: break-word;
 }
 
 #respuesta1:hover,
