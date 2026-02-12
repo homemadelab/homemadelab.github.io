@@ -286,6 +286,109 @@
       box-shadow: none;
     }
 
+    /* ====== MOBILE NAV (hamburger) ====== */
+    .burger{
+      display:none;
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      border: 1px solid rgba(11, 16, 32, .10);
+      background: rgba(255,255,255,.78);
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 14px 30px rgba(11,16,32,.10);
+    }
+    .burger:active{ transform: translateY(1px); }
+
+    .burger-lines{
+      width: 18px;
+      height: 2px;
+      background: rgba(11,16,32,.78);
+      border-radius: 999px;
+      position: relative;
+      display: block;
+    }
+    .burger-lines::before,
+    .burger-lines::after{
+      content:"";
+      position:absolute;
+      left:0;
+      width: 18px;
+      height: 2px;
+      background: rgba(11,16,32,.78);
+      border-radius: 999px;
+      transition: transform .16s ease, top .16s ease, opacity .16s ease;
+    }
+    .burger-lines::before{ top: -6px; }
+    .burger-lines::after{ top: 6px; }
+
+    body.nav-open .burger-lines{ background: transparent; }
+    body.nav-open .burger-lines::before{ top:0; transform: rotate(45deg); }
+    body.nav-open .burger-lines::after{ top:0; transform: rotate(-45deg); }
+
+    .award-emoji{ display:inline-block; }
+    .award-pill-text{ display:inline-block; }
+
+    @media (max-width: 980px){
+      .burger{ display:inline-flex; }
+
+      /* hide topbar CTA buttons on mobile */
+      .topbar-ctas{ display:none !important; }
+
+      /* turn links into hamburger menu */
+      .topbar-inner{ position: relative; }
+      .nav{
+        position: absolute;
+        top: 64px;
+        right: 0;
+        left: 0;
+        display: none;
+        flex-direction: column;
+        gap: 6px;
+        padding: 12px;
+        margin: 0;
+        border-radius: 18px;
+        border: 1px solid rgba(11,16,32,.10);
+        background: rgba(255,255,255,.92);
+        box-shadow: 0 18px 50px rgba(11,16,32,.14);
+        backdrop-filter: blur(10px);
+      }
+      body.nav-open .nav{ display:flex; }
+      .nav a{ padding: 10px 12px; }
+
+      /* Visual-top: emoji only + plain url text (no purple capsule) */
+      .award-pill{
+        padding: 0;
+        border: none;
+        background: none;
+        transform: none;
+        font-size: 18px;
+      }
+      .award-pill-text{ display:none; }
+      .mini-cta{
+        padding: 0;
+        border: none;
+        background: none;
+        transform: none;
+        box-shadow: none;
+        font-weight: 900;
+        color: rgba(11,16,32,.78);
+      }
+
+      /* Footer: remove mail pill, center copyright + contact */
+      .footer-mail{ display:none !important; }
+      .footer-inner{
+        justify-content: center;
+        text-align: center;
+      }
+      .foot-left{
+        width: 100%;
+        text-align: center;
+      }
+      .footer-contact{ text-align:center; }
+    }
+
     /* ====== HERO ====== */
     .hero {
       position: relative;
@@ -344,6 +447,11 @@
       .mascot {
         width: clamp(74px, 18vw, 140px);
         top: 12px;
+      }
+
+      .venue {
+        flex-basis: 100%;
+        max-width: 100%;
       }
     }
 
@@ -951,10 +1059,16 @@
     }
 
     .venue-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      display: flex;
+      flex-wrap: wrap;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 12px;
       margin-top: 12px;
+      justify-content: center;
+    }
+
+    .venue-grid>.venue:nth-child(4) {
+      grid-column: 2 / span 2;
     }
 
     .venue {
@@ -963,7 +1077,9 @@
       border: 1px dashed rgba(11, 16, 32, .22);
       background: rgba(255, 255, 255, .65);
       transform: rotate(var(--r, 0deg));
-
+      flex: 0 1 calc((100% - 24px) / 3);
+      max-width: calc((80% - 24px) / 3);
+      text-align: center;
     }
 
     .venue b {
@@ -1108,7 +1224,9 @@
           </div>
         </a>
 
-        <nav class="nav" aria-label="Primary">
+        <button class="burger" id="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav"><span class="burger-lines" aria-hidden="true"></span></button>
+
+        <nav class="nav" id="mobileNav" aria-label="Primary">
           <a href="#how">How it works</a>
           <a href="#categories">Locations</a>
           <a href="#languages">Languages</a>
@@ -1116,7 +1234,7 @@
           <a href="#where-to-play">Where to play</a>
         </nav>
 
-        <div style="display:flex; gap:10px; align-items:center">
+        <div class="topbar-ctas" style="display:flex; gap:10px; align-items:center">
           <a class="btn btn-ghost" href="/coronavirus" title="Start the online questions experience">▶ Play Online</a>
           <span class="btn btn-disabled" title="Not available yet">🛒 Available soon</span>
         </div>
@@ -1183,8 +1301,8 @@
 
         <aside class="visual reveal" data-delay="1" aria-label="Game visuals">
           <div class="visual-top">
-            <span class="award-pill">🏅 Most Innovative Game — 2024</span>
-            <span class="mini-cta">homemadelabgames.com/coronavirus</span>
+            <span class="award-pill"><span class="award-emoji">🏅</span><span class="award-pill-text"> Most Innovative Game — 2024</span></span>
+            <span class="mini-cta"><span class="url-text">homemadelabgames.com/coronavirus</span></span>
           </div>
 
           <div class="visual-body">
@@ -1393,11 +1511,11 @@
           <div><b>HomemadeLab Games</b> — Coronavirus</div>
           <div>© <span id="year"></span></div>
         </div>
-        <div>
+        <div class="footer-mail">
           <a class="mail" href="mailto:gasparperezmazas@gmail.com">✉️ gasparperezmazas@gmail.com</a>
         </div>
       </div>
-      <div style="margin-top:14px; text-align:center; color:rgba(11,16,32,.60); font-size:12px">
+      <div class="footer-contact" style="margin-top:14px; text-align:center; color:rgba(11,16,32,.60); font-size:12px">
         Contact: <a href="mailto:gasparperezmazas@gmail.com"
           style="font-weight:900; text-decoration:underline">gasparperezmazas@gmail.com</a>
       </div>
@@ -1481,12 +1599,60 @@
       targets.forEach(el => io.observe(el));
     })();
 
+
+    // Mobile hamburger menu (mobile-only via CSS)
+    (function initMobileMenu(){
+      const btn = document.getElementById("burger");
+      const nav = document.getElementById("mobileNav");
+      if (!btn || !nav) return;
+
+      function close(){
+        document.body.classList.remove("nav-open");
+        btn.setAttribute("aria-expanded","false");
+      }
+      function toggle(){
+        const open = document.body.classList.toggle("nav-open");
+        btn.setAttribute("aria-expanded", open ? "true" : "false");
+      }
+
+      btn.addEventListener("click", toggle);
+
+      // Close on link click
+      nav.querySelectorAll("a").forEach(a=>{
+        a.addEventListener("click", close);
+      });
+
+      // Close on outside tap
+      document.addEventListener("click", (e)=>{
+        if (!document.body.classList.contains("nav-open")) return;
+        if (nav.contains(e.target) || btn.contains(e.target)) return;
+        close();
+      });
+
+      // Close on resize to desktop
+      window.addEventListener("resize", ()=>{
+        if (window.innerWidth > 980) close();
+      });
+    })();
+
     // Demo widget (landing only)
     const SAMPLE_QUESTIONS = [
       { category: "Bank", q: "How long does it take after vaccination to test its effectiveness?", opts: ["7 days", "10 days", "14 days"], correct: 3, sourceNote: "In the real game, the reference icon opens the supporting scientific/official source." },
       { category: "Bank", q: "Which sectors have suffered the most from the pandemic?", opts: ["Tourism, hospitality and aviation", "Tourism, aviation and health", "Aviation, health and transportation"], correct: 1, sourceNote: "In the real game, sources are available via the reference icon after answering." },
       { category: "Hospital", q: "What cells are responsible for fighting pathogens that enter the body?", opts: ["T lymphocytes", "C lymphocytes", "White blood cells"], correct: 3, sourceNote: "In the real game, the source is shown via the reference icon." },
-      { category: "Hospital", q: "Can a vaccine change our DNA?", opts: ["No", "Yes", "Yes, but only an RNA vaccine"], correct: 1, sourceNote: "In the real game, the source is shown via the reference icon." }
+      { category: "Hospital", q: "Can a vaccine change our DNA?", opts: ["No", "Yes", "Yes, but only an RNA vaccine"], correct: 1, sourceNote: "In the real game, the source is shown via the reference icon." },
+      { category: "School", q: "What does 'cell' mean?", opts: ["Basic unity of all living things", "Structural element of tissues", "Functional element of tissues"], correct: 1, sourceNote: "In the real game, the reference icon opens the supporting scientific/official source." },
+      { category: "School", q: "What does 'tissue' mean?", opts: ["Structure composed of cells that performs the same task for the whole organism", "Structure composed of cells", "Structure composed of identical cells that performs the same task"], correct: 1, sourceNote: "In the real game, the reference icon opens the supporting scientific/official source." },
+      { category: "Home", q: "Did Sarscov escape from a laboratory?", opts: ["No", "Yes", "Maybe"], correct: 1, sourceNote: "In the real game, the reference icon opens the supporting scientific/official source." },
+      { category: "Home", q: "Have there ever been viruses that escaped from laboratories?", opts: ["Yes", "Maybe", "No"], correct: 1, sourceNote: "In the real game, the reference icon opens the supporting scientific/official source." },
+      { category: "Pharmacy", q: "Does wearing gloves in everyday life protect me from the virus?", opts: ["No", "Yes", "Only if the hands are clean"], correct: 1, sourceNote: "In the real game, the reference icon opens the supporting scientific/official source." },
+      { category: "Pharmacy", q: "Which cleaning agent eliminates COVID-19 from inanimate surfaces?", opts: ["Classic cleaning products or disinfectant", "100% ethanol", "86% ethanol"], correct: 1, sourceNote: "In the real game, the reference icon opens the supporting scientific/official source." },
+      { category: "Supermarket", q: "Why does buying a vodka and drinking it not help against COVID-19 as Mr. Trump has said?", opts: ["Because alcohol depresses the immune system", "Because the alcohol in the vodka is too concentrated", "Because the alcohol in the vodka is not concentrated enough"], correct: 1, sourceNote: "In the real game, the reference icon opens the supporting scientific/official source." },
+      { category: "Supermarket", q: "Thanks to a cough or sneeze, the virus can be projected to…", opts: ["more than 2 meters", "more than 3 meters", "more than 1 meter"], correct: 1, sourceNote: "In the real game, the reference icon opens the supporting scientific/official source." },
+      { category: "Zoo", q: "Can the virus be transmitted by mosquito bites?", opts: ["Yes, but within 24 hours of being bitten", "Yes", "No"], correct: 1, sourceNote: "In the real game, the reference icon opens the supporting scientific/official source." },
+      { category: "Zoo", q: "How similar is the DNA of human viruses to that of a bat?", opts: ["88%", "63%", "96%"], correct: 1, sourceNote: "In the real game, the reference icon opens the supporting scientific/official source." },
+      { category: "Lab", q: "What means can be used to inactivate viruses?", opts: ["Chemicals, heat or radiation", "Chemicals or heat", "Heat or radiation"], correct: 1, sourceNote: "In the real game, the reference icon opens the supporting scientific/official source." },
+      { category: "Lab", q: "What is a vector vaccine?", opts: ["Vaccines with harmless viruses to deliver the pathogen's genetic materials to the host cells", "Engineered vaccines using killed viruses to deliver the pathogen's genetic material to host cells to simulate immune responses", "Reference vaccines"], correct: 1, sourceNote: "In the real game, the reference icon opens the supporting scientific/official source." },
     ];
 
     const $ = (id) => document.getElementById(id);
@@ -1599,8 +1765,5 @@
     pickQuestion();
   </script>
 </body>
-<<<<<<< HEAD </html>
-  =======
 
 </html>
->>>>>>> 8d1b445d532f14670c38262f1371f73d9a043c14
