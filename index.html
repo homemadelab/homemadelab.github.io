@@ -287,58 +287,88 @@
     }
 
     /* ====== MOBILE NAV (hamburger) ====== */
-    .burger{
-      display:none;
+    .burger {
+      display: none;
       width: 44px;
       height: 44px;
       border-radius: 14px;
       border: 1px solid rgba(11, 16, 32, .10);
-      background: rgba(255,255,255,.78);
+      background: rgba(255, 255, 255, .78);
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      box-shadow: 0 14px 30px rgba(11,16,32,.10);
+      box-shadow: 0 14px 30px rgba(11, 16, 32, .10);
     }
-    .burger:active{ transform: translateY(1px); }
 
-    .burger-lines{
+    .burger:active {
+      transform: translateY(1px);
+    }
+
+    .burger-lines {
       width: 18px;
       height: 2px;
-      background: rgba(11,16,32,.78);
+      background: rgba(11, 16, 32, .78);
       border-radius: 999px;
       position: relative;
       display: block;
     }
+
     .burger-lines::before,
-    .burger-lines::after{
-      content:"";
-      position:absolute;
-      left:0;
+    .burger-lines::after {
+      content: "";
+      position: absolute;
+      left: 0;
       width: 18px;
       height: 2px;
-      background: rgba(11,16,32,.78);
+      background: rgba(11, 16, 32, .78);
       border-radius: 999px;
       transition: transform .16s ease, top .16s ease, opacity .16s ease;
     }
-    .burger-lines::before{ top: -6px; }
-    .burger-lines::after{ top: 6px; }
 
-    body.nav-open .burger-lines{ background: transparent; }
-    body.nav-open .burger-lines::before{ top:0; transform: rotate(45deg); }
-    body.nav-open .burger-lines::after{ top:0; transform: rotate(-45deg); }
+    .burger-lines::before {
+      top: -6px;
+    }
 
-    .award-emoji{ display:inline-block; }
-    .award-pill-text{ display:inline-block; }
+    .burger-lines::after {
+      top: 6px;
+    }
 
-    @media (max-width: 980px){
-      .burger{ display:inline-flex; }
+    body.nav-open .burger-lines {
+      background: transparent;
+    }
 
-      /* hide topbar CTA buttons on mobile */
-      .topbar-ctas{ display:none !important; }
+    body.nav-open .burger-lines::before {
+      top: 0;
+      transform: rotate(45deg);
+    }
 
-      /* turn links into hamburger menu */
-      .topbar-inner{ position: relative; }
-      .nav{
+    body.nav-open .burger-lines::after {
+      top: 0;
+      transform: rotate(-45deg);
+    }
+
+    .award-emoji {
+      display: inline-block;
+    }
+
+    .award-pill-text {
+      display: inline-block;
+    }
+
+    @media (max-width: 980px) {
+      .burger {
+        display: inline-flex;
+      }
+
+      .topbar-ctas {
+        display: none !important;
+      }
+
+      .topbar-inner {
+        position: relative;
+      }
+
+      .nav {
         position: absolute;
         top: 64px;
         right: 0;
@@ -349,44 +379,84 @@
         padding: 12px;
         margin: 0;
         border-radius: 18px;
-        border: 1px solid rgba(11,16,32,.10);
-        background: rgba(255,255,255,.92);
-        box-shadow: 0 18px 50px rgba(11,16,32,.14);
+        border: 1px solid rgba(11, 16, 32, .10);
+        background: rgba(255, 255, 255, .92);
+        box-shadow: 0 18px 50px rgba(11, 16, 32, .14);
         backdrop-filter: blur(10px);
       }
-      body.nav-open .nav{ display:flex; }
-      .nav a{ padding: 10px 12px; }
 
-      /* Visual-top: emoji only + plain url text (no purple capsule) */
-      .award-pill{
+      body.nav-open .nav {
+        display: flex;
+      }
+
+      .nav a {
+        padding: 10px 12px;
+      }
+
+      .award-pill {
         padding: 0;
         border: none;
         background: none;
         transform: none;
         font-size: 18px;
       }
-      .award-pill-text{ display:none; }
-      .mini-cta{
+
+      .award-pill-text {
+        display: none;
+      }
+
+      .mini-cta {
         padding: 0;
         border: none;
         background: none;
         transform: none;
         box-shadow: none;
         font-weight: 900;
-        color: rgba(11,16,32,.78);
+        color: rgba(11, 16, 32, .78);
       }
 
-      /* Footer: remove mail pill, center copyright + contact */
-      .footer-mail{ display:none !important; }
-      .footer-inner{
+      .footer-mail {
+        display: none !important;
+      }
+
+      .footer-inner {
         justify-content: center;
         text-align: center;
       }
-      .foot-left{
+
+      .foot-left {
         width: 100%;
         text-align: center;
       }
-      .footer-contact{ text-align:center; }
+
+      .footer-contact {
+        text-align: center;
+      }
+
+      .venue-grid {
+        display: grid !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+        justify-content: initial !important;
+      }
+
+      .venue {
+        flex: none !important;
+        max-width: none !important;
+        width: auto !important;
+        padding: 12px;
+        border-radius: 18px;
+        text-align: center;
+      }
+
+      .venue span {
+        display: none;
+      }
+
+      .venue b {
+        font-size: 13px;
+        line-height: 1.25;
+      }
     }
 
     /* ====== HERO ====== */
@@ -1067,10 +1137,6 @@
       justify-content: center;
     }
 
-    .venue-grid>.venue:nth-child(4) {
-      grid-column: 2 / span 2;
-    }
-
     .venue {
       padding: 14px;
       border-radius: 18px;
@@ -1224,7 +1290,8 @@
           </div>
         </a>
 
-        <button class="burger" id="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav"><span class="burger-lines" aria-hidden="true"></span></button>
+        <button class="burger" id="burger" type="button" aria-label="Open menu" aria-expanded="false"
+          aria-controls="mobileNav"><span class="burger-lines" aria-hidden="true"></span></button>
 
         <nav class="nav" id="mobileNav" aria-label="Primary">
           <a href="#how">How it works</a>
@@ -1301,7 +1368,8 @@
 
         <aside class="visual reveal" data-delay="1" aria-label="Game visuals">
           <div class="visual-top">
-            <span class="award-pill"><span class="award-emoji">🏅</span><span class="award-pill-text"> Most Innovative Game — 2024</span></span>
+            <span class="award-pill"><span class="award-emoji">🏅</span><span class="award-pill-text"> Most Innovative
+                Game — 2024</span></span>
             <span class="mini-cta"><span class="url-text">homemadelabgames.com/coronavirus</span></span>
           </div>
 
@@ -1601,16 +1669,16 @@
 
 
     // Mobile hamburger menu (mobile-only via CSS)
-    (function initMobileMenu(){
+    (function initMobileMenu() {
       const btn = document.getElementById("burger");
       const nav = document.getElementById("mobileNav");
       if (!btn || !nav) return;
 
-      function close(){
+      function close() {
         document.body.classList.remove("nav-open");
-        btn.setAttribute("aria-expanded","false");
+        btn.setAttribute("aria-expanded", "false");
       }
-      function toggle(){
+      function toggle() {
         const open = document.body.classList.toggle("nav-open");
         btn.setAttribute("aria-expanded", open ? "true" : "false");
       }
@@ -1618,19 +1686,19 @@
       btn.addEventListener("click", toggle);
 
       // Close on link click
-      nav.querySelectorAll("a").forEach(a=>{
+      nav.querySelectorAll("a").forEach(a => {
         a.addEventListener("click", close);
       });
 
       // Close on outside tap
-      document.addEventListener("click", (e)=>{
+      document.addEventListener("click", (e) => {
         if (!document.body.classList.contains("nav-open")) return;
         if (nav.contains(e.target) || btn.contains(e.target)) return;
         close();
       });
 
       // Close on resize to desktop
-      window.addEventListener("resize", ()=>{
+      window.addEventListener("resize", () => {
         if (window.innerWidth > 980) close();
       });
     })();
