@@ -1,12 +1,10 @@
 <!doctype html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Coronavirus — Board Game | HomemadeLab Games</title>
-  <meta name="description"
-    content="A physical board game with an online question system. Answer in 60 seconds, learn from verified sources, and be the first to end the pandemic." />
+  <meta name="description" content="A physical board game with an online question system. Answer in 60 seconds, learn from verified sources, and be the first to end the pandemic." />
   <meta name="theme-color" content="#6070F0" />
   <link rel="apple-touch-icon" sizes="180x180" href="/coronavirus/imagenes/favicon/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/coronavirus/imagenes/favicon/favicon-32x32.png">
@@ -14,17 +12,15 @@
   <link rel="manifest" href="/coronavirus/imagenes/favicon/site.webmanifest">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Inter:wght@400;500;600;700;800&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
-    :root {
+    :root{
       --brand-blue: #6070F0;
       --brand-yellow: #E0D020;
 
       --ink: #0B1020;
-      --muted: rgba(11, 16, 32, .68);
+      --muted: rgba(11,16,32,.68);
 
       --bg: #F6F7FF;
 
@@ -40,131 +36,93 @@
       --display: "Fraunces", ui-serif, Georgia, serif;
       --body: "Inter", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
 
-      --border: rgba(11, 16, 32, .10);
-      --shadow: 0 18px 50px rgba(11, 16, 32, .12);
+      --border: rgba(11,16,32,.10);
+      --shadow: 0 18px 50px rgba(11,16,32,.12);
     }
 
-    * {
-      box-sizing: border-box;
-    }
-
-    html,
-    body {
-      height: 100%;
-    }
-
-    body {
-      margin: 0;
+    *{ box-sizing: border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
       font-family: var(--body);
       color: var(--ink);
       background: var(--bg);
-      overflow-x: hidden;
+      overflow-x:hidden;
     }
+    a{ color: inherit; text-decoration: none; }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+    .wrap{ width: min(var(--max), calc(100% - 40px)); margin: 0 auto; }
 
-    .wrap {
-      width: min(var(--max), calc(100% - 40px));
-      margin: 0 auto;
-    }
-
-    .virus-layer {
+    .virus-layer{
       position: fixed;
       inset: 0;
       z-index: -1;
       pointer-events: none;
       overflow: hidden;
     }
-
-    .virus-dot {
+    .virus-dot{
       position: absolute;
       width: var(--s, 26px);
       height: var(--s, 26px);
       opacity: var(--o, .22);
-      transform: translate3d(0, 0, 0);
+      transform: translate3d(0,0,0);
       animation:
         floaty var(--t, 18s) ease-in-out infinite,
         drift var(--t2, 28s) linear infinite;
       will-change: transform;
       filter: blur(0.1px);
     }
-
-    .virus-dot .core {
+    .virus-dot .core{
       width: 100%;
       height: 100%;
       border-radius: 999px;
-      background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, .55), rgba(255, 255, 255, 0) 55%),
-        rgba(96, 112, 240, .55);
-      border: 1px solid rgba(11, 16, 32, .14);
-      box-shadow: 0 10px 25px rgba(11, 16, 32, .10);
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.55), rgba(255,255,255,0) 55%),
+                  rgba(96,112,240,.55);
+      border: 1px solid rgba(11,16,32,.14);
+      box-shadow: 0 10px 25px rgba(11,16,32,.10);
       position: relative;
       overflow: visible;
     }
-
-    .virus-dot.yellow .core {
-      background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, .55), rgba(255, 255, 255, 0) 55%),
-        rgba(224, 208, 32, .55);
+    .virus-dot.yellow .core{
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.55), rgba(255,255,255,0) 55%),
+                  rgba(224,208,32,.55);
     }
-
-    .virus-dot .core::before {
-      content: "";
-      position: absolute;
+    .virus-dot .core::before{
+      content:"";
+      position:absolute;
       inset: -28%;
       border-radius: 999px;
       background:
         conic-gradient(from 0deg,
-          rgba(11, 16, 32, .18) 0 6deg,
-          rgba(11, 16, 32, 0) 6deg 18deg);
+          rgba(11,16,32,.18) 0 6deg,
+          rgba(11,16,32,0) 6deg 18deg);
       -webkit-mask: radial-gradient(circle, transparent 56%, #000 57%);
       mask: radial-gradient(circle, transparent 56%, #000 57%);
       opacity: .55;
       animation: spin var(--spin, 10s) linear infinite;
     }
-
-    .virus-dot .core::after {
-      content: "";
-      position: absolute;
+    .virus-dot .core::after{
+      content:"";
+      position:absolute;
       inset: -10%;
       border-radius: 999px;
-      border: 1px solid rgba(11, 16, 32, .12);
+      border: 1px solid rgba(11,16,32,.12);
       opacity: .6;
       transform: rotate(6deg);
     }
 
-    @keyframes spin {
-      to {
-        transform: rotate(360deg);
-      }
+    @keyframes spin{ to{ transform: rotate(360deg); } }
+    @keyframes floaty{
+      0%   { transform: translate3d(0,0,0) rotate(0deg) }
+      50%  { transform: translate3d(0,-18px,0) rotate(4deg) }
+      100% { transform: translate3d(0,0,0) rotate(0deg) }
+    }
+    @keyframes drift{
+      0%   { translate: 0 0; }
+      100% { translate: var(--dx, 40px) var(--dy, -60px); }
     }
 
-    @keyframes floaty {
-      0% {
-        transform: translate3d(0, 0, 0) rotate(0deg)
-      }
-
-      50% {
-        transform: translate3d(0, -18px, 0) rotate(4deg)
-      }
-
-      100% {
-        transform: translate3d(0, 0, 0) rotate(0deg)
-      }
-    }
-
-    @keyframes drift {
-      0% {
-        translate: 0 0;
-      }
-
-      100% {
-        translate: var(--dx, 40px) var(--dy, -60px);
-      }
-    }
-
-    .grain {
+    .grain{
       position: fixed;
       inset: 0;
       z-index: -1;
@@ -177,380 +135,138 @@
     }
 
     /* ====== NAV ====== */
-    .topbar {
-      position: sticky;
-      top: 0;
-      z-index: 50;
+    .topbar{
+      position: sticky; top:0; z-index:50;
       backdrop-filter: blur(10px);
-      background: rgba(246, 247, 255, .78);
+      background: rgba(246,247,255,.78);
       border-bottom: 1px solid var(--border);
     }
-
-    .topbar-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+    .topbar-inner{
+      display:flex; align-items:center; justify-content:space-between;
       padding: 14px 0;
       gap: 14px;
     }
+    .brand{ display:flex; align-items:center; gap: 10px; }
+    .brand img{ width: 36px; height: 36px; border-radius: 12px; }
+    .brand b{ display:block; font-size: 14px; letter-spacing:.2px; }
+    .brand span{ display:block; font-size: 12px; color: var(--muted); margin-top: 2px; }
 
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .brand img {
-      width: 36px;
-      height: 36px;
-      border-radius: 12px;
-    }
-
-    .brand b {
-      display: block;
-      font-size: 14px;
-      letter-spacing: .2px;
-    }
-
-    .brand span {
-      display: block;
-      font-size: 12px;
-      color: var(--muted);
-      margin-top: 2px;
-    }
-
-    .nav {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
-
-    .nav a {
+    .nav{ display:flex; gap: 10px; flex-wrap: wrap; justify-content:flex-end; }
+    .nav a{
       font-size: 13px;
-      color: rgba(11, 16, 32, .75);
+      color: rgba(11,16,32,.75);
       padding: 8px 10px;
       border-radius: 12px;
       position: relative;
     }
+    .nav a:hover{ background: rgba(96,112,240,.10); color: var(--ink); }
 
-    .nav a:hover {
-      background: rgba(96, 112, 240, .10);
-      color: var(--ink);
-    }
-
-    .btn {
+    .btn{
       border: 1px solid transparent;
       border-radius: 999px;
       padding: 10px 14px;
       font-weight: 800;
       font-size: 13px;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
+      display:inline-flex; align-items:center; gap: 10px;
       transition: transform .12s ease, background .12s ease, border-color .12s ease, opacity .12s ease;
-      cursor: pointer;
-      user-select: none;
-      white-space: nowrap;
+      cursor: pointer; user-select:none; white-space: nowrap;
     }
-
-    .btn:active {
-      transform: translateY(1px);
-    }
-
-    .btn-primary {
+    .btn:active{ transform: translateY(1px); }
+    .btn-primary{
       background: linear-gradient(135deg, var(--brand-blue), #7482FF);
       color: white;
-      box-shadow: 0 16px 35px rgba(96, 112, 240, .30);
+      box-shadow: 0 16px 35px rgba(96,112,240,.30);
     }
-
-    .btn-primary:hover {
-      background: linear-gradient(135deg, #5265FF, #7C88FF);
-    }
-
-    .btn-ghost {
-      background: rgba(255, 255, 255, .70);
+    .btn-primary:hover{ background: linear-gradient(135deg, #5265FF, #7C88FF); }
+    .btn-ghost{
+      background: rgba(255,255,255,.70);
       border-color: var(--border);
     }
-
-    .btn-ghost:hover {
-      background: rgba(255, 255, 255, .92);
-    }
-
-    .btn-disabled {
+    .btn-ghost:hover{ background: rgba(255,255,255,.92); }
+    .btn-disabled{
       opacity: .55;
       cursor: not-allowed;
-      background: rgba(11, 16, 32, .06);
-      color: rgba(11, 16, 32, .62);
-      border-color: rgba(11, 16, 32, .10);
+      background: rgba(11,16,32,.06);
+      color: rgba(11,16,32,.62);
+      border-color: rgba(11,16,32,.10);
       box-shadow: none;
     }
 
-    /* ====== MOBILE NAV (hamburger) ====== */
-    .burger {
-      display: none;
-      width: 44px;
-      height: 44px;
-      border-radius: 14px;
-      border: 1px solid rgba(11, 16, 32, .10);
-      background: rgba(255, 255, 255, .78);
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      box-shadow: 0 14px 30px rgba(11, 16, 32, .10);
-    }
-
-    .burger:active {
-      transform: translateY(1px);
-    }
-
-    .burger-lines {
-      width: 18px;
-      height: 2px;
-      background: rgba(11, 16, 32, .78);
-      border-radius: 999px;
-      position: relative;
-      display: block;
-    }
-
-    .burger-lines::before,
-    .burger-lines::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      width: 18px;
-      height: 2px;
-      background: rgba(11, 16, 32, .78);
-      border-radius: 999px;
-      transition: transform .16s ease, top .16s ease, opacity .16s ease;
-    }
-
-    .burger-lines::before {
-      top: -6px;
-    }
-
-    .burger-lines::after {
-      top: 6px;
-    }
-
-    body.nav-open .burger-lines {
-      background: transparent;
-    }
-
-    body.nav-open .burger-lines::before {
-      top: 0;
-      transform: rotate(45deg);
-    }
-
-    body.nav-open .burger-lines::after {
-      top: 0;
-      transform: rotate(-45deg);
-    }
-
-    .award-emoji {
-      display: inline-block;
-    }
-
-    .award-pill-text {
-      display: inline-block;
-    }
-
-    @media (max-width: 980px) {
-      .burger {
-        display: inline-flex;
-      }
-
-      .topbar-ctas {
-        display: none !important;
-      }
-
-      .topbar-inner {
-        position: relative;
-      }
-
-      .nav {
-        position: absolute;
-        top: 64px;
-        right: 0;
-        left: 0;
-        display: none;
-        flex-direction: column;
-        gap: 6px;
-        padding: 12px;
-        margin: 0;
-        border-radius: 18px;
-        border: 1px solid rgba(11, 16, 32, .10);
-        background: rgba(255, 255, 255, .92);
-        box-shadow: 0 18px 50px rgba(11, 16, 32, .14);
-        backdrop-filter: blur(10px);
-      }
-
-      body.nav-open .nav {
-        display: flex;
-      }
-
-      .nav a {
-        padding: 10px 12px;
-      }
-
-      .award-pill {
-        padding: 0;
-        border: none;
-        background: none;
-        transform: none;
-        font-size: 18px;
-      }
-
-      .award-pill-text {
-        display: none;
-      }
-
-      .mini-cta {
-        padding: 0;
-        border: none;
-        background: none;
-        transform: none;
-        box-shadow: none;
-        font-weight: 900;
-        color: rgba(11, 16, 32, .78);
-      }
-
-      .footer-mail {
-        display: none !important;
-      }
-
-      .footer-inner {
-        justify-content: center;
-        text-align: center;
-      }
-
-      .foot-left {
-        width: 100%;
-        text-align: center;
-      }
-
-      .footer-contact {
-        text-align: center;
-      }
-
-      .venue-grid {
-        display: grid !important;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 12px;
-        justify-content: initial !important;
-      }
-
-      .venue {
-        flex: none !important;
-        max-width: none !important;
-        width: auto !important;
-        padding: 12px;
-        border-radius: 18px;
-        text-align: center;
-      }
-
-      .venue span {
-        display: none;
-      }
-
-      .venue b {
-        font-size: 13px;
-        line-height: 1.25;
-      }
-    }
-
     /* ====== HERO ====== */
-    .hero {
+    .hero{
       position: relative;
       padding: 56px 0 22px;
-      overflow: hidden;
+      overflow:hidden;
       background:
-        radial-gradient(1200px 600px at 18% 10%, rgba(96, 112, 240, .20), transparent 60%),
-        radial-gradient(900px 560px at 85% 18%, rgba(224, 208, 32, .18), transparent 55%),
-        radial-gradient(900px 700px at 50% 105%, rgba(96, 112, 240, .12), transparent 60%);
+        radial-gradient(1200px 600px at 18% 10%, rgba(96,112,240,.20), transparent 60%),
+        radial-gradient(900px 560px at 85% 18%, rgba(224,208,32,.18), transparent 55%),
+        radial-gradient(900px 700px at 50% 105%, rgba(96,112,240,.12), transparent 60%);
     }
 
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: -140px -120px auto -120px;
+    .hero::before{
+      content:"";
+      position:absolute; inset: -140px -120px auto -120px;
       height: 540px;
       transform: rotate(-8deg);
       background:
-        linear-gradient(135deg, rgba(255, 255, 255, .82), rgba(255, 255, 255, .50)),
-        radial-gradient(600px 280px at 10% 30%, rgba(224, 208, 32, .18), transparent 60%),
-        radial-gradient(600px 280px at 80% 20%, rgba(96, 112, 240, .16), transparent 60%);
-      border: 1px solid rgba(11, 16, 32, .08);
+        linear-gradient(135deg, rgba(255,255,255,.82), rgba(255,255,255,.50)),
+        radial-gradient(600px 280px at 10% 30%, rgba(224,208,32,.18), transparent 60%),
+        radial-gradient(600px 280px at 80% 20%, rgba(96,112,240,.16), transparent 60%);
+      border: 1px solid rgba(11,16,32,.08);
       border-radius: 48px;
-      box-shadow: 0 40px 90px rgba(11, 16, 32, .14);
-      z-index: 0;
+      box-shadow: 0 40px 90px rgba(11,16,32,.14);
+      z-index:0;
     }
+	
+.mascot{
+  position: absolute;
+  top: clamp(12px, 2vw, 22px);
+  width: clamp(86px, 14vw, 170px);
+  height: auto;
+  pointer-events: none;
+  user-select: none;
 
-    .mascot {
-      position: absolute;
-      top: clamp(12px, 2vw, 22px);
-      width: clamp(86px, 14vw, 170px);
-      height: auto;
-      pointer-events: none;
-      user-select: none;
+  filter: drop-shadow(0 24px 40px rgba(11,16,32,.18));
+  opacity: 1;
 
-      filter: drop-shadow(0 24px 40px rgba(11, 16, 32, .18));
-      opacity: 1;
+  animation: mascotBob 3.6s ease-in-out infinite;
+  will-change: opacity;
+}
 
-      animation: mascotBob 3.6s ease-in-out infinite;
-      will-change: opacity;
-    }
+@keyframes mascotBob{
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-6px); }
+}
 
-    @keyframes mascotBob {
+@media (max-width: 980px){
+  .mascot{
+    width: clamp(74px, 18vw, 140px);
+    top: 12px;
+  }
+}
 
-      0%,
-      100% {
-        transform: translateY(0);
-      }
+@media (prefers-reduced-motion: reduce){
+  .mascot{ animation: none !important; }
+}
 
-      50% {
-        transform: translateY(-6px);
-      }
-    }
-
-    @media (max-width: 980px) {
-      .mascot {
-        width: clamp(74px, 18vw, 140px);
-        top: 12px;
-      }
-
-      .venue {
-        flex-basis: 100%;
-        max-width: 100%;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .mascot {
-        animation: none !important;
-      }
-    }
-
-    .scribble {
-      position: absolute;
+    .scribble{
+      position:absolute;
       inset: 0;
       pointer-events: none;
       z-index: 0;
       opacity: .8;
     }
-
-    .scribble svg {
-      position: absolute;
+    .scribble svg{
+      position:absolute;
       width: 420px;
       height: 220px;
       left: -70px;
       top: 110px;
       transform: rotate(-10deg);
       opacity: .35;
-      filter: drop-shadow(0 10px 18px rgba(11, 16, 32, .10));
+      filter: drop-shadow(0 10px 18px rgba(11,16,32,.10));
     }
-
-    .scribble .s2 svg {
+    .scribble .s2 svg{
       left: auto;
       right: -90px;
       top: 40px;
@@ -560,784 +276,485 @@
       opacity: .28;
     }
 
-    .hero-grid {
-      position: relative;
-      z-index: 1;
-      display: grid;
+    .hero-grid{
+      position:relative; z-index:1;
+      display:grid;
       grid-template-columns: 1.15fr .85fr;
       gap: 22px;
       align-items: start;
     }
 
-    .kicker {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
+    .kicker{
+      display:inline-flex; align-items:center; gap: 10px;
       padding: 8px 12px;
-      border: 1px solid rgba(96, 112, 240, .22);
-      background: rgba(255, 255, 255, .70);
+      border: 1px solid rgba(96,112,240,.22);
+      background: rgba(255,255,255,.70);
       border-radius: 999px;
       font-size: 12px;
-      color: rgba(11, 16, 32, .76);
+      color: rgba(11,16,32,.76);
     }
-
-    .dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
+    .dot{
+      width: 10px; height: 10px; border-radius: 50%;
       background: var(--brand-yellow);
-      box-shadow: 0 0 0 4px rgba(224, 208, 32, .20);
+      box-shadow: 0 0 0 4px rgba(224,208,32,.20);
     }
 
-    h1 {
+    h1{
       font-family: var(--display);
       font-size: clamp(44px, 5.8vw, 78px);
       line-height: .92;
       margin: 14px 0 10px;
       letter-spacing: -0.03em;
     }
-
-    .hero-sub {
+    .hero-sub{
       font-size: 16px;
       line-height: 1.6;
       color: var(--muted);
       margin: 0 0 18px;
       max-width: 62ch;
     }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      align-items: center;
+    .hero-actions{
+      display:flex; flex-wrap:wrap; gap: 10px;
+      align-items:center;
       margin-top: 10px;
     }
 
-    .stickers {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
+    .stickers{
+      display:flex; gap: 10px; flex-wrap: wrap;
       margin-top: 14px;
     }
-
-    .sticker {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
+    .sticker{
+      display:inline-flex; align-items:center; gap: 10px;
       padding: 10px 12px;
       border-radius: 18px;
-      border: 1px solid rgba(11, 16, 32, .10);
-      background: rgba(255, 255, 255, .82);
-      box-shadow: 0 14px 30px rgba(11, 16, 32, .10);
+      border: 1px solid rgba(11,16,32,.10);
+      background: rgba(255,255,255,.82);
+      box-shadow: 0 14px 30px rgba(11,16,32,.10);
       font-size: 12px;
-      color: rgba(11, 16, 32, .78);
+      color: rgba(11,16,32,.78);
       transform: rotate(var(--r, -1deg));
       transition: transform .16s ease;
     }
-
-    .sticker:hover {
-      transform: rotate(0deg) translateY(-2px);
-    }
-
-    .sticker b {
-      color: var(--ink);
-    }
-
-    .sticker .pill {
-      width: 34px;
-      height: 34px;
+    .sticker:hover{ transform: rotate(0deg) translateY(-2px); }
+    .sticker b{ color: var(--ink); }
+    .sticker .pill{
+      width: 34px; height: 34px;
       border-radius: 14px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      display:flex; align-items:center; justify-content:center;
       font-weight: 900;
-      background: linear-gradient(135deg, rgba(96, 112, 240, .20), rgba(224, 208, 32, .18));
-      border: 1px solid rgba(96, 112, 240, .20);
+      background: linear-gradient(135deg, rgba(96,112,240,.20), rgba(224,208,32,.18));
+      border: 1px solid rgba(96,112,240,.20);
     }
 
-    .visual {
-      position: relative;
+    .visual{
+      position:relative;
       border-radius: var(--radius-xl);
-      border: 1px solid rgba(11, 16, 32, .10);
-      background: rgba(255, 255, 255, .78);
+      border: 1px solid rgba(11,16,32,.10);
+      background: rgba(255,255,255,.78);
       box-shadow: var(--shadow);
-      overflow: hidden;
+      overflow:hidden;
       transform: rotate(0.5deg);
     }
-
-    .visual-top {
+    .visual-top{
       padding: 14px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
       gap: 10px;
-      border-bottom: 1px solid rgba(11, 16, 32, .08);
-      background: linear-gradient(180deg, rgba(255, 255, 255, .85), rgba(255, 255, 255, .65));
+      border-bottom: 1px solid rgba(11,16,32,.08);
+      background: linear-gradient(180deg, rgba(255,255,255,.85), rgba(255,255,255,.65));
     }
-
-    .award-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
+    .award-pill{
+      display:inline-flex; align-items:center; gap: 8px;
       padding: 8px 10px;
       border-radius: 999px;
       font-size: 12px;
       font-weight: 900;
-      background: rgba(224, 208, 32, .22);
-      border: 1px solid rgba(224, 208, 32, .40);
+      background: rgba(224,208,32,.22);
+      border: 1px solid rgba(224,208,32,.40);
       transform: rotate(-1.5deg);
     }
-
-    .mini-cta {
-      display: inline-flex;
-      gap: 8px;
-      align-items: center;
+    .mini-cta{
+      display:inline-flex; gap: 8px; align-items:center;
       padding: 8px 10px;
       border-radius: 999px;
-      border: 1px solid rgba(96, 112, 240, .25);
-      background: rgba(96, 112, 240, .10);
+      border: 1px solid rgba(96,112,240,.25);
+      background: rgba(96,112,240,.10);
       font-size: 12px;
       font-weight: 800;
-      color: rgba(11, 16, 32, .78);
+      color: rgba(11,16,32,.78);
     }
 
-    .visual-body {
+    .visual-body{
       padding: 14px;
-      display: grid;
+      display:grid;
       grid-template-columns: 1fr 1fr;
       gap: 12px;
     }
-
-    .preview {
+    .preview{
       border-radius: 18px;
-      overflow: hidden;
-      border: 1px solid rgba(11, 16, 32, .10);
+      overflow:hidden;
+      border: 1px solid rgba(11,16,32,.10);
       background: #fff;
     }
+    .preview img{ width:100%; height:auto; display:block; }
+    .preview.big{ grid-column: 1 / -1; }
 
-    .preview img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    .preview.big {
-      grid-column: 1 / -1;
-    }
-
-    section {
-      padding: 40px 0;
-    }
-
-    .title-row {
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
+    section{ padding: 40px 0; }
+    .title-row{
+      display:flex; align-items:flex-end; justify-content:space-between;
       gap: 14px;
       margin-bottom: 16px;
     }
-
-    .title-row h2 {
-      margin: 0;
+    .title-row h2{
+      margin:0;
       font-family: var(--display);
       font-size: 26px;
       letter-spacing: -0.02em;
       line-height: 1.05;
     }
-
-    .title-row p {
-      margin: 0;
+    .title-row p{
+      margin:0;
       color: var(--muted);
       font-size: 13px;
       max-width: 60ch;
     }
 
-    .slab {
+    .slab{
       border-radius: var(--radius-xl);
-      border: 1px solid rgba(11, 16, 32, .10);
-      background: rgba(255, 255, 255, .82);
-      box-shadow: 0 16px 40px rgba(11, 16, 32, .10);
-      overflow: hidden;
+      border: 1px solid rgba(11,16,32,.10);
+      background: rgba(255,255,255,.82);
+      box-shadow: 0 16px 40px rgba(11,16,32,.10);
+      overflow:hidden;
       position: relative;
     }
-
-    .slab::after {
-      content: "";
-      position: absolute;
-      inset: auto -40px -60px auto;
-      width: 260px;
-      height: 260px;
+    .slab::after{
+      content:"";
+      position:absolute;
+      inset:auto -40px -60px auto;
+      width: 260px; height: 260px;
       border-radius: 999px;
-      background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, .5), rgba(255, 255, 255, 0) 55%),
-        rgba(224, 208, 32, .20);
-      border: 1px solid rgba(11, 16, 32, .08);
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.5), rgba(255,255,255,0) 55%),
+                  rgba(224,208,32,.20);
+      border: 1px solid rgba(11,16,32,.08);
       transform: rotate(-12deg);
       opacity: .8;
-      pointer-events: none;
+      pointer-events:none;
     }
-
-    .slab-grid {
-      display: grid;
+    .slab-grid{
+      display:grid;
       grid-template-columns: .95fr 1.05fr;
       gap: 0;
     }
-
-    .slab-left {
+    .slab-left{
       padding: 18px;
-      border-right: 1px solid rgba(11, 16, 32, .08);
+      border-right: 1px solid rgba(11,16,32,.08);
       background:
-        radial-gradient(600px 260px at 20% 25%, rgba(224, 208, 32, .18), transparent 60%),
-        radial-gradient(620px 280px at 80% 25%, rgba(96, 112, 240, .16), transparent 60%),
-        rgba(255, 255, 255, .70);
+        radial-gradient(600px 260px at 20% 25%, rgba(224,208,32,.18), transparent 60%),
+        radial-gradient(620px 280px at 80% 25%, rgba(96,112,240,.16), transparent 60%),
+        rgba(255,255,255,.70);
     }
-
-    .bullets {
-      display: grid;
-      gap: 10px;
+    .bullets{
+      display:grid; gap: 10px;
       margin-top: 12px;
     }
-
-    .bullet {
-      display: flex;
-      gap: 10px;
-      align-items: flex-start;
-      font-size: 13px;
-      color: rgba(11, 16, 32, .78);
+    .bullet{
+      display:flex; gap: 10px; align-items:flex-start;
+      font-size: 13px; color: rgba(11,16,32,.78);
       line-height: 1.45;
     }
-
-    .bullet i {
-      width: 30px;
-      height: 30px;
+    .bullet i{
+      width: 30px; height: 30px;
       border-radius: 14px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      display:flex; align-items:center; justify-content:center;
       font-style: normal;
       font-weight: 900;
-      background: rgba(11, 16, 32, .06);
-      border: 1px solid rgba(11, 16, 32, .10);
+      background: rgba(11,16,32,.06);
+      border: 1px solid rgba(11,16,32,.10);
       flex: 0 0 auto;
       transform: rotate(-2deg);
     }
-
-    .slab-right {
+    .slab-right{
       padding: 18px;
-      background: rgba(255, 255, 255, .72);
+      background: rgba(255,255,255,.72);
     }
 
-    .demo {
+    .demo{
       border-radius: 18px;
-      border: 1px solid rgba(11, 16, 32, .10);
+      border: 1px solid rgba(11,16,32,.10);
       background: #fff;
-      overflow: hidden;
+      overflow:hidden;
       transform: rotate(0.3deg);
     }
-
-    .demo-top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
+    .demo-top{
+      display:flex; align-items:center; justify-content:space-between; gap: 10px;
       padding: 12px 12px;
-      border-bottom: 1px solid rgba(11, 16, 32, .08);
-      background: rgba(246, 247, 255, .80);
+      border-bottom: 1px solid rgba(11,16,32,.08);
+      background: rgba(246,247,255,.80);
     }
-
-    .tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
+    .tag{
+      display:inline-flex; align-items:center; gap: 8px;
       padding: 8px 10px;
       border-radius: 999px;
       font-size: 12px;
-      border: 1px solid rgba(11, 16, 32, .10);
-      background: rgba(255, 255, 255, .78);
-      color: rgba(11, 16, 32, .78);
+      border: 1px solid rgba(11,16,32,.10);
+      background: rgba(255,255,255,.78);
+      color: rgba(11,16,32,.78);
       font-weight: 800;
     }
-
-    .timer {
-      display: flex;
-      align-items: center;
-      gap: 8px;
+    .timer{
+      display:flex; align-items:center; gap: 8px;
       padding: 8px 10px;
       border-radius: 999px;
-      border: 1px solid rgba(96, 112, 240, .25);
-      background: rgba(96, 112, 240, .10);
+      border: 1px solid rgba(96,112,240,.25);
+      background: rgba(96,112,240,.10);
       font-size: 12px;
       font-weight: 900;
-      color: rgba(11, 16, 32, .78);
+      color: rgba(11,16,32,.78);
     }
-
-    .demo-body {
-      padding: 12px;
-    }
-
-    .qtext {
+    .demo-body{ padding: 12px; }
+    .qtext{
       font-weight: 900;
       font-size: 15px;
       line-height: 1.35;
       margin-bottom: 10px;
     }
-
-    .answers {
-      display: grid;
-      gap: 10px;
-    }
-
-    .ans {
-      text-align: left;
+    .answers{ display:grid; gap: 10px; }
+    .ans{
+      text-align:left;
       border-radius: 14px;
-      border: 1px solid rgba(11, 16, 32, .10);
-      background: rgba(255, 255, 255, .92);
+      border: 1px solid rgba(11,16,32,.10);
+      background: rgba(255,255,255,.92);
       padding: 12px 12px;
       font-weight: 800;
-      color: rgba(11, 16, 32, .86);
+      color: rgba(11,16,32,.86);
       cursor: pointer;
       transition: transform .12s ease, border-color .12s ease, background .12s ease;
     }
-
-    .ans:hover {
-      transform: translateY(-1px) rotate(-0.3deg);
-      border-color: rgba(96, 112, 240, .35);
-    }
-
-    .result {
+    .ans:hover{ transform: translateY(-1px) rotate(-0.3deg); border-color: rgba(96,112,240,.35); }
+    .result{
       margin-top: 12px;
       border-radius: 16px;
-      border: 1px solid rgba(11, 16, 32, .10);
+      border: 1px solid rgba(11,16,32,.10);
       padding: 12px;
-      display: flex;
-      gap: 10px;
-      align-items: flex-start;
-      background: rgba(255, 255, 255, .90);
+      display:flex; gap: 10px; align-items:flex-start;
+      background: rgba(255,255,255,.90);
     }
-
-    .lamp {
-      width: 36px;
-      height: 36px;
+    .lamp{
+      width: 36px; height: 36px;
       border-radius: 14px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      display:flex; align-items:center; justify-content:center;
       font-weight: 900;
       color: white;
       flex: 0 0 auto;
     }
-
-    .result b {
-      display: block;
-      font-size: 13px;
-    }
-
-    .result span {
-      display: block;
-      font-size: 12px;
-      color: var(--muted);
-      margin-top: 3px;
-      line-height: 1.35;
-    }
-
-    .demo-actions {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
+    .result b{ display:block; font-size: 13px; }
+    .result span{ display:block; font-size: 12px; color: var(--muted); margin-top: 3px; line-height:1.35; }
+    .demo-actions{
+      display:flex; gap: 10px; flex-wrap: wrap;
       padding: 12px;
-      border-top: 1px solid rgba(11, 16, 32, .08);
-      background: rgba(246, 247, 255, .78);
+      border-top: 1px solid rgba(11,16,32,.08);
+      background: rgba(246,247,255,.78);
     }
 
-    .cats {
-      display: grid;
+    .cats{
+      display:grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 12px;
     }
-
-    .cat {
+    .cat{
       padding: 14px;
       border-radius: 18px;
-      border: 1px solid rgba(11, 16, 32, .10);
-      background: rgba(255, 255, 255, .78);
-      display: flex;
-      gap: 10px;
-      align-items: flex-start;
+      border: 1px solid rgba(11,16,32,.10);
+      background: rgba(255,255,255,.78);
+      display:flex; gap: 10px; align-items:flex-start;
       min-height: 76px;
       transition: transform .12s ease, box-shadow .12s ease;
       transform: rotate(var(--r, 0deg));
     }
-
-    .cat:hover {
+    .cat:hover{
       transform: translateY(-3px) rotate(0deg);
-      box-shadow: 0 18px 45px rgba(11, 16, 32, .10);
+      box-shadow: 0 18px 45px rgba(11,16,32,.10);
     }
-
-    .cat .pill {
-      width: 38px;
-      height: 38px;
+    .cat .pill{
+      width: 38px; height: 38px;
       border-radius: 14px;
-      background: linear-gradient(135deg, rgba(96, 112, 240, .18), rgba(224, 208, 32, .16));
-      border: 1px solid rgba(96, 112, 240, .18);
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      background: linear-gradient(135deg, rgba(96,112,240,.18), rgba(224,208,32,.16));
+      border: 1px solid rgba(96,112,240,.18);
+      display:flex; align-items:center; justify-content:center;
       font-weight: 900;
       flex: 0 0 auto;
     }
+    .cat b{ display:block; font-size: 13px; margin-top: 2px; }
+    .cat span{ display:block; font-size: 12px; color: var(--muted); margin-top: 2px; line-height: 1.25; }
 
-    .cat b {
-      display: block;
-      font-size: 13px;
-      margin-top: 2px;
-    }
-
-    .cat span {
-      display: block;
-      font-size: 12px;
-      color: var(--muted);
-      margin-top: 2px;
-      line-height: 1.25;
-    }
-
-    .lang-strip {
+    .lang-strip{
       border-radius: var(--radius-xl);
-      border: 1px solid rgba(11, 16, 32, .10);
-      background: rgba(255, 255, 255, .82);
-      box-shadow: 0 16px 40px rgba(11, 16, 32, .10);
+      border: 1px solid rgba(11,16,32,.10);
+      background: rgba(255,255,255,.82);
+      box-shadow: 0 16px 40px rgba(11,16,32,.10);
       padding: 16px;
-      display: flex;
+      display:flex;
       flex-wrap: wrap;
       gap: 10px;
-      align-items: center;
-      justify-content: space-between;
+      align-items:center;
+      justify-content:space-between;
       position: relative;
       overflow: hidden;
     }
-
-    .lang-strip::before {
-      content: "";
-      position: absolute;
+    .lang-strip::before{
+      content:"";
+      position:absolute;
       inset: -40px -40px auto -40px;
       height: 120px;
       transform: rotate(-2deg);
-      background: linear-gradient(90deg, rgba(224, 208, 32, .18), rgba(96, 112, 240, .14));
-      border-bottom: 1px solid rgba(11, 16, 32, .06);
+      background: linear-gradient(90deg, rgba(224,208,32,.18), rgba(96,112,240,.14));
+      border-bottom: 1px solid rgba(11,16,32,.06);
       opacity: .75;
     }
-
-    .langs {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      align-items: center;
+    .langs{
+      display:flex; flex-wrap: wrap; gap: 10px;
+      align-items:center;
       position: relative;
       z-index: 1;
     }
-
-    .lang {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
+    .lang{
+      display:inline-flex; align-items:center; gap: 10px;
       padding: 10px 12px;
       border-radius: 999px;
-      border: 1px solid rgba(11, 16, 32, .10);
-      background: rgba(255, 255, 255, .88);
+      border: 1px solid rgba(11,16,32,.10);
+      background: rgba(255,255,255,.88);
       font-weight: 900;
       font-size: 13px;
       transform: rotate(var(--r, 0deg));
     }
-
-    .lang em {
+    .lang em{
       font-style: normal;
       opacity: .75;
       font-weight: 800;
       font-size: 12px;
     }
 
-    .award {
-      display: grid;
+    .award{
+      display:grid;
       grid-template-columns: 1fr 1fr;
       gap: 14px;
       align-items: stretch;
     }
-
-    .award-left {
+    .award-left{
       border-radius: var(--radius-xl);
-      border: 1px solid rgba(11, 16, 32, .10);
+      border: 1px solid rgba(11,16,32,.10);
       background:
-        radial-gradient(700px 320px at 18% 20%, rgba(224, 208, 32, .18), transparent 60%),
-        radial-gradient(700px 320px at 80% 20%, rgba(96, 112, 240, .14), transparent 60%),
-        rgba(255, 255, 255, .78);
-      box-shadow: 0 16px 40px rgba(11, 16, 32, .10);
+        radial-gradient(700px 320px at 18% 20%, rgba(224,208,32,.18), transparent 60%),
+        radial-gradient(700px 320px at 80% 20%, rgba(96,112,240,.14), transparent 60%),
+        rgba(255,255,255,.78);
+      box-shadow: 0 16px 40px rgba(11,16,32,.10);
       padding: 18px;
       transform: rotate(-0.4deg);
     }
-
-    .award-left h3 {
+    .award-left h3{
       margin: 8px 0 8px;
       font-family: var(--display);
       font-size: 22px;
       letter-spacing: -0.02em;
       line-height: 1.05;
     }
-
-    .award-left p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.55;
-    }
-
-    .award-link {
+    .award-left p{ margin:0; color: var(--muted); font-size: 13px; line-height: 1.55; }
+    .award-link{
       margin-top: 12px;
-      display: inline-flex;
-      gap: 10px;
-      align-items: center;
+      display:inline-flex; gap: 10px; align-items:center;
       padding: 10px 12px;
       border-radius: 14px;
-      border: 1px solid rgba(11, 16, 32, .10);
-      background: rgba(255, 255, 255, .82);
+      border: 1px solid rgba(11,16,32,.10);
+      background: rgba(255,255,255,.82);
       font-weight: 900;
       font-size: 13px;
     }
-
-    .award-link:hover {
-      background: rgba(255, 255, 255, .95);
-    }
-
-    .award-right {
+    .award-link:hover{ background: rgba(255,255,255,.95); }
+    .award-right{
       border-radius: var(--radius-lg);
-      border: 1px solid rgba(11, 16, 32, .10);
-      background: rgba(255, 255, 255, .80);
+      border: 1px solid rgba(11,16,32,.10);
+      background: rgba(255,255,255,.80);
       box-shadow: var(--shadow);
-      overflow: hidden;
+      overflow:hidden;
       transform: rotate(0.4deg);
     }
+    .award-right img{ width:100%; height:auto; display:block; }
 
-    .award-right img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    .venues {
+    .venues{
       border-radius: var(--radius-xl);
-      border: 1px solid rgba(11, 16, 32, .10);
-      background: rgba(255, 255, 255, .82);
-      box-shadow: 0 16px 40px rgba(11, 16, 32, .10);
+      border: 1px solid rgba(11,16,32,.10);
+      background: rgba(255,255,255,.82);
+      box-shadow: 0 16px 40px rgba(11,16,32,.10);
       padding: 16px;
     }
-
-    .venue-grid {
-      display: flex;
-      flex-wrap: wrap;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+    .venue-grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
       gap: 12px;
       margin-top: 12px;
-      justify-content: center;
     }
-
-    .venue {
+    .venue{
       padding: 14px;
       border-radius: 18px;
-      border: 1px dashed rgba(11, 16, 32, .22);
-      background: rgba(255, 255, 255, .65);
+      border: 1px dashed rgba(11,16,32,.22);
+      background: rgba(255,255,255,.65);
       transform: rotate(var(--r, 0deg));
-      flex: 0 1 calc((100% - 24px) / 3);
-      max-width: calc((80% - 24px) / 3);
-      text-align: center;
+      
     }
+    .venue b{ display:block; font-size: 13px; }
+    .venue span{ display:block; font-size: 12px; color: var(--muted); margin-top: 4px; line-height: 1.35; }
 
-    .venue b {
-      display: block;
-      font-size: 13px;
-    }
-
-    .venue span {
-      display: block;
-      font-size: 12px;
-      color: var(--muted);
-      margin-top: 4px;
-      line-height: 1.35;
-    }
-
-    footer {
+    footer{
       padding: 30px 0 46px;
-      border-top: 1px solid rgba(11, 16, 32, .10);
-      background: rgba(255, 255, 255, .55);
+      border-top: 1px solid rgba(11,16,32,.10);
+      background: rgba(255,255,255,.55);
       margin-top: 10px;
     }
-
-    .footer-inner {
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
-      flex-wrap: wrap;
-      align-items: center;
+    .footer-inner{
+      display:flex; justify-content:space-between; gap: 16px; flex-wrap: wrap;
+      align-items:center;
     }
-
-    .foot-left {
-      color: var(--muted);
-      font-size: 12px;
-      line-height: 1.45;
-    }
-
-    .mail {
-      display: inline-flex;
-      gap: 10px;
-      align-items: center;
+    .foot-left{ color: var(--muted); font-size: 12px; line-height: 1.45; }
+    .mail{
+      display:inline-flex; gap: 10px; align-items:center;
       padding: 10px 12px;
       border-radius: 999px;
-      border: 1px solid rgba(11, 16, 32, .10);
-      background: rgba(255, 255, 255, .78);
+      border: 1px solid rgba(11,16,32,.10);
+      background: rgba(255,255,255,.78);
       font-weight: 900;
       font-size: 13px;
     }
+    .mail:hover{ background: rgba(255,255,255,.95); }
 
-    .mail:hover {
-      background: rgba(255, 255, 255, .95);
-    }
-
-    .reveal {
+    .reveal{
       opacity: 0;
       transform: translateY(18px) scale(.99);
-      transition: opacity .7s ease, transform .7s cubic-bezier(.2, .9, .2, 1);
+      transition: opacity .7s ease, transform .7s cubic-bezier(.2,.9,.2,1);
       will-change: transform, opacity;
     }
-
-    .reveal.in {
+    .reveal.in{
       opacity: 1;
       transform: translateY(0) scale(1);
     }
+    .reveal[data-delay="1"]{ transition-delay: .08s; }
+    .reveal[data-delay="2"]{ transition-delay: .16s; }
+    .reveal[data-delay="3"]{ transition-delay: .24s; }
+    .reveal[data-delay="4"]{ transition-delay: .32s; }
 
-    .reveal[data-delay="1"] {
-      transition-delay: .08s;
+    @media (prefers-reduced-motion: reduce){
+      .virus-dot, .virus-dot .core::before{ animation: none !important; }
+      .reveal{ opacity: 1 !important; transform: none !important; transition: none !important; }
     }
 
-    .reveal[data-delay="2"] {
-      transition-delay: .16s;
-    }
-
-    .reveal[data-delay="3"] {
-      transition-delay: .24s;
-    }
-
-    .reveal[data-delay="4"] {
-      transition-delay: .32s;
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-
-      .virus-dot,
-      .virus-dot .core::before {
-        animation: none !important;
-      }
-
-      .reveal {
-        opacity: 1 !important;
-        transform: none !important;
-        transition: none !important;
-      }
-    }
-
-    @media (max-width: 980px) {
-      .hero-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .slab-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .slab-left {
-        border-right: none;
-        border-bottom: 1px solid rgba(11, 16, 32, .08);
-      }
-
-      .cats {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .award {
-        grid-template-columns: 1fr;
-      }
-
-      .venue-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .visual {
-        transform: none;
-      }
-    }
-
-    /* ====== FEEDBACK ====== */
-    .feedback {
-      padding: 44px 0 10px;
-    }
-
-    .feedback-card {
-      border-radius: var(--radius-xl);
-      border: 1px solid rgba(11, 16, 32, .10);
-      background: rgba(255, 255, 255, .82);
-      box-shadow: 0 16px 40px rgba(11, 16, 32, .10);
-      padding: 18px;
-    }
-
-    .feedback-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-top: 12px;
-    }
-
-    .field {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .field label {
-      font-size: 12px;
-      font-weight: 900;
-      color: rgba(11, 16, 32, .78);
-    }
-
-    .input,
-    .textarea {
-      width: 100%;
-      border-radius: 14px;
-      border: 1px solid rgba(11, 16, 32, .12);
-      background: rgba(255, 255, 255, .92);
-      padding: 12px 12px;
-      font-size: 14px;
-      outline: none;
-      transition: border-color .12s ease, box-shadow .12s ease;
-    }
-
-    .textarea {
-      min-height: 120px;
-      resize: vertical;
-    }
-
-    .input:focus,
-    .textarea:focus {
-      border-color: rgba(96, 112, 240, .45);
-      box-shadow: 0 0 0 4px rgba(96, 112, 240, .14);
-    }
-
-    .feedback-actions {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      align-items: center;
-      margin-top: 12px;
-    }
-
-    @media (max-width: 980px) {
-      .feedback-grid {
-        grid-template-columns: 1fr;
-      }
+    @media (max-width: 980px){
+      .hero-grid{ grid-template-columns: 1fr; }
+      .slab-grid{ grid-template-columns: 1fr; }
+      .slab-left{ border-right: none; border-bottom: 1px solid rgba(11,16,32,.08); }
+      .cats{ grid-template-columns: repeat(2, 1fr); }
+      .award{ grid-template-columns: 1fr; }
+      .venue-grid{ grid-template-columns: 1fr; }
+      .visual{ transform: none; }
     }
   </style>
 </head>
@@ -1351,18 +768,14 @@
     <div class="wrap">
       <div class="topbar-inner">
         <a class="brand" href="#top" aria-label="HomemadeLab Games">
-          <img src="https://res.cloudinary.com/ddjfjlceg/image/upload/v1770819506/logo_yoxwzh.png" width="100"
-            height="100" alt="Coronavirus game logo" />
+          <img src="https://res.cloudinary.com/ddjfjlceg/image/upload/v1770819506/logo_yoxwzh.png" width="100" height="100" alt="Coronavirus game logo" />
           <div>
             <b>HomemadeLab Games</b>
             <span>Board games with a twist</span>
           </div>
         </a>
 
-        <button class="burger" id="burger" type="button" aria-label="Open menu" aria-expanded="false"
-          aria-controls="mobileNav"><span class="burger-lines" aria-hidden="true"></span></button>
-
-        <nav class="nav" id="mobileNav" aria-label="Primary">
+        <nav class="nav" aria-label="Primary">
           <a href="#how">How it works</a>
           <a href="#categories">Locations</a>
           <a href="#languages">Languages</a>
@@ -1370,7 +783,15 @@
           <a href="#where-to-play">Where to play</a>
         </nav>
 
-        <div class="topbar-ctas" style="display:flex; gap:10px; align-items:center">
+        <div style="display:flex; gap:10px; align-items:center">
+          <select id="langSwitch" aria-label="Language selector" style="border:1px solid var(--border); border-radius:12px; padding:8px 32px 8px 12px; background:rgba(255,255,255,.8) url('data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 24 24\' fill=\'%230B1020\'><path d=\'M7 10l5 5 5-5z\'/></svg>') no-repeat right 8px center / 20px; appearance:none; font-size:13px; font-weight:800; color:var(--ink); cursor:pointer; outline:none; transition:all .15s ease;">
+            <option value="en">EN</option>
+            <option value="es">ES</option>
+            <option value="fr">FR</option>
+            <option value="de">DE</option>
+            <option value="nl">NL</option>
+            <option value="no">NO</option>
+          </select>
           <a class="btn btn-ghost" href="/coronavirus" title="Start the online questions experience">▶ Play Online</a>
           <span class="btn btn-disabled" title="Not available yet">🛒 Available soon</span>
         </div>
@@ -1380,27 +801,26 @@
 
   <!-- HERO -->
   <header id="top" class="hero">
-    <img class="mascot reveal in" id="mascot"
-      src="https://res.cloudinary.com/ddjfjlceg/image/upload/v1770819507/angry-virus_ne2atu.png"
-      alt="Coronavirus mascot" aria-hidden="true" />
+	<img
+  class="mascot reveal in"
+  id="mascot"
+  src="https://res.cloudinary.com/ddjfjlceg/image/upload/v1770819507/angry-virus_ne2atu.png"
+  alt="Coronavirus mascot"
+  aria-hidden="true"
+/>
     <div class="scribble" aria-hidden="true">
       <div class="s1">
         <svg viewBox="0 0 520 260" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M20 160C120 40 260 30 500 90" stroke="rgba(96,112,240,.8)" stroke-width="18"
-            stroke-linecap="round" />
-          <path d="M40 200C180 110 300 110 480 150" stroke="rgba(224,208,32,.85)" stroke-width="16"
-            stroke-linecap="round" />
-          <path d="M120 70C210 20 330 20 420 60" stroke="rgba(11,16,32,.30)" stroke-width="10" stroke-linecap="round" />
+          <path d="M20 160C120 40 260 30 500 90" stroke="rgba(96,112,240,.8)" stroke-width="18" stroke-linecap="round"/>
+          <path d="M40 200C180 110 300 110 480 150" stroke="rgba(224,208,32,.85)" stroke-width="16" stroke-linecap="round"/>
+          <path d="M120 70C210 20 330 20 420 60" stroke="rgba(11,16,32,.30)" stroke-width="10" stroke-linecap="round"/>
         </svg>
       </div>
       <div class="s2">
         <svg viewBox="0 0 520 260" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M40 70C200 10 340 30 500 120" stroke="rgba(224,208,32,.85)" stroke-width="16"
-            stroke-linecap="round" />
-          <path d="M30 150C180 210 340 210 490 170" stroke="rgba(96,112,240,.8)" stroke-width="18"
-            stroke-linecap="round" />
-          <path d="M140 90C250 60 320 70 410 110" stroke="rgba(11,16,32,.30)" stroke-width="10"
-            stroke-linecap="round" />
+          <path d="M40 70C200 10 340 30 500 120" stroke="rgba(224,208,32,.85)" stroke-width="16" stroke-linecap="round"/>
+          <path d="M30 150C180 210 340 210 490 170" stroke="rgba(96,112,240,.8)" stroke-width="18" stroke-linecap="round"/>
+          <path d="M140 90C250 60 320 70 410 110" stroke="rgba(11,16,32,.30)" stroke-width="10" stroke-linecap="round"/>
         </svg>
       </div>
     </div>
@@ -1420,41 +840,28 @@
           </div>
 
           <div class="stickers" aria-label="Highlights">
-            <div class="sticker" style="--r:-2deg"><span class="pill">👥</span>
-              <div><b>2–10 players</b><br><span style="color:var(--muted)">Ages 8–99</span></div>
-            </div>
-            <div class="sticker" style="--r:1.5deg"><span class="pill">⏱️</span>
-              <div><b>1 minute</b><br><span style="color:var(--muted)">per question</span></div>
-            </div>
-            <div class="sticker" style="--r:-1deg"><span class="pill">✅</span>
-              <div><b>Verified</b><br><span style="color:var(--muted)">sources inside</span></div>
-            </div>
-            <div class="sticker" style="--r:2deg"><span class="pill">🌍</span>
-              <div><b>6 languages</b><br><span style="color:var(--muted)">one box</span></div>
-            </div>
+            <div class="sticker" style="--r:-2deg"><span class="pill">👥</span><div><b>2–10 players</b><br><span style="color:var(--muted)">Ages 8–99</span></div></div>
+            <div class="sticker" style="--r:1.5deg"><span class="pill">⏱️</span><div><b>1 minute</b><br><span style="color:var(--muted)">per question</span></div></div>
+            <div class="sticker" style="--r:-1deg"><span class="pill">✅</span><div><b>Verified</b><br><span style="color:var(--muted)">sources inside</span></div></div>
+            <div class="sticker" style="--r:2deg"><span class="pill">🌍</span><div><b>6 languages</b><br><span style="color:var(--muted)">one box</span></div></div>
           </div>
         </div>
 
         <aside class="visual reveal" data-delay="1" aria-label="Game visuals">
           <div class="visual-top">
-            <span class="award-pill"><span class="award-emoji">🏅</span><span class="award-pill-text"> Most Innovative
-                Game — 2024</span></span>
-            <span class="mini-cta"><span class="url-text">homemadelabgames.com/coronavirus</span></span>
+            <span class="award-pill">🏅 Most Innovative Game — 2024</span>
+            <span class="mini-cta">homemadelabgames.com/coronavirus</span>
           </div>
 
           <div class="visual-body">
             <div class="preview big">
-              <img width="100%" height="auto"
-                src="https://res.cloudinary.com/ddjfjlceg/image/upload/v1770819661/gameboard-digital-art_spqdmt.jpg"
-                alt="Coronavirus gameboard illustration" />
+              <img width="100%" height="auto" src="https://res.cloudinary.com/ddjfjlceg/image/upload/v1770819661/gameboard-digital-art_spqdmt.jpg" alt="Coronavirus gameboard illustration" />
             </div>
             <div class="preview">
-              <img src="https://res.cloudinary.com/ddjfjlceg/image/upload/v1770819508/box-front_ovbybk.png"
-                alt="Coronavirus game box front" />
+              <img src="https://res.cloudinary.com/ddjfjlceg/image/upload/v1770819508/box-front_ovbybk.png" alt="Coronavirus game box front" />
             </div>
             <div class="preview">
-              <img src="https://res.cloudinary.com/ddjfjlceg/image/upload/v1770819507/box-back_dnr6qk.png"
-                alt="Coronavirus game box back" />
+              <img src="https://res.cloudinary.com/ddjfjlceg/image/upload/v1770819507/box-back_dnr6qk.png" alt="Coronavirus game box back" />
             </div>
           </div>
         </aside>
@@ -1475,20 +882,10 @@
         <div class="slab-grid">
           <div class="slab-left">
             <div class="bullets">
-              <div class="bullet"><i>1</i>
-                <div>Move on the board across <b>8 locations</b> (School, Bank, Home, Pharmacy, Supermarket, Zoo, Lab,
-                  Hospital).</div>
-              </div>
-              <div class="bullet"><i>2</i>
-                <div>Answer a question on your device: <b>3 options</b>, <b>60 seconds</b>.</div>
-              </div>
-              <div class="bullet"><i>3</i>
-                <div>Instant feedback: screen turns <b style="color:var(--ok)">green</b> or <b
-                    style="color:var(--bad)">red</b>.</div>
-              </div>
-              <div class="bullet"><i>4</i>
-                <div>Tap the reference icon to open the <b>scientific source</b> backing the answer.</div>
-              </div>
+              <div class="bullet"><i>1</i><div>Move on the board across <b>8 locations</b> (School, Bank, Home, Pharmacy, Supermarket, Zoo, Lab, Hospital).</div></div>
+              <div class="bullet"><i>2</i><div>Answer a question on your device: <b>3 options</b>, <b>60 seconds</b>.</div></div>
+              <div class="bullet"><i>3</i><div>Instant feedback: screen turns <b style="color:var(--ok)">green</b> or <b style="color:var(--bad)">red</b>.</div></div>
+              <div class="bullet"><i>4</i><div>Tap the reference icon to open the <b>scientific source</b> backing the answer.</div></div>
             </div>
           </div>
 
@@ -1524,38 +921,14 @@
       </div>
 
       <div class="cats">
-        <div class="cat reveal" style="--r:-1.2deg" data-delay="1">
-          <div class="pill">🏫</div>
-          <div><b>School</b><span>Learning, kids, everyday myths.</span></div>
-        </div>
-        <div class="cat reveal" style="--r:1.0deg" data-delay="2">
-          <div class="pill">🏦</div>
-          <div><b>Bank</b><span>Economy, inflation, policy impacts.</span></div>
-        </div>
-        <div class="cat reveal" style="--r:-0.6deg" data-delay="3">
-          <div class="pill">🏠</div>
-          <div><b>Home</b><span>Habits, prevention, home life.</span></div>
-        </div>
-        <div class="cat reveal" style="--r:0.8deg" data-delay="4">
-          <div class="pill">💊</div>
-          <div><b>Pharmacy</b><span>Medicines, prevention & care.</span></div>
-        </div>
-        <div class="cat reveal" style="--r:0.6deg" data-delay="1">
-          <div class="pill">🛒</div>
-          <div><b>Supermarket</b><span>Food, hygiene, daily decisions.</span></div>
-        </div>
-        <div class="cat reveal" style="--r:-0.8deg" data-delay="2">
-          <div class="pill">🦁</div>
-          <div><b>Zoo</b><span>Animals, origins, spillover facts.</span></div>
-        </div>
-        <div class="cat reveal" style="--r:0.3deg" data-delay="3">
-          <div class="pill">🧪</div>
-          <div><b>Lab</b><span>Tests, vaccines, how it works.</span></div>
-        </div>
-        <div class="cat reveal" style="--r:-0.4deg" data-delay="4">
-          <div class="pill">🏥</div>
-          <div><b>Hospital</b><span>Symptoms, immunity, clinical reality.</span></div>
-        </div>
+        <div class="cat reveal" style="--r:-1.2deg" data-delay="1"><div class="pill">🏫</div><div><b>School</b><span>Learning, kids, everyday myths.</span></div></div>
+        <div class="cat reveal" style="--r:1.0deg" data-delay="2"><div class="pill">🏦</div><div><b>Bank</b><span>Economy, inflation, policy impacts.</span></div></div>
+        <div class="cat reveal" style="--r:-0.6deg" data-delay="3"><div class="pill">🏠</div><div><b>Home</b><span>Habits, prevention, home life.</span></div></div>
+        <div class="cat reveal" style="--r:0.8deg" data-delay="4"><div class="pill">💊</div><div><b>Pharmacy</b><span>Medicines, prevention & care.</span></div></div>
+        <div class="cat reveal" style="--r:0.6deg" data-delay="1"><div class="pill">🛒</div><div><b>Supermarket</b><span>Food, hygiene, daily decisions.</span></div></div>
+        <div class="cat reveal" style="--r:-0.8deg" data-delay="2"><div class="pill">🦁</div><div><b>Zoo</b><span>Animals, origins, spillover facts.</span></div></div>
+        <div class="cat reveal" style="--r:0.3deg" data-delay="3"><div class="pill">🧪</div><div><b>Lab</b><span>Tests, vaccines, how it works.</span></div></div>
+        <div class="cat reveal" style="--r:-0.4deg" data-delay="4"><div class="pill">🏥</div><div><b>Hospital</b><span>Symptoms, immunity, clinical reality.</span></div></div>
       </div>
     </div>
   </section>
@@ -1607,8 +980,7 @@
           </a>
         </div>
         <div class="award-right reveal" data-delay="2">
-          <img src="https://res.cloudinary.com/ddjfjlceg/image/upload/v1770819507/award-certificate_o9mtqo.jpg"
-            alt="Most Innovative Game — Norwegian Game Awards 2024 certificate" />
+          <img src="https://res.cloudinary.com/ddjfjlceg/image/upload/v1770819507/award-certificate_o9mtqo.jpg" alt="Most Innovative Game — Norwegian Game Awards 2024 certificate" />
         </div>
       </div>
     </div>
@@ -1625,61 +997,15 @@
 
       <div class="venues reveal">
         <div class="venue-grid">
-          <div class="venue reveal" style="--r:-0.8deg" data-delay="1"><b>Café & Bar zuhause (Aachen,
-              Germany)</b><span>Sandkaulstraße 109, 52062 Aachen, Germany</span></div>
-          <div class="venue reveal" style="--r:0.7deg" data-delay="2"><b>La Luck Bruxelles (Brussels,
-              Belgium)</b><span>Rue Washington 74, 1050 Ixelles, Belgium</span></div>
-          <div class="venue reveal" style="--r:-0.5deg" data-delay="3"><b>Les Sales Mômes (Lille, France)</b><span>91
-              Quai de l'Ouest, 59000 Lille, France</span></div>
-          <div class="venue reveal" style="--r:-0.5deg" data-delay="3"><b>Tilburg University (Tilburg,
-              Netherlands)</b><span>Warandelaan 2, 5037 AB Tilburg, Netherlands</span></div>
-          <div class="venue reveal" style="--r:-0.5deg" data-delay="3"><b>Spilloteket (Oslo, Norway)</b><span>Kongens
-              gate 7, 0153 Oslo, Norway</span></div>
+          <div class="venue reveal" style="--r:-0.8deg" data-delay="1"><b>Café & Bar zuhause (Aachen, Germany)</b><span>Sandkaulstraße 109, 52062 Aachen, Germany</span></div>
+          <div class="venue reveal" style="--r:0.7deg" data-delay="2"><b>La Luck Bruxelles (Brussels, Belgium)</b><span>Rue Washington 74, 1050 Ixelles, Belgium</span></div>
+          <div class="venue reveal" style="--r:-0.5deg" data-delay="3"><b>Les Sales Mômes (Lille, France)</b><span>91 Quai de l'Ouest, 59000 Lille, France</span></div>
+          <div class="venue reveal" style="--r:-0.5deg" data-delay="3"><b>Tilburg University (Tilburg, Netherlands)</b><span>Warandelaan 2, 5037 AB Tilburg, Netherlands</span></div>
+          <div class="venue reveal" style="--r:-0.5deg" data-delay="3"><b>Spilloteket (Oslo, Norway)</b><span>Kongens gate 7, 0153 Oslo, Norway</span></div>
         </div>
       </div>
     </div>
   </section>
-
-
-  <!-- FEEDBACK -->
-  <section id="feedback" class="feedback">
-    <div class="wrap">
-      <div class="title-row reveal">
-        <div>
-          <h2>Feedback</h2>
-          <p>Tell us what you loved, what was confusing, and what you'd change.</p>
-        </div>
-      </div>
-
-      <div class="feedback-card reveal">
-        <form action="https://api.web3forms.com/submit" method="POST">
-          <input type="hidden" name="access_key" value="fde62139-fc17-49a2-93e3-d2c0c0be3743">
-          <input type="hidden" name="subject" value="Coronavirus board game — feedback">
-          <input type="hidden" name="from_name" value="Coronavirus Landing (Web3Forms)">
-
-          <div class="feedback-grid">
-            <div class="field">
-              <label for="fb_name">Name</label>
-              <input class="input" id="fb_name" type="text" name="name" autocomplete="name" required>
-            </div>
-            <div class="field">
-              <label for="fb_email">Email</label>
-              <input class="input" id="fb_email" type="email" name="email" autocomplete="email" required>
-            </div>
-            <div class="field" style="grid-column: 1 / -1;">
-              <label for="fb_message">Message</label>
-              <textarea class="textarea" id="fb_message" name="message" required></textarea>
-            </div>
-          </div>
-
-          <div class="feedback-actions">
-            <button class="btn btn-primary" type="submit">Send feedback</button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </section>
-
 
   <!-- FOOTER -->
   <footer>
@@ -1689,29 +1015,28 @@
           <div><b>HomemadeLab Games</b> — Coronavirus</div>
           <div>© <span id="year"></span></div>
         </div>
-        <div class="footer-mail">
+        <div>
           <a class="mail" href="mailto:gasparperezmazas@gmail.com">✉️ gasparperezmazas@gmail.com</a>
         </div>
       </div>
-      <div class="footer-contact" style="margin-top:14px; text-align:center; color:rgba(11,16,32,.60); font-size:12px">
-        Contact: <a href="mailto:gasparperezmazas@gmail.com"
-          style="font-weight:900; text-decoration:underline">gasparperezmazas@gmail.com</a>
+      <div style="margin-top:14px; text-align:center; color:rgba(11,16,32,.60); font-size:12px">
+        Contact: <a href="mailto:gasparperezmazas@gmail.com" style="font-weight:900; text-decoration:underline">gasparperezmazas@gmail.com</a>
       </div>
     </div>
   </footer>
 
   <script>
     // Animated virus dots
-    (function initVirusDots() {
+    (function initVirusDots(){
       const layer = document.getElementById("virusLayer");
       if (!layer) return;
 
       const count = Math.min(24, Math.max(14, Math.floor(window.innerWidth / 70)));
       const prefersReduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-      function rand(min, max) { return Math.random() * (max - min) + min; }
+      function rand(min, max){ return Math.random() * (max - min) + min; }
 
-      for (let i = 0; i < count; i++) {
+      for (let i = 0; i < count; i++){
         const d = document.createElement("div");
         d.className = "virus-dot" + (Math.random() > 0.55 ? " yellow" : "");
         const s = rand(18, 54);
@@ -1739,7 +1064,7 @@
         core.style.setProperty("--spin", spin);
         d.appendChild(core);
 
-        if (prefersReduced) {
+        if (prefersReduced){
           d.style.animation = "none";
           core.style.animation = "none";
           d.style.opacity = "0.10";
@@ -1750,24 +1075,24 @@
     })();
 
     // Scroll reveal
-    (function initReveal() {
+    (function initReveal(){
       const items = Array.from(document.querySelectorAll(".reveal"));
       const targets = items.filter(el => !el.classList.contains("in"));
 
       const prefersReduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-      if (prefersReduced) {
+      if (prefersReduced){
         targets.forEach(el => el.classList.add("in"));
         return;
       }
 
-      if (!("IntersectionObserver" in window)) {
+      if (!("IntersectionObserver" in window)){
         targets.forEach(el => el.classList.add("in"));
         return;
       }
 
       const io = new IntersectionObserver((entries) => {
         entries.forEach((e) => {
-          if (e.isIntersecting) {
+          if (e.isIntersecting){
             e.target.classList.add("in");
             io.unobserve(e.target);
           }
@@ -1777,60 +1102,12 @@
       targets.forEach(el => io.observe(el));
     })();
 
-
-    // Mobile hamburger menu (mobile-only via CSS)
-    (function initMobileMenu() {
-      const btn = document.getElementById("burger");
-      const nav = document.getElementById("mobileNav");
-      if (!btn || !nav) return;
-
-      function close() {
-        document.body.classList.remove("nav-open");
-        btn.setAttribute("aria-expanded", "false");
-      }
-      function toggle() {
-        const open = document.body.classList.toggle("nav-open");
-        btn.setAttribute("aria-expanded", open ? "true" : "false");
-      }
-
-      btn.addEventListener("click", toggle);
-
-      // Close on link click
-      nav.querySelectorAll("a").forEach(a => {
-        a.addEventListener("click", close);
-      });
-
-      // Close on outside tap
-      document.addEventListener("click", (e) => {
-        if (!document.body.classList.contains("nav-open")) return;
-        if (nav.contains(e.target) || btn.contains(e.target)) return;
-        close();
-      });
-
-      // Close on resize to desktop
-      window.addEventListener("resize", () => {
-        if (window.innerWidth > 980) close();
-      });
-    })();
-
     // Demo widget (landing only)
     const SAMPLE_QUESTIONS = [
-      { category: "Bank", q: "How long does it take after vaccination to test its effectiveness?", opts: ["7 days", "10 days", "14 days"], correct: 3, sourceNote: "In the real game, the reference icon opens the supporting scientific/official source." },
-      { category: "Bank", q: "Which sectors have suffered the most from the pandemic?", opts: ["Tourism, hospitality and aviation", "Tourism, aviation and health", "Aviation, health and transportation"], correct: 1, sourceNote: "In the real game, sources are available via the reference icon after answering." },
-      { category: "Hospital", q: "What cells are responsible for fighting pathogens that enter the body?", opts: ["T lymphocytes", "C lymphocytes", "White blood cells"], correct: 3, sourceNote: "In the real game, the source is shown via the reference icon." },
-      { category: "Hospital", q: "Can a vaccine change our DNA?", opts: ["No", "Yes", "Yes, but only an RNA vaccine"], correct: 1, sourceNote: "In the real game, the source is shown via the reference icon." },
-      { category: "School", q: "What does 'cell' mean?", opts: ["Basic unity of all living things", "Structural element of tissues", "Functional element of tissues"], correct: 1, sourceNote: "In the real game, the reference icon opens the supporting scientific/official source." },
-      { category: "School", q: "What does 'tissue' mean?", opts: ["Structure composed of cells that performs the same task for the whole organism", "Structure composed of cells", "Structure composed of identical cells that performs the same task"], correct: 1, sourceNote: "In the real game, the reference icon opens the supporting scientific/official source." },
-      { category: "Home", q: "Did Sarscov escape from a laboratory?", opts: ["No", "Yes", "Maybe"], correct: 1, sourceNote: "In the real game, the reference icon opens the supporting scientific/official source." },
-      { category: "Home", q: "Have there ever been viruses that escaped from laboratories?", opts: ["Yes", "Maybe", "No"], correct: 1, sourceNote: "In the real game, the reference icon opens the supporting scientific/official source." },
-      { category: "Pharmacy", q: "Does wearing gloves in everyday life protect me from the virus?", opts: ["No", "Yes", "Only if the hands are clean"], correct: 1, sourceNote: "In the real game, the reference icon opens the supporting scientific/official source." },
-      { category: "Pharmacy", q: "Which cleaning agent eliminates COVID-19 from inanimate surfaces?", opts: ["Classic cleaning products or disinfectant", "100% ethanol", "86% ethanol"], correct: 1, sourceNote: "In the real game, the reference icon opens the supporting scientific/official source." },
-      { category: "Supermarket", q: "Why does buying a vodka and drinking it not help against COVID-19 as Mr. Trump has said?", opts: ["Because alcohol depresses the immune system", "Because the alcohol in the vodka is too concentrated", "Because the alcohol in the vodka is not concentrated enough"], correct: 1, sourceNote: "In the real game, the reference icon opens the supporting scientific/official source." },
-      { category: "Supermarket", q: "Thanks to a cough or sneeze, the virus can be projected to…", opts: ["more than 2 meters", "more than 3 meters", "more than 1 meter"], correct: 1, sourceNote: "In the real game, the reference icon opens the supporting scientific/official source." },
-      { category: "Zoo", q: "Can the virus be transmitted by mosquito bites?", opts: ["Yes, but within 24 hours of being bitten", "Yes", "No"], correct: 1, sourceNote: "In the real game, the reference icon opens the supporting scientific/official source." },
-      { category: "Zoo", q: "How similar is the DNA of human viruses to that of a bat?", opts: ["88%", "63%", "96%"], correct: 1, sourceNote: "In the real game, the reference icon opens the supporting scientific/official source." },
-      { category: "Lab", q: "What means can be used to inactivate viruses?", opts: ["Chemicals, heat or radiation", "Chemicals or heat", "Heat or radiation"], correct: 1, sourceNote: "In the real game, the reference icon opens the supporting scientific/official source." },
-      { category: "Lab", q: "What is a vector vaccine?", opts: ["Vaccines with harmless viruses to deliver the pathogen's genetic materials to the host cells", "Engineered vaccines using killed viruses to deliver the pathogen's genetic material to host cells to simulate immune responses", "Reference vaccines"], correct: 1, sourceNote: "In the real game, the reference icon opens the supporting scientific/official source." },
+      { category: "Bank", q: "How long does it take after vaccination to test its effectiveness?", opts: ["7 days","10 days","14 days"], correct: 3, sourceNote: "In the real game, the reference icon opens the supporting scientific/official source." },
+      { category: "Bank", q: "Which sectors have suffered the most from the pandemic?", opts: ["Tourism, hospitality and aviation","Tourism, aviation and health","Aviation, health and transportation"], correct: 1, sourceNote: "In the real game, sources are available via the reference icon after answering." },
+      { category: "Hospital", q: "What cells are responsible for fighting pathogens that enter the body?", opts: ["T lymphocytes","C lymphocytes","White blood cells"], correct: 3, sourceNote: "In the real game, the source is shown via the reference icon." },
+      { category: "Hospital", q: "Can a vaccine change our DNA?", opts: ["No","Yes","Yes, but only an RNA vaccine"], correct: 1, sourceNote: "In the real game, the source is shown via the reference icon." }
     ];
 
     const $ = (id) => document.getElementById(id);
@@ -1849,7 +1126,7 @@
     let active = null;
     let locked = false;
 
-    function pickQuestion() {
+    function pickQuestion(){
       const idx = Math.floor(Math.random() * SAMPLE_QUESTIONS.length);
       active = SAMPLE_QUESTIONS[idx];
       locked = false;
@@ -1866,8 +1143,8 @@
         const btn = document.createElement("button");
         btn.className = "ans";
         btn.type = "button";
-        btn.textContent = `${String.fromCharCode(65 + i)}. ${opt}`;
-        btn.addEventListener("click", () => onAnswer(i + 1));
+        btn.textContent = `${String.fromCharCode(65+i)}. ${opt}`;
+        btn.addEventListener("click", () => onAnswer(i+1));
         answers.appendChild(btn);
       });
 
@@ -1875,14 +1152,14 @@
       renderTimer();
     }
 
-    function renderTimer() { timerEl.textContent = `⏱️ ${remaining}s`; }
+    function renderTimer(){ timerEl.textContent = `⏱️ ${remaining}s`; }
 
-    function startTimer() {
+    function startTimer(){
       clearInterval(timer);
       timer = setInterval(() => {
         if (locked) return;
         remaining -= 1;
-        if (remaining <= 0) {
+        if (remaining <= 0){
           remaining = 0;
           renderTimer();
           onTimeout();
@@ -1892,19 +1169,19 @@
       }, 1000);
     }
 
-    function stopTimer() { clearInterval(timer); timer = null; }
+    function stopTimer(){ clearInterval(timer); timer = null; }
 
-    function flash(ok) {
+    function flash(ok){
       const c = ok ? "#F2FFFA" : "#FFF6F7";
       const prev = getComputedStyle(document.documentElement).getPropertyValue("--bg").trim() || "#F6F7FF";
       document.documentElement.style.setProperty("--bg", c);
       setTimeout(() => document.documentElement.style.setProperty("--bg", prev), 650);
     }
 
-    function showResult(ok, message) {
+    function showResult(ok, message){
       const lampColor = ok ? "var(--ok)" : "var(--bad)";
-      const lampText = ok ? "✓" : "✕";
-      const title = ok ? "Correct!" : "Wrong.";
+      const lampText  = ok ? "✓" : "✕";
+      const title     = ok ? "Correct!" : "Wrong.";
 
       resultWrap.style.display = "block";
       resultWrap.innerHTML = `
@@ -1919,7 +1196,7 @@
       `;
     }
 
-    function onAnswer(choice) {
+    function onAnswer(choice){
       if (locked) return;
       locked = true;
       stopTimer();
@@ -1927,11 +1204,11 @@
       flash(ok);
       showResult(ok,
         ok ? "Nice — in the real game you can open the scientific reference right after answering."
-          : "In the real game you can still open the reference and learn why the correct answer is correct."
+           : "In the real game you can still open the reference and learn why the correct answer is correct."
       );
     }
 
-    function onTimeout() {
+    function onTimeout(){
       if (locked) return;
       locked = true;
       stopTimer();
@@ -1942,6 +1219,348 @@
     nextBtn.addEventListener("click", () => pickQuestion());
     pickQuestion();
   </script>
-</body>
 
+  <script>
+    const i18n = {
+      "es": {
+        "Board games with a twist": "Juegos de mesa con un giro",
+        "How it works": "Cómo funciona",
+        "Locations": "Ubicaciones",
+        "Languages": "Idiomas",
+        "Award": "Premio",
+        "Where to play": "Dónde jugar",
+        "▶ Play Online": "▶ Jugar Online",
+        "▶ Try it online": "▶ Jugar Online",
+        "🛒 Available soon": "🛒 Disponible pronto",
+        "Be the first to end the pandemic.": "Sé el primero en detener la pandemia.",
+        "Coronavirus is a fast, social board game where your phone becomes the “lab screen”:": "Coronavirus es un juego rápido y social donde tu móvil es la “pantalla del lab”:",
+        "60 seconds": "60 segundos",
+        ", 3 choices, instant green/red feedback, and a tap to the": ", 3 opciones, feedback verde/rojo al instante, y a un toque de la",
+        "scientific source": "fuente científica",
+        "Start the Online Questions": "Iniciar Preguntas Online",
+        "Buy now (Available soon)": "Comprar (Disponible pronto)",
+        "2–10 players": "2–10 jugadores",
+        "Ages 8–99": "Edades 8–99",
+        "1 minute": "1 minuto",
+        "per question": "por pregunta",
+        "Verified": "Verificado",
+        "sources inside": "fuentes incluidas",
+        "6 languages": "6 idiomas",
+        "one box": "una caja",
+        "🏅 Most Innovative Game — 2024": "🏅 Juego Más Innovador — 2024",
+        "How it feels to play": "Cómo se siente jugar",
+        "Move on the board across 8 locations (School, Bank, Home, Pharmacy, Supermarket, Zoo, Lab, Hospital).": "Muévete por 8 ubicaciones (Escuela, Banco, Casa, Farmacia, Súper, Zoo, Lab, Hospital).",
+        "Answer a question on your device:": "Responde en tu dispositivo:",
+        "3 options, 60 seconds.": "3 opciones, 60 segundos.",
+        "Instant feedback: screen turns": "Feedback instantáneo: la pantalla se vuelve",
+        "green": "verde",
+        "or": "o",
+        "red": "roja",
+        "Tap the reference icon to open the": "Toca el icono de referencia para abrir la",
+        "scientific source backing the answer.": "fuente científica que respalda la respuesta.",
+        "Category: —": "Categoría: —",
+        "⏱️ 60s": "⏱️ 60s",
+        "Loading a sample question…": "Cargando pregunta de prueba…",
+        "↻ New question": "↻ Nueva pregunta",
+        "▶ Go to the real game": "▶ Ir al juego real",
+        "8 locations, 8 categories": "8 ubicaciones, 8 categorías",
+        "School": "Escuela", "Learning, kids, everyday myths.": "Aprendizaje, niños, mitos diarios.",
+        "Bank": "Banco", "Economy, inflation, policy impacts.": "Economía, inflación, impacto político.",
+        "Home": "Casa", "Habits, prevention, home life.": "Hábitos, prevención, vida familiar.",
+        "Pharmacy": "Farmacia", "Medicines, prevention & care.": "Medicinas, prevención y cuidado.",
+        "Supermarket": "Súper", "Food, hygiene, daily decisions.": "Comida, higiene, decisiones diarias.",
+        "Zoo": "Zoo", "Animals, origins, spillover facts.": "Animales, orígenes, transmisión.",
+        "Lab": "Lab", "Tests, vaccines, how it works.": "Pruebas, vacunas, cómo funciona.",
+        "Hospital": "Hospital", "Symptoms, immunity, clinical reality.": "Síntomas, inmunidad, clínica.",
+        "Play in 6 languages": "Juega en 6 idiomas",
+        "Award-winning": "Premiado",
+        "Most Innovative Game": "Juego Más Innovador",
+        "Coronavirus received the": "Coronavirus recibió el premio al",
+        "Most Innovative Game award at the Norwegian Game Awards 2024.": "Juego Más Innovador en los Norwegian Game Awards 2024.",
+        "You can verify it on the official winners page.": "Compruébalo en la página oficial.",
+        "🏅 View official winners page": "🏅 Ver página oficial de ganadores",
+        "Where to try it": "Dónde probarlo"
+      },
+      "fr": {
+        "Board games with a twist": "Des jeux de société avec une touche d'originalité",
+        "How it works": "Comment ça marche",
+        "Locations": "Lieux",
+        "Languages": "Langues",
+        "Award": "Prix",
+        "Where to play": "Où jouer",
+        "▶ Play Online": "▶ Jouer en ligne",
+        "▶ Try it online": "▶ Essayer en ligne",
+        "🛒 Available soon": "🛒 Bientôt disponible",
+        "Be the first to end the pandemic.": "Soyez le premier à arrêter la pandémie.",
+        "Coronavirus is a fast, social board game where your phone becomes the “lab screen”:": "Coronavirus est un jeu rapide et social où votre téléphone devient l'“écran de labo” :",
+        "60 seconds": "60 secondes",
+        ", 3 choices, instant green/red feedback, and a tap to the": ", 3 choix, retour vert/rouge, et une tape vers la",
+        "scientific source": "source scientifique",
+        "Start the Online Questions": "Démarrer les questions",
+        "Buy now (Available soon)": "Acheter (Bientôt disponible)",
+        "2–10 players": "2–10 joueurs",
+        "Ages 8–99": "8–99 ans",
+        "1 minute": "1 minute",
+        "per question": "par question",
+        "Verified": "Vérifié",
+        "sources inside": "sources incluses",
+        "6 languages": "6 langues",
+        "one box": "une boîte",
+        "🏅 Most Innovative Game — 2024": "🏅 Jeu le plus innovant — 2024",
+        "How it feels to play": "Ce que ça fait de jouer",
+        "Move on the board across 8 locations (School, Bank, Home, Pharmacy, Supermarket, Zoo, Lab, Hospital).": "Déplacez-vous sur le plateau dans 8 lieux (École, Banque, Maison, Pharmacie, Supermarché, Zoo, Labo, Hôpital).",
+        "Answer a question on your device:": "Répondez sur votre appareil :",
+        "3 options, 60 seconds.": "3 options, 60 secondes.",
+        "Instant feedback: screen turns": "Retour instantané : l'écran devient",
+        "green": "vert",
+        "or": "ou",
+        "red": "rouge",
+        "Tap the reference icon to open the": "Touchez l'icône pour ouvrir la",
+        "scientific source backing the answer.": "source justifiant la réponse.",
+        "Category: —": "Catégorie : —",
+        "⏱️ 60s": "⏱️ 60s",
+        "Loading a sample question…": "Chargement d'une question…",
+        "↻ New question": "↻ Nouvelle question",
+        "▶ Go to the real game": "▶ Aller au vrai jeu",
+        "8 locations, 8 categories": "8 lieux, 8 catégories",
+        "School": "École", "Learning, kids, everyday myths.": "Apprentissage, enfants, mythes.",
+        "Bank": "Banque", "Economy, inflation, policy impacts.": "Économie, inflation, impacts des politiques.",
+        "Home": "Maison", "Habits, prevention, home life.": "Habitudes, prévention, vie de famille.",
+        "Pharmacy": "Pharmacie", "Medicines, prevention & care.": "Médicaments, prévention et soins.",
+        "Supermarket": "Supermarché", "Food, hygiene, daily decisions.": "Alimentation, hygiène, décisions.",
+        "Zoo": "Zoo", "Animals, origins, spillover facts.": "Animaux, origines, transmission.",
+        "Lab": "Labo", "Tests, vaccines, how it works.": "Tests, vaccins, comment ça marche.",
+        "Hospital": "Hôpital", "Symptoms, immunity, clinical reality.": "Symptômes, immunité, clinique.",
+        "Play in 6 languages": "Jouez en 6 langues",
+        "Award-winning": "Primé",
+        "Most Innovative Game": "Jeu le plus innovant",
+        "Coronavirus received the": "Coronavirus a reçu le prix du",
+        "Most Innovative Game award at the Norwegian Game Awards 2024.": "Jeu le plus innovant aux Norwegian Game Awards 2024.",
+        "You can verify it on the official winners page.": "Vérifiez-le sur la page officielle.",
+        "🏅 View official winners page": "🏅 Voir les gagnants",
+        "Where to try it": "Où l'essayer"
+      },
+      "de": {
+        "Board games with a twist": "Brettspiele mit dem gewissen Etwas",
+        "How it works": "Wie es funktioniert",
+        "Locations": "Orte",
+        "Languages": "Sprachen",
+        "Award": "Preis",
+        "Where to play": "Wo spielen",
+        "▶ Play Online": "▶ Online spielen",
+        "▶ Try it online": "▶ Online ausprobieren",
+        "🛒 Available soon": "🛒 Bald verfügbar",
+        "Be the first to end the pandemic.": "Beende die Pandemie als Erster.",
+        "Coronavirus is a fast, social board game where your phone becomes the “lab screen”:": "Coronavirus ist ein schnelles, soziales Brettspiel. Dein Handy ist der „Laborbildschirm“:",
+        "60 seconds": "60 Sekunden",
+        ", 3 choices, instant green/red feedback, and a tap to the": ", 3 Optionen, sofortiges günes/rotes Feedback und ein Tipp zur",
+        "scientific source": "wissenschaftlichen Quelle",
+        "Start the Online Questions": "Online-Fragen starten",
+        "Buy now (Available soon)": "Jetzt kaufen (Bald verfügbar)",
+        "2–10 players": "2–10 Spieler",
+        "Ages 8–99": "8–99 Jahre",
+        "1 minute": "1 Minute",
+        "per question": "pro Frage",
+        "Verified": "Überprüfte",
+        "sources inside": "Quellen enthalten",
+        "6 languages": "6 Sprachen",
+        "one box": "eine Box",
+        "🏅 Most Innovative Game — 2024": "🏅 Innovativstes Spiel — 2024",
+        "How it feels to play": "Wie es sich spielt",
+        "Move on the board across 8 locations (School, Bank, Home, Pharmacy, Supermarket, Zoo, Lab, Hospital).": "Bewege dich über 8 Orte auf dem Spielbrett (Schule, Bank, Zuhause, Apotheke, Supermarkt, Zoo, Labor, Krankenhaus).",
+        "Answer a question on your device:": "Beantworte Fragen auf deinem Gerät:",
+        "3 options, 60 seconds.": "3 Optionen, 60 Sekunden.",
+        "Instant feedback: screen turns": "Sofortiges Feedback: Bildschirm wird",
+        "green": "grün",
+        "or": "oder",
+        "red": "rot",
+        "Tap the reference icon to open the": "Tippe auf das Symbol, um die",
+        "scientific source backing the answer.": "wissenschaftliche Quelle zu öffnen.",
+        "Category: —": "Kategorie: —",
+        "⏱️ 60s": "⏱️ 60s",
+        "Loading a sample question…": "Lade Testfrage…",
+        "↻ New question": "↻ Neue Frage",
+        "▶ Go to the real game": "▶ Zum echten Spiel",
+        "8 locations, 8 categories": "8 Orte, 8 Kategorien",
+        "School": "Schule", "Learning, kids, everyday myths.": "Lernen, Kinder, Alltagsmythen.",
+        "Bank": "Bank", "Economy, inflation, policy impacts.": "Wirtschaft, Inflation, Politik.",
+        "Home": "Zuhause", "Habits, prevention, home life.": "Gewohnheiten, Prävention, Zuhause.",
+        "Pharmacy": "Apotheke", "Medicines, prevention & care.": "Medizin, Prävention & Pflege.",
+        "Supermarket": "Supermarkt", "Food, hygiene, daily decisions.": "Essen, Hygiene, Entscheidungen.",
+        "Zoo": "Zoo", "Animals, origins, spillover facts.": "Tiere, Ursprung, Übertragung.",
+        "Lab": "Labor", "Tests, vaccines, how it works.": "Tests, Impfungen, Funktionsweise.",
+        "Hospital": "Klinik", "Symptoms, immunity, clinical reality.": "Symptome, Immunität, Klinik.",
+        "Play in 6 languages": "Spielbar in 6 Sprachen",
+        "Award-winning": "Preisgekrönt",
+        "Most Innovative Game": "Innovativstes Spiel",
+        "Coronavirus received the": "Coronavirus erhielt den Preis als",
+        "Most Innovative Game award at the Norwegian Game Awards 2024.": "innovativstes Spiel bei den Norwegian Game Awards 2024.",
+        "You can verify it on the official winners page.": "Siehe die offizielle Seite.",
+        "🏅 View official winners page": "🏅 Offizielle Gewinner ansehen",
+        "Where to try it": "Wo du es ausprobieren kannst"
+      },
+      "nl": {
+         "Board games with a twist": "Bordspellen met een twist",
+        "How it works": "Hoe het werkt",
+        "Locations": "Locaties",
+        "Languages": "Talen",
+        "Award": "Prijzen",
+        "Where to play": "Waar te spelen",
+        "▶ Play Online": "▶ Speel Online",
+        "▶ Try it online": "▶ Probeer het online",
+        "🛒 Available soon": "🛒 Binnenkort",
+        "Be the first to end the pandemic.": "Wees de eerste die de pandemie stopt.",
+        "Coronavirus is a fast, social board game where your phone becomes the “lab screen”:": "Coronavirus is een bordspel waar je telefoon je ''labscherm'' is:",
+        "60 seconds": "60 seconden",
+        ", 3 choices, instant green/red feedback, and a tap to the": ", 3 keuzes, direct groen/rood feedback en actuele",
+        "scientific source": "wetenschappelijke bronnen",
+        "Start the Online Questions": "Start de Online Vragen",
+        "Buy now (Available soon)": "Koop nu (Binnenkort beschikbaar)",
+        "2–10 players": "2–10 spelers",
+        "Ages 8–99": "8–99 jaar",
+        "1 minute": "1 minuut",
+        "per question": "per vraag",
+        "Verified": "Gecontroleerde",
+        "sources inside": "bronnen inbegrepen",
+        "6 languages": "6 talen",
+        "one box": "één doos",
+        "🏅 Most Innovative Game — 2024": "🏅 Meest Innovatieve Spel — 2024",
+        "How it feels to play": "Hoe het is om te spelen",
+        "Move on the board across 8 locations (School, Bank, Home, Pharmacy, Supermarket, Zoo, Lab, Hospital).": "Beweeg over 8 locaties (School, Bank, Huis, Apotheek, Supermarkt, Dierentuin, Lab, Ziekenhuis).",
+        "Answer a question on your device:": "Beantwoord vragen:",
+        "3 options, 60 seconds.": "3 opties, 60 seconden.",
+        "Instant feedback: screen turns": "Direct feedback: scherm wordt",
+        "green": "groen",
+        "or": "of",
+        "red": "rood",
+        "Tap the reference icon to open the": "Tik op het icoon om de wetenschappelijke bron te openen.",
+        "scientific source backing the answer.": "",
+        "Category: —": "Categorie: —",
+        "⏱️ 60s": "⏱️ 60s",
+        "Loading a sample question…": "Voorbeeldvraag laden…",
+        "↻ New question": "↻ Nieuwe vraag",
+        "▶ Go to the real game": "▶ Naar het echte spel",
+        "8 locations, 8 categories": "8 locaties, 8 categorieën",
+        "School": "School", "Learning, kids, everyday myths.": "Leren, kinderen, dagelijkse mythen.",
+        "Bank": "Bank", "Economy, inflation, policy impacts.": "Economie, inflatie, impact beleid.",
+        "Home": "Huis", "Habits, prevention, home life.": "Gewoonten, preventie, huiselijk leven.",
+        "Pharmacy": "Apotheek", "Medicines, prevention & care.": "Medicijnen, preventie & zorg.",
+        "Supermarket": "Supermarkt", "Food, hygiene, daily decisions.": "Voedsel, hygiëne, beslissingen.",
+        "Zoo": "Dierentuin", "Animals, origins, spillover facts.": "Dieren, oorsprong, overdracht.",
+        "Lab": "Lab", "Tests, vaccins, how it works.": "Tests, vaccins, hoe het werkt.",
+        "Hospital": "Ziekenhuis", "Symptoms, immunity, clinical reality.": "Symptomen, immuniteit, realiteit.",
+        "Play in 6 languages": "Speel in 6 talen",
+        "Award-winning": "Bekroond",
+        "Most Innovative Game": "Meest Innovatieve Spel",
+        "Coronavirus received the": "Coronavirus won de award voor",
+        "Most Innovative Game award at the Norwegian Game Awards 2024.": "Meest Innovatieve Spel bij de Norwegian Game Awards 2024.",
+        "You can verify it on the official winners page.": "Bekijk de winnaars online.",
+        "🏅 View official winners page": "🏅 Bekijk de winnaars",
+        "Where to try it": "Waar kan ik het proberen"
+      },
+      "no": {
+        "Board games with a twist": "Brettspill med en vri",
+        "How it works": "Slik fungerer det",
+        "Locations": "Steder",
+        "Languages": "Språk",
+        "Award": "Priser",
+        "Where to play": "Hvor du kan spille",
+        "▶ Play Online": "▶ Spill på nett",
+        "▶ Try it online": "▶ Prøv det på nett",
+        "🛒 Available soon": "🛒 Snart tilgjengelig",
+        "Be the first to end the pandemic.": "Bli den første til å stoppe pandemien.",
+        "Coronavirus is a fast, social board game where your phone becomes the “lab screen”:": "Coronavirus er et sosialt brettspill der telefonen blir ''labskjermen'':",
+        "60 seconds": "60 sekunder",
+        ", 3 choices, instant green/red feedback, and a tap to the": ", 3 valg, grønt/rødt feedback, og",
+        "scientific source": "vitenskapelige kilder",
+        "Start the Online Questions": "Start spørsmålene på nett",
+        "Buy now (Available soon)": "Kjøp nå (Tilgjengelig snart)",
+        "2–10 players": "2–10 spillere",
+        "Ages 8–99": "8–99 år",
+        "1 minute": "1 minutt",
+        "per question": "per spørsmål",
+        "Verified": "Bekreftede",
+        "sources inside": "kilder inkludert",
+        "6 languages": "6 språk",
+        "one box": "én boks",
+        "🏅 Most Innovative Game — 2024": "🏅 Mest Innovative Spill — 2024",
+        "How it feels to play": "Slik er det å spille",
+        "Move on the board across 8 locations (School, Bank, Home, Pharmacy, Supermarket, Zoo, Lab, Hospital).": "Flytt på brettet til 8 steder (Skole, Bank, Hjem, Apotek, Supermarked, Zoo, Lab, Sykehus).",
+        "Answer a question on your device:": "Svar på enheten din:",
+        "3 options, 60 seconds.": "3 alternativer, 60 sekunder.",
+        "Instant feedback: screen turns": "Umiddelbar tilbakemelding: skjermen blir",
+        "green": "grønn",
+        "or": "eller",
+        "red": "rød",
+        "Tap the reference icon to open the": "Trykk på ikonet for å se den vitenskapelige kilden.",
+        "scientific source backing the answer.": "",
+        "Category: —": "Kategori: —",
+        "⏱️ 60s": "⏱️ 60s",
+        "Loading a sample question…": "Laster testspørsmål…",
+        "↻ New question": "↻ Nytt spørsmål",
+        "▶ Go to the real game": "▶ Gå til det virkelige spillet",
+        "8 locations, 8 categories": "8 steder, 8 kategorier",
+        "School": "Skole", "Learning, kids, everyday myths.": "Læring, barn, myter.",
+        "Bank": "Bank", "Economy, inflation, policy impacts.": "Økonomi, inflasjon, politikk.",
+        "Home": "Hjem", "Habits, prevention, home life.": "Vaner, forebygging, hjemmeliv.",
+        "Pharmacy": "Apotek", "Medicines, prevention & care.": "Medisin, forebygging og pleie.",
+        "Supermarket": "Supermarked", "Food, hygiene, daily decisions.": "Mat, hygiene, avgjørelser.",
+        "Zoo": "Zoo", "Animals, origins, spillover facts.": "Dyr, opprinnelse, overføring.",
+        "Lab": "Lab", "Tests, vaccines, how it works.": "Tester, vaksiner, hvordan det fungerer.",
+        "Hospital": "Sykehus", "Symptoms, immunity, clinical reality.": "Symptomer, immunitet, sykehus.",
+        "Play in 6 languages": "Spill på 6 språk",
+        "Award-winning": "Prisbelønt",
+        "Most Innovative Game": "Mest Innovative Spill",
+        "Coronavirus received the": "Coronavirus vant prisen for",
+        "Most Innovative Game award at the Norwegian Game Awards 2024.": "Mest Innovative Spill på Norwegian Game Awards 2024.",
+        "You can verify it on the official winners page.": "Sjekk ut på den offisielle siden.",
+        "🏅 View official winners page": "🏅 Se vinnerløpet",
+        "Where to try it": "Hvor du kan prøve det"
+      }
+    };
+
+    let currentLang = localStorage.getItem('siteLang') || 'en';
+    const langSelect = document.getElementById('langSwitch');
+    if (langSelect) langSelect.value = currentLang;
+
+    function walkTexts(node, lang) {
+      if (node.nodeType === 3) {
+        let t = node.nodeValue.trim();
+        // Specific replacement logic
+        if(t){
+          if(node.parentElement && !node.parentElement.dataset.o) {
+            node.parentElement.dataset.o = t;
+          }
+          let o = node.parentElement ? node.parentElement.dataset.o : t;
+          if(i18n[lang] && i18n[lang][o] !== undefined) {
+             node.nodeValue = node.nodeValue.replace(t, i18n[lang][o]);
+          } else if(lang === 'en') {
+             node.nodeValue = node.nodeValue.replace(t, o);
+          }
+        }
+      } else if (node.nodeType === 1) {
+        if(node.tagName === 'SCRIPT' || node.tagName === 'STYLE' || node.tagName === 'SELECT') return;
+        if(node.id === 'answers' || node.id === 'qText') return; // Skip dynamic question area to prevent clashes
+
+        for (let i = 0; i < node.childNodes.length; i++) {
+          walkTexts(node.childNodes[i], lang);
+        }
+      }
+    }
+
+    function applyLang(lang) {
+      currentLang = lang;
+      localStorage.setItem('siteLang', lang);
+      walkTexts(document.body, lang);
+    }
+    
+    if (langSelect) {
+      langSelect.addEventListener('change', (e) => applyLang(e.target.value));
+    }
+
+    if(currentLang !== 'en') {
+       applyLang(currentLang);
+    }
+  </script>
+</body>
 </html>
